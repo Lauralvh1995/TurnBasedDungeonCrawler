@@ -258,6 +258,7 @@ GameObject:
   - component: {fileID: 398291071}
   - component: {fileID: 398291072}
   - component: {fileID: 398291073}
+  - component: {fileID: 398291074}
   m_Layer: 9
   m_Name: PlayerPosition
   m_TagString: Untagged
@@ -305,6 +306,73 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ebf4dce85d412944b293785fecc8d00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &398291074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398291070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 4b4ba42451f33614cb6e16349d57b4ba,
+    type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9477a233-fd0e-4f65-88c5-78c94e1ed849
+    m_ActionName: Player/MoveForward[/Keyboard/w]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: cdb291a3-ce62-487f-aada-d7de2178aab1
+    m_ActionName: Player/MoveBackward[/Keyboard/s]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8d9efdd5-0407-4bc7-bb15-4e0a7117ce95
+    m_ActionName: Player/TurnLeft[/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6c8b102f-e83d-4c26-bea5-c59de92754be
+    m_ActionName: Player/TurnRight[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3ed4c0c9-95c9-4624-9d9a-91d3035aa07a
+    m_ActionName: Player/StrafeLeft[/Keyboard/a]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 39e5995f-66a2-4532-8312-36682857001a
+    m_ActionName: Player/StrafeRight[/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 620fe9fb-3793-4498-8543-49a73cfff104
+    m_ActionName: Player/Attack[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 62401c4a-8eef-43fc-a7d3-57936fe51157
+    m_ActionName: Player/AlternateAttack[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 04be57e9-1a21-4659-931a-fc5c6bba1ef9
+    m_ActionName: Player/Wait[/Keyboard/q,/Keyboard/e]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &502347852
 GameObject:
   m_ObjectHideFlags: 0
