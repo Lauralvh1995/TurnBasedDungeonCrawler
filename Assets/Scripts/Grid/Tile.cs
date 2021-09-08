@@ -9,6 +9,8 @@ namespace Assets.Scripts.Grid
 {
     public class Tile : IGridObject
     {
+        private int x, y, z;
+
         [SerializeField] private bool occupied;
 
         [SerializeField] private bool leftWall;
@@ -23,7 +25,7 @@ namespace Assets.Scripts.Grid
 
         }
 
-        public Tile(bool leftWall, bool rightWall, bool frontWall, bool backWall, bool floor, bool ceiling)
+        public Tile(bool leftWall, bool rightWall, bool frontWall, bool backWall, bool floor, bool ceiling, int x, int y, int z)
         {
             this.leftWall = leftWall;
             this.rightWall = rightWall;
@@ -31,6 +33,17 @@ namespace Assets.Scripts.Grid
             this.backWall = backWall;
             this.floor = floor;
             this.ceiling = ceiling;
+
+            this.x = x;
+            this.y = y;
+            this.z = z;
+        }
+
+        public void SetCoords(int x, int y, int z)
+        {
+            this.x = x;
+            this.y = y;
+            this.z = z;
         }
 
         public bool LeftWall { get => leftWall; set => leftWall = value; }
@@ -40,6 +53,9 @@ namespace Assets.Scripts.Grid
         public bool Floor { get => floor; set => floor = value; }
         public bool Ceiling { get => ceiling; set => ceiling = value; }
         public bool Occupied { get => occupied; set => occupied = value; }
+        public int X { get => x; set => x = value; }
+        public int Y { get => y; set => y = value; }
+        public int Z { get => z; set => z = value; }
 
         public void CheckOccupation(Vector3 pos, LayerMask groundMask, LayerMask entityMask)
         {
@@ -68,9 +84,13 @@ namespace Assets.Scripts.Grid
                 floor = true;
             }
 
-            if (Physics.OverlapSphere(pos, 0.3f, entityMask).Length > 0)
+            if (Physics.OverlapSphere(pos, 0.2f, entityMask).Length > 0)
             {
                 occupied = true;
+            }
+            else
+            {
+                occupied = false;
             }
 
             
@@ -142,6 +162,8 @@ namespace Assets.Scripts.Grid
                 Gizmos.color = Color.cyan;
             }
             Gizmos.DrawWireCube(pos, new Vector3(0.3f, 0.3f, 0.3f));
+
+            
         }
         public override string ToString()
         {
@@ -150,7 +172,8 @@ namespace Assets.Scripts.Grid
                 + ", left blocked: " + leftWall 
                 + ", right blocked: " + rightWall 
                 + ", has floor: " + floor 
-                + ", has ceiling: " + ceiling;
+                + ", has ceiling: " + ceiling
+                + ", occupied: " + occupied;
         }
     }
 }
