@@ -1,22 +1,32 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Grid;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class ActionInput : MonoBehaviour
 {
+    [SerializeField] private GridController grid;
     [SerializeField] private float turnSpeed = 0.8f;
     bool lockedInput;
+
+    public virtual void Awake()
+    {
+        if(grid == null)
+            grid = FindObjectOfType<GridController>();
+    }
     public virtual void MoveForward() {
-        //check if possible to move there with grid
-        lockedInput = true;
-        StartCoroutine(Move(Vector3.forward, turnSpeed));
-        //do move
+        if (!lockedInput)
+        {
+            lockedInput = true;
+            StartCoroutine(Move(Vector3.forward, turnSpeed));
+        }
     }
     public virtual void MoveBackward() {
-        //check if possible to move there with grid
-        lockedInput = true;
-        StartCoroutine(Move(Vector3.back, turnSpeed));
-        //do move
+        if (!lockedInput)
+        {
+            lockedInput = true;
+            StartCoroutine(Move(Vector3.back, turnSpeed));
+        }
     }
     public virtual void TurnLeft() {
         if (!lockedInput)
@@ -33,16 +43,18 @@ public abstract class ActionInput : MonoBehaviour
         }
     }
     public virtual void StrafeLeft() {
-        //check if possible to move there with grid
-        lockedInput = true;
-        StartCoroutine(Move(Vector3.left, turnSpeed));
-        //do move
+        if (!lockedInput)
+        {
+            lockedInput = true;
+            StartCoroutine(Move(Vector3.left, turnSpeed));
+        }
     }
     public virtual void StrafeRight() {
-        //check if possible to move there with grid
-        lockedInput = true;
-        StartCoroutine(Move(Vector3.right, turnSpeed));
-        //do move
+        if (!lockedInput)
+        {
+            lockedInput = true;
+            StartCoroutine(Move(Vector3.right, turnSpeed));
+        }
     }
     public virtual void Attack() { }
     public virtual void AlternateAttack() { }
@@ -65,12 +77,17 @@ public abstract class ActionInput : MonoBehaviour
     {
         Vector3 from = transform.position;
         Vector3 to = transform.position + transform.rotation * direction;
-        for (float t = 0f; t <= 1; t += Time.deltaTime / time)
+        //TODO: Add flying support
+        if (grid.CanMoveThere(from, to, false))
         {
-            transform.position = Vector3.Lerp(from, to, t);
-            yield return null;
+            for (float t = 0f; t <= 1; t += Time.deltaTime / time)
+            {
+                transform.position = Vector3.Lerp(from, to, t);
+                yield return null;
+            }
+            transform.position = to;
         }
-        transform.position = to;
         lockedInput = false;
     }
 }
+

@@ -9,7 +9,7 @@ namespace Assets.Scripts.Grid
 {
     public class Tile : IGridObject
     {
-        [SerializeField] bool occupied;
+        [SerializeField] private bool occupied;
 
         [SerializeField] private bool leftWall;
         [SerializeField] private bool rightWall;
@@ -39,6 +39,7 @@ namespace Assets.Scripts.Grid
         public bool BackWall { get => backWall; set => backWall = value; }
         public bool Floor { get => floor; set => floor = value; }
         public bool Ceiling { get => ceiling; set => ceiling = value; }
+        public bool Occupied { get => occupied; set => occupied = value; }
 
         public void CheckOccupation(Vector3 pos, LayerMask groundMask, LayerMask entityMask)
         {

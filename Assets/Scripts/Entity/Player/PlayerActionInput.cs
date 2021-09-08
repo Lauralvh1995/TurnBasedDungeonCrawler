@@ -18,8 +18,9 @@ public class PlayerActionInput : ActionInput
     private InputAction wait;
     private InputAction interact;
 
-    private void Awake()
+    public override void Awake()
     {
+        base.Awake();
         playerInput = GetComponent<PlayerInput>();
 
         moveForward = playerInput.actions["MoveForward"];

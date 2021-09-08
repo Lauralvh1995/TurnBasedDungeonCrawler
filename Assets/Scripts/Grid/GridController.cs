@@ -15,9 +15,11 @@ namespace Assets.Scripts.Grid
 
         [SerializeField]
         Grid<Tile> grid;
+
+
         private void Start()
         {
-            
+
         }
         private void Update()
         {
@@ -34,6 +36,72 @@ namespace Assets.Scripts.Grid
             }
         }
 
+        public Tile GetTileFromWorldPosition(Vector3 pos)
+        {
+            return grid.GetFromWorldPosition(pos);
+        }
+
+        public bool CanMoveThere(Vector3 currentPos, Vector3 destination, bool isFlying)
+        {
+            //check if direction is blocked
+            Vector3 direction = destination - currentPos;
+            Tile currentTile = GetTileFromWorldPosition(currentPos);
+            Tile destinationTile = GetTileFromWorldPosition(destination);
+            if (destinationTile == null)
+            {
+                Debug.Log("No destination possible!");
+                return false;
+            }
+            if (direction == Vector3.forward)
+            {
+                if (currentTile.FrontWall || destinationTile.BackWall)
+                {
+                    Debug.Log("Front blocked");
+                    return false;
+                }
+            }
+            else if (direction == Vector3.back)
+            {
+                if (currentTile.BackWall || destinationTile.FrontWall)
+                {
+                    Debug.Log("Back blocked");
+                    return false;
+                }
+            }
+            else if (direction == Vector3.left)
+            {
+                if (currentTile.LeftWall || destinationTile.RightWall)
+                {
+                    Debug.Log("Left blocked");
+                    return false;
+                }
+            }
+            else if (direction == Vector3.right)
+            {
+                if (currentTile.RightWall || destinationTile.LeftWall)
+                {
+                    Debug.Log("Right blocked");
+                    return false;
+                }
+
+            }
+            //check if destination tile is occupied or passable
+            if (destinationTile.Occupied)
+            {
+                Debug.Log("Tile is occupied");
+                return false;
+            }
+            if (destinationTile.Floor || isFlying)
+            {
+                return true;
+            }
+            else
+            {
+                Debug.Log("No floor");
+                return false;
+            }
+        }
+
         private void OnDrawGizmos()
         {
             Tile[,,] gridArray = grid.GetGridArray();
@@ -44,7 +112,7 @@ namespace Assets.Scripts.Grid
                     for (int z = 0; z < gridArray.GetLength(2); z++)
                     {
                         gridArray[x, y, z].CheckOccupation(new Vector3(x, y, z), groundMask, entityMask);
-                        gridArray[x, y, z].DrawOccupationGizmos(new Vector3(x,y,z));
+                        gridArray[x, y, z].DrawOccupationGizmos(new Vector3(x, y, z));
                     }
                 }
             }

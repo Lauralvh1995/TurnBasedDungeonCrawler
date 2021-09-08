@@ -32,5 +32,22 @@ namespace Assets.Scripts.Grid
         {
             return new Vector3(x, y, z) + origin;
         }
+
+        public TGridObject GetFromWorldPosition(Vector3 pos)
+        {
+            Vector3 newPos = pos - origin;
+            int x = Mathf.RoundToInt(newPos.x);
+            int y = Mathf.RoundToInt(newPos.y);
+            int z = Mathf.RoundToInt(newPos.z);
+
+            if (x < width && x >= 0 && y < length && y >= 0 && z < height && z >= 0)
+            { 
+                return gridArray[x, y, z]; 
+            }
+            else
+            {
+                return default;
+            }
+        }
     }
 }
