@@ -14,12 +14,9 @@ namespace Assets.Scripts.Grid
 
         [SerializeField]
         Grid<Tile> grid;
-        //Grid<NavigationTile> navigationGrid;
-
 
         private void Awake()
         {
-            //navigationGrid = new Grid<NavigationTile>(gridWidth * 3, gridHeight * 3, gridWidth * 3, transform.position - Vector3.one * (1f / 3f), 1f / 3f);
             grid = new Grid<Tile>(gridWidth, gridHeight, gridLength, transform.position, 1f);
             for (int x = 0; x < grid.GetGridArray().GetLength(0); x++)
             {
@@ -27,7 +24,8 @@ namespace Assets.Scripts.Grid
                 {
                     for (int z = 0; z < grid.GetGridArray().GetLength(2); z++)
                     {
-                        grid.GetGridArray()[x, y, z] = new Tile();
+                        grid.GetGridArray()[x, y, z] = new Tile(grid);
+                        grid.GetGridArray()[x, y, z].SetCoords(x, y, z);
                         grid.GetGridArray()[x, y, z].CheckOccupation(grid.GetWorldPosition(x, y, z), groundMask, entityMask);
                     }
                 }
@@ -43,7 +41,7 @@ namespace Assets.Scripts.Grid
                 {
                     for (int z = 0; z < grid.GetGridArray().GetLength(2); z++)
                     {
-                        grid.GetGridArray()[x, y, z] = new Tile();
+                        grid.GetGridArray()[x, y, z] = new Tile(grid);
                         grid.GetGridArray()[x, y, z].SetCoords(x, y, z);
                         grid.GetGridArray()[x, y, z].CheckOccupation(grid.GetWorldPosition(x, y, z), groundMask, entityMask);
                     }
@@ -56,6 +54,7 @@ namespace Assets.Scripts.Grid
             Tile tile = GetTileFromWorldPosition(pos);
             tile.CheckOccupation(pos, groundMask, entityMask);
             Debug.Log(tile.ToString());
+            //tile.GetNeighbours();
         }
 
         public Tile GetTileFromWorldPosition(Vector3 pos)
@@ -147,7 +146,7 @@ namespace Assets.Scripts.Grid
                     {
                         //Debug.Log("Tile at " + x + "," + y + "," + z + grid.GetGridArray()[x, y, z].ToString());
                         
-                        grid.GetGridArray()[x, y, z].DrawOccupationGizmos(grid.GetWorldPosition(x, y, z));
+                        grid?.GetGridArray()[x, y, z].DrawOccupationGizmos(grid.GetWorldPosition(x, y, z));
                     }
                 }
             }

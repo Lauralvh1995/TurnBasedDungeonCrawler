@@ -9,6 +9,7 @@ namespace Assets.Scripts.Grid
 {
     public class Tile : IGridObject
     {
+        private readonly Grid<Tile> tileGrid;
         private int x, y, z;
 
         [SerializeField] private bool occupied;
@@ -20,30 +21,37 @@ namespace Assets.Scripts.Grid
         [SerializeField] private bool floor;
         [SerializeField] private bool ceiling;
 
-        public Tile()
-        {
+        HashSet<Tile> neighbours;
 
+        void AddNeighbour(Tile t)
+        {
+            neighbours.Add(t);
+        }
+        void RemoveNeighbour(Tile t)
+        {
+            if (neighbours.Contains(t))
+                neighbours.Remove(t);
+        }
+        public HashSet<Tile> GetNeighbours()
+        {
+            foreach(Tile t in neighbours)
+            {
+                Debug.Log(t.ToString());
+            }
+            return neighbours;
         }
 
-        public Tile(bool leftWall, bool rightWall, bool frontWall, bool backWall, bool floor, bool ceiling, int x, int y, int z)
+        public Tile(Grid<Tile> grid)
         {
-            this.leftWall = leftWall;
-            this.rightWall = rightWall;
-            this.frontWall = frontWall;
-            this.backWall = backWall;
-            this.floor = floor;
-            this.ceiling = ceiling;
-
-            this.x = x;
-            this.y = y;
-            this.z = z;
+            neighbours = new HashSet<Tile>();
+            tileGrid = grid;
         }
 
         public void SetCoords(int x, int y, int z)
         {
-            this.x = x;
-            this.y = y;
-            this.z = z;
+            X = x;
+            Y = y;
+            Z = z;
         }
 
         public bool LeftWall { get => leftWall; set => leftWall = value; }
@@ -53,35 +61,86 @@ namespace Assets.Scripts.Grid
         public bool Floor { get => floor; set => floor = value; }
         public bool Ceiling { get => ceiling; set => ceiling = value; }
         public bool Occupied { get => occupied; set => occupied = value; }
-        public int X { get => x; set => x = value; }
-        public int Y { get => y; set => y = value; }
-        public int Z { get => z; set => z = value; }
+        public int X
+        {
+            get => x; set
+            {
+                x = value;
+                //Debug.Log(x);
+            }
+        }
+        public int Y
+        {
+            get => y; set
+            {
+                y = value;
+                //Debug.Log(y);
+            }
+        }
+        public int Z
+        {
+            get => z; set
+            {
+                z = value;
+                //Debug.Log(z);
+            }
+        }
 
         public void CheckOccupation(Vector3 pos, LayerMask groundMask, LayerMask entityMask)
         {
             if(Physics.OverlapSphere(pos + Vector3.left*0.45f, 0.1f, groundMask).Length > 0)
             {
                 leftWall = true;
+                RemoveNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.left));
+            }
+            else
+            {
+                AddNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.left));
             }
             if (Physics.OverlapSphere(pos + Vector3.right * 0.45f, 0.1f, groundMask).Length > 0)
             {
                 rightWall = true;
+                RemoveNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.right));
+            }
+            else
+            {
+                AddNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.right));
             }
             if (Physics.OverlapSphere(pos + Vector3.forward * 0.45f, 0.1f, groundMask).Length > 0)
             {
                 frontWall = true;
+                RemoveNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.forward));
+            }
+            else
+            {
+                AddNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.forward));
             }
             if (Physics.OverlapSphere(pos + Vector3.back * 0.45f, 0.1f, groundMask).Length > 0)
             {
                 backWall = true;
+                RemoveNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.back));
+            }
+            else
+            {
+                AddNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.back));
             }
             if (Physics.OverlapSphere(pos + Vector3.up * 0.45f, 0.1f, groundMask).Length > 0)
             {
                 ceiling = true;
+                RemoveNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.up));
+            }
+            else
+            {
+                AddNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.up));
             }
             if (Physics.OverlapSphere(pos + Vector3.down * 0.45f, 0.1f, groundMask).Length > 0)
             {
                 floor = true;
+                RemoveNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.down));
+            }
+            else
+            {
+                AddNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.down));
             }
 
             if (Physics.OverlapSphere(pos, 0.2f, entityMask).Length > 0)
@@ -92,9 +151,8 @@ namespace Assets.Scripts.Grid
             {
                 occupied = false;
             }
-
-            
         }
+
 
         public void DrawOccupationGizmos(Vector3 pos)
         {
@@ -167,13 +225,7 @@ namespace Assets.Scripts.Grid
         }
         public override string ToString()
         {
-            return "front blocked: " + frontWall 
-                + ", back blocked: " + backWall 
-                + ", left blocked: " + leftWall 
-                + ", right blocked: " + rightWall 
-                + ", has floor: " + floor 
-                + ", has ceiling: " + ceiling
-                + ", occupied: " + occupied;
+            return "Tile: {" + x +","+ y + "," + z + "}";
         }
     }
 }
