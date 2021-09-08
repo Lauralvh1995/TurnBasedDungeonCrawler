@@ -86,6 +86,7 @@ public abstract class ActionInput : MonoBehaviour
                 yield return null;
             }
             transform.position = to;
+            grid.Regenerate();
         }
         lockedInput = false;
     }

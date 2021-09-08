@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace Assets.Scripts.Grid
 {
-    [ExecuteAlways]
     public class GridController : MonoBehaviour
     {
         [SerializeField, Range(1, 20)] int gridWidth = 10;
@@ -17,11 +16,7 @@ namespace Assets.Scripts.Grid
         Grid<Tile> grid;
 
 
-        private void Start()
-        {
-
-        }
-        private void Update()
+        private void Awake()
         {
             grid = new Grid<Tile>(gridWidth, gridHeight, gridLength, transform.position);
             for (int x = 0; x < grid.GetGridArray().GetLength(0); x++)
@@ -31,6 +26,23 @@ namespace Assets.Scripts.Grid
                     for (int z = 0; z < grid.GetGridArray().GetLength(2); z++)
                     {
                         grid.GetGridArray()[x, y, z] = new Tile();
+                        grid.GetGridArray()[x, y, z].CheckOccupation(grid.GetWorldPosition(x, y, z), groundMask, entityMask);
+                    }
+                }
+            }
+        }
+
+        public void Regenerate()
+        {
+            grid = new Grid<Tile>(gridWidth, gridHeight, gridLength, transform.position);
+            for (int x = 0; x < grid.GetGridArray().GetLength(0); x++)
+            {
+                for (int y = 0; y < grid.GetGridArray().GetLength(1); y++)
+                {
+                    for (int z = 0; z < grid.GetGridArray().GetLength(2); z++)
+                    {
+                        grid.GetGridArray()[x, y, z] = new Tile();
+                        grid.GetGridArray()[x, y, z].CheckOccupation(grid.GetWorldPosition(x, y, z), groundMask, entityMask);
                     }
                 }
             }
@@ -104,6 +116,10 @@ namespace Assets.Scripts.Grid
 
         private void OnDrawGizmos()
         {
+            if(grid == null)
+            {
+                return;
+            }
             Tile[,,] gridArray = grid.GetGridArray();
             for (int x = 0; x < gridArray.GetLength(0); x++)
             {
@@ -111,8 +127,9 @@ namespace Assets.Scripts.Grid
                 {
                     for (int z = 0; z < gridArray.GetLength(2); z++)
                     {
-                        gridArray[x, y, z].CheckOccupation(new Vector3(x, y, z), groundMask, entityMask);
-                        gridArray[x, y, z].DrawOccupationGizmos(new Vector3(x, y, z));
+                        Debug.Log("Tile at " + x + "," + y + "," + z + grid.GetGridArray()[x, y, z].ToString());
+                        
+                        grid.GetGridArray()[x, y, z].DrawOccupationGizmos(grid.GetWorldPosition(x, y, z));
                     }
                 }
             }

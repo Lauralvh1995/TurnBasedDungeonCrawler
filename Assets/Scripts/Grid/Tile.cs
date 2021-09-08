@@ -72,6 +72,8 @@ namespace Assets.Scripts.Grid
             {
                 occupied = true;
             }
+
+            
         }
 
         public void DrawOccupationGizmos(Vector3 pos)
@@ -114,11 +116,11 @@ namespace Assets.Scripts.Grid
             Gizmos.DrawWireCube(pos + Vector3.forward * .5f - new Vector3(0, 0, 0.05f), new Vector3(1f, 1f, .1f));
             if (floor)
             {
-                Gizmos.color = Color.red;
+                Gizmos.color = Color.green;
             }
             else
             {
-                Gizmos.color = Color.green;
+                Gizmos.color = Color.red;
             }
             Gizmos.DrawWireCube(pos + (Vector3.down * .5f) + new Vector3(0, 0.05f, 0), new Vector3(1f, .1f, 1f));
             if (ceiling)
@@ -140,6 +142,15 @@ namespace Assets.Scripts.Grid
                 Gizmos.color = Color.cyan;
             }
             Gizmos.DrawWireCube(pos, new Vector3(0.3f, 0.3f, 0.3f));
+        }
+        public override string ToString()
+        {
+            return "front blocked: " + frontWall 
+                + ", back blocked: " + backWall 
+                + ", left blocked: " + leftWall 
+                + ", right blocked: " + rightWall 
+                + ", has floor: " + floor 
+                + ", has ceiling: " + ceiling;
         }
     }
 }
