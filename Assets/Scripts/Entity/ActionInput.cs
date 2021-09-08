@@ -56,9 +56,9 @@ public abstract class ActionInput : MonoBehaviour
             StartCoroutine(Move(Vector3.right, turnSpeed));
         }
     }
-    public virtual void Attack() { }
-    public virtual void AlternateAttack() { }
-    public virtual void Wait() { }
+    public void Attack() { }
+    public void AlternateAttack() { }
+    public void Wait() { }
 
     private IEnumerator Rotate(Vector3 angle, float time)
     {

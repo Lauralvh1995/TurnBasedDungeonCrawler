@@ -53,18 +53,6 @@ public class PlayerActionInput : ActionInput
         
     }
 
-    public override void AlternateAttack()
-    {
-        base.AlternateAttack();
-        Debug.Log("Alternate Attack");
-    }
-
-    public override void Attack()
-    {
-        base.Attack();
-        Debug.Log("Attack");
-    }
-
     public override void MoveBackward()
     {
         base.MoveBackward();
@@ -99,12 +87,6 @@ public class PlayerActionInput : ActionInput
     {
         base.TurnRight();
         Debug.Log("Turning Right");
-    }
-
-    public override void Wait()
-    {
-        base.Wait();
-        Debug.Log("Waiting");
     }
 
     public void Interact()
