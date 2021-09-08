@@ -49,56 +49,56 @@ public class PlayerActionInput : ActionInput
     }
     private void OnDisable()
     {
-
+        
     }
 
     public override void AlternateAttack()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Alternate Attack");
     }
 
     public override void Attack()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Attack");
     }
 
     public override void MoveBackward()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Moving backward");
     }
 
     public override void MoveForward()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Moving forward");
     }
 
     public override void StrafeLeft()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Strafing Left");
     }
 
     public override void StrafeRight()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Strafing Right");
     }
 
     public override void TurnLeft()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Turning Left");
     }
 
     public override void TurnRight()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Turning Right");
     }
 
     public override void Wait()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Waiting");
     }
 
     public override void Interact()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Interacting");
     }
 }
