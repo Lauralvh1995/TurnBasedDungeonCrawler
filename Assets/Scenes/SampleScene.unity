@@ -306,6 +306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ebf4dce85d412944b293785fecc8d00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turnSpeed: 0.3
 --- !u!114 &398291074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,6 +369,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 04be57e9-1a21-4659-931a-fc5c6bba1ef9
     m_ActionName: Player/Wait[/Keyboard/q,/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 297e0b44-ce4a-4230-aa9f-963279b1e5ce
+    m_ActionName: Player/Interact[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -965,7 +970,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 26.991467
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
