@@ -4,14 +4,13 @@ using UnityEngine;
 
 public abstract class ActionInput : MonoBehaviour
 {
-    public abstract void MoveForward();
-    public abstract void MoveBackward();
-    public abstract void TurnLeft();
-    public abstract void TurnRight();
-    public abstract void StrafeLeft();
-    public abstract void StrafeRight();
-    public abstract void Attack();
-    public abstract void AlternateAttack();
-    public abstract void Wait();
-    public abstract void Interact();
+    public virtual void MoveForward() { }
+    public virtual void MoveBackward() { }
+    public virtual void TurnLeft() { }
+    public virtual void TurnRight() { }
+    public virtual void StrafeLeft() { }
+    public virtual void StrafeRight() { }
+    public virtual void Attack() { }
+    public virtual void AlternateAttack() { }
+    public virtual void Wait() { }
 }

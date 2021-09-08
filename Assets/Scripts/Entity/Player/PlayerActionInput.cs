@@ -54,50 +54,59 @@ public class PlayerActionInput : ActionInput
 
     public override void AlternateAttack()
     {
+        base.AlternateAttack();
         Debug.Log("Alternate Attack");
     }
 
     public override void Attack()
     {
+        base.Attack();
         Debug.Log("Attack");
     }
 
     public override void MoveBackward()
     {
+        base.MoveBackward();
         Debug.Log("Moving backward");
     }
 
     public override void MoveForward()
     {
+        base.MoveForward();
         Debug.Log("Moving forward");
     }
 
     public override void StrafeLeft()
     {
+        base.StrafeLeft();
         Debug.Log("Strafing Left");
     }
 
     public override void StrafeRight()
     {
+        base.StrafeRight();
         Debug.Log("Strafing Right");
     }
 
     public override void TurnLeft()
     {
+        base.TurnLeft();
         Debug.Log("Turning Left");
     }
 
     public override void TurnRight()
     {
+        base.TurnRight();
         Debug.Log("Turning Right");
     }
 
     public override void Wait()
     {
+        base.Wait();
         Debug.Log("Waiting");
     }
 
-    public override void Interact()
+    public void Interact()
     {
         Debug.Log("Interacting");
     }
