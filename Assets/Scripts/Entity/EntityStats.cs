@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Entity", menuName = "Entity")]
 public class EntityStats : ScriptableObject
 {
+    [SerializeField] private string enemyName;
     [SerializeField] private int maxHP;
     [SerializeField] private bool flying;
     [SerializeField] private bool heavy;
@@ -12,6 +13,11 @@ public class EntityStats : ScriptableObject
     [SerializeField] Attack primaryAttack;
     [SerializeField] Attack secondaryAttack;
     [SerializeField] AIType aiType;
+
+    public string GetName()
+    {
+        return enemyName;
+    }
 
     public int GetMaxHP()
     {

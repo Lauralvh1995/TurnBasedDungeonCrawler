@@ -39,4 +39,8 @@ public class Player : Entity
     {
         flying = value;
     }
+    public override void Die()
+    {
+        Debug.Log("You died :(");
+    }
 }

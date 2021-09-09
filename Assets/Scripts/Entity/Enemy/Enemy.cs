@@ -38,6 +38,10 @@ public class Enemy : Entity
 
     public override void SetFlying(bool value)
     {
-        throw new System.NotImplementedException();
+        enemyType.SetFlying(value);
+    }
+    public override void Die()
+    {
+        Debug.Log(enemyType.GetName() + " died");
     }
 }

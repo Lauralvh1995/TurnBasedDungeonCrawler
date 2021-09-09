@@ -11,6 +11,10 @@ public abstract class Entity : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+        if(health < 0)
+        {
+            Die();
+        }
     }
 
     public void KnockBack(Transform culprit)
@@ -36,4 +40,5 @@ public abstract class Entity : MonoBehaviour
 
     public abstract bool IsFlying();
     public abstract bool IsHeavy();
+    public abstract void Die();
 }
