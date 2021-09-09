@@ -60,10 +60,19 @@ public class EntityActions : MonoBehaviour
             StartCoroutine(Move(Vector3.right, turnSpeed));
         }
     }
-    public void Attack() { }
-    public void AlternateAttack() { }
+    public void Attack() 
+    {
+        entity.ExecutePrimaryAttack();
+    }
+    public void AlternateAttack() 
+    {
+        entity.ExecuteSecondaryAttack();
+    }
     public void Wait() { }
-    public void Interact() { }
+    public void Interact() 
+    {
+        entity.ExecuteInteraction();
+    }
 
     private IEnumerator Rotate(Vector3 angle, float time)
     {
@@ -83,7 +92,7 @@ public class EntityActions : MonoBehaviour
         Vector3 from = transform.position;
         Vector3 to = transform.position + transform.rotation * direction;
         //TODO: Add flying support
-        if (grid.CanMoveThere(from, to, false))
+        if (grid.CanMoveThere(from, to, entity.IsFlying()))
         {
             for (float t = 0f; t <= 1; t += Time.deltaTime / time)
             {

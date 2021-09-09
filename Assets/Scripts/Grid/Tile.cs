@@ -23,6 +23,12 @@ namespace Assets.Scripts.Grid
 
         HashSet<Tile> neighbours;
 
+        Color passableColor = new Color(0f, 0.5f, 0f, 0.5f);
+        Color impassableColor = new Color(0.5f, 0f, 0f, 0.5f);
+        Color occupiedColor = new Color(0.5f, 0f, 0.5f, 0.5f);
+        Color inoccupiedColor = new Color(0f, 0.5f, 0.5f, 0.5f);
+
+
         void AddNeighbour(Tile t)
         {
             neighbours.Add(t);
@@ -158,68 +164,68 @@ namespace Assets.Scripts.Grid
         {
             if (leftWall)
             {
-                Gizmos.color = Color.red;
+                Gizmos.color = impassableColor;
             }
             else
             {
-                Gizmos.color = Color.green;
+                Gizmos.color = passableColor;
             }
             Gizmos.DrawWireCube(pos + Vector3.left * .5f + new Vector3(0.05f, 0, 0f), new Vector3(0.1f, 1f, 1f));
             if (rightWall)
             {
-                Gizmos.color = Color.red;
+                Gizmos.color = impassableColor;
             }
             else
             {
-                Gizmos.color = Color.green;
+                Gizmos.color = passableColor;
             }
             Gizmos.DrawWireCube(pos + Vector3.right * .5f - new Vector3(0.05f, 0, 0f), new Vector3(0.1f, 1f, 1f));
             if (backWall)
             {
-                Gizmos.color = Color.red;
+                Gizmos.color = impassableColor;
             }
             else
             {
-                Gizmos.color = Color.green;
+                Gizmos.color = passableColor;
             }
             Gizmos.DrawWireCube(pos + Vector3.back * .5f + new Vector3(0, 0, 0.05f), new Vector3(1f, 1f, .1f));
             if (frontWall)
             {
-                Gizmos.color = Color.red;
+                Gizmos.color = impassableColor;
             }
             else
             {
-                Gizmos.color = Color.green;
+                Gizmos.color = passableColor;
             }
             Gizmos.DrawWireCube(pos + Vector3.forward * .5f - new Vector3(0, 0, 0.05f), new Vector3(1f, 1f, .1f));
             if (floor)
             {
-                Gizmos.color = Color.green;
+                Gizmos.color = passableColor;
             }
             else
             {
-                Gizmos.color = Color.red;
+                Gizmos.color = impassableColor;
             }
             Gizmos.DrawWireCube(pos + (Vector3.down * .5f) + new Vector3(0, 0.05f, 0), new Vector3(1f, .1f, 1f));
             if (ceiling)
             {
-                Gizmos.color = Color.red;
+                Gizmos.color = impassableColor;
             }
             else
             {
-                Gizmos.color = Color.green;
+                Gizmos.color = passableColor;
             }
             Gizmos.DrawWireCube(pos + (Vector3.up * .5f) - new Vector3(0, 0.05f, 0) , new Vector3(1f, .1f, 1f));
 
             if (occupied)
             {
-                Gizmos.color = Color.magenta;
+                Gizmos.color = occupiedColor;
             }
             else
             {
-                Gizmos.color = Color.cyan;
+                Gizmos.color = inoccupiedColor;
             }
-            Gizmos.DrawWireCube(pos, new Vector3(0.3f, 0.3f, 0.3f));
+            Gizmos.DrawCube(pos, new Vector3(0.3f, 0.3f, 0.3f));
 
             
         }
