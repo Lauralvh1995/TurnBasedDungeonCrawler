@@ -19,12 +19,12 @@ public class Enemy : Entity
 
     public override void ExecutePrimaryAttack()
     {
-        enemyType.GetPrimaryAttack().Execute(transform.position);
+        enemyType.GetPrimaryAttack().Execute(transform);
     }
 
     public override void ExecuteSecondaryAttack()
     {
-        enemyType.GetSecondaryAttack().Execute(transform.position);
+        enemyType.GetSecondaryAttack().Execute(transform);
     }
 
     public override bool IsFlying()
@@ -34,5 +34,10 @@ public class Enemy : Entity
     public override bool IsHeavy()
     {
         return enemyType.GetHeavy();
+    }
+
+    public override void SetFlying(bool value)
+    {
+        throw new System.NotImplementedException();
     }
 }

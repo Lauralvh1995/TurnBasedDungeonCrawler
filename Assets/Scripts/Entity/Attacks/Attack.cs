@@ -6,10 +6,10 @@ using UnityEngine;
 
 public abstract class Attack : ScriptableObject
 {
-    [SerializeField] private string attackName;
+    [SerializeField] protected string attackName;
     public string GetAttackName() {
         return attackName;
     }
     
-    public abstract void Execute(Vector3 origin);
+    public abstract void Execute(Transform origin);
 }

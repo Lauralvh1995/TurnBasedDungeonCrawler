@@ -19,17 +19,14 @@ public class Player : Entity
     {
         target.Execute();
     }
-
     public override void ExecutePrimaryAttack()
     {
-        primaryAttack?.Execute(transform.position);
+        primaryAttack?.Execute(transform);
     }
-
     public override void ExecuteSecondaryAttack()
     {
-        secondaryAttack?.Execute(transform.position);
+        secondaryAttack?.Execute(transform);
     }
-
     public override bool IsFlying()
     {
         return flying;
@@ -37,5 +34,9 @@ public class Player : Entity
     public override bool IsHeavy()
     {
         return heavy;
+    }
+    public override void SetFlying(bool value)
+    {
+        flying = value;
     }
 }

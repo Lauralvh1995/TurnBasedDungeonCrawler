@@ -94,7 +94,7 @@ namespace Assets.Scripts.Grid
 
         public void CheckOccupation(Vector3 pos, LayerMask groundMask, LayerMask entityMask)
         {
-            if(Physics.OverlapSphere(pos + Vector3.left*0.45f, 0.1f, groundMask).Length > 0)
+            if(Physics.CheckSphere(pos + Vector3.left*0.45f, 0.1f, groundMask))
             {
                 leftWall = true;
                 RemoveNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.left));
@@ -103,7 +103,7 @@ namespace Assets.Scripts.Grid
             {
                 AddNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.left));
             }
-            if (Physics.OverlapSphere(pos + Vector3.right * 0.45f, 0.1f, groundMask).Length > 0)
+            if (Physics.CheckSphere(pos + Vector3.right * 0.45f, 0.1f, groundMask))
             {
                 rightWall = true;
                 RemoveNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.right));
@@ -112,7 +112,7 @@ namespace Assets.Scripts.Grid
             {
                 AddNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.right));
             }
-            if (Physics.OverlapSphere(pos + Vector3.forward * 0.45f, 0.1f, groundMask).Length > 0)
+            if (Physics.CheckSphere(pos + Vector3.forward * 0.45f, 0.1f, groundMask))
             {
                 frontWall = true;
                 RemoveNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.forward));
@@ -121,7 +121,7 @@ namespace Assets.Scripts.Grid
             {
                 AddNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.forward));
             }
-            if (Physics.OverlapSphere(pos + Vector3.back * 0.45f, 0.1f, groundMask).Length > 0)
+            if (Physics.CheckSphere(pos + Vector3.back * 0.45f, 0.1f, groundMask))
             {
                 backWall = true;
                 RemoveNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.back));
@@ -130,7 +130,7 @@ namespace Assets.Scripts.Grid
             {
                 AddNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.back));
             }
-            if (Physics.OverlapSphere(pos + Vector3.up * 0.45f, 0.1f, groundMask).Length > 0)
+            if (Physics.CheckSphere(pos + Vector3.up * 0.45f, 0.1f, groundMask))
             {
                 ceiling = true;
                 RemoveNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.up));
@@ -139,7 +139,7 @@ namespace Assets.Scripts.Grid
             {
                 AddNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.up));
             }
-            if (Physics.OverlapSphere(pos + Vector3.down * 0.45f, 0.1f, groundMask).Length > 0)
+            if (Physics.CheckSphere(pos + Vector3.down * 0.45f, 0.1f, groundMask))
             {
                 floor = true;
                 RemoveNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.down));
@@ -149,7 +149,7 @@ namespace Assets.Scripts.Grid
                 AddNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.down));
             }
 
-            if (Physics.OverlapSphere(pos, 0.3f, entityMask).Length > 0)
+            if (Physics.CheckSphere(pos, 0.3f, entityMask))
             {
                 occupied = true;
             }

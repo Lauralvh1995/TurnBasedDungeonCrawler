@@ -21,6 +21,11 @@ public class EntityStats : ScriptableObject
     {
         return flying;
     }
+
+    public void SetFlying(bool value)
+    {
+        flying = value;
+    }
     public bool GetHeavy()
     {
         return heavy;
