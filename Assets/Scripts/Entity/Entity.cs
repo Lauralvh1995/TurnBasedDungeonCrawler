@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private int health;
+    [SerializeField] private int maxHealth;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] bool flying;
+
+    [SerializeField] PrimaryAttack primaryAttack;
+    [SerializeField] SecondaryAttack secondaryAttack;
+
+    [SerializeField] Interactable target;
+    [SerializeField] List<Interactable> interactables;
 }
