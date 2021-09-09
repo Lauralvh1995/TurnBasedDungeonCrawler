@@ -3,36 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Entity : MonoBehaviour
+public abstract class Entity : MonoBehaviour
 {
-    [SerializeField] private int health;
-    [SerializeField] private int maxHealth;
+    [SerializeField] protected int health;
 
-    [SerializeField] bool flying;
+    public abstract void ExecutePrimaryAttack();
 
-    [SerializeField] PrimaryAttack primaryAttack;
-    [SerializeField] SecondaryAttack secondaryAttack;
+    public abstract void ExecuteSecondaryAttack();
 
-    [SerializeField] Interactable target;
-    [SerializeField] List<Interactable> interactables;
+    public abstract void ExecuteInteraction();
 
-    public void ExecutePrimaryAttack()
-    {
-        throw new NotImplementedException();
-    }
-
-    public void ExecuteSecondaryAttack()
-    {
-        throw new NotImplementedException();
-    }
-
-    public void ExecuteInteraction()
-    {
-        throw new NotImplementedException();
-    }
-
-    public bool IsFlying()
-    {
-        return flying;
-    }
+    public abstract bool IsFlying();
 }
