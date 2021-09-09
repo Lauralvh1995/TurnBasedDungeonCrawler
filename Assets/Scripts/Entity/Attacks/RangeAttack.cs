@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Grid;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [CreateAssetMenu(fileName = "New Ranged Attack", menuName = "Ranged Attack")]
@@ -8,7 +9,7 @@ public class RangeAttack : Attack
     [SerializeField, Range(1, 3)] private int radius;
     [SerializeField, Range(1, 5)] private int damage;
     [SerializeField] private bool piercing;
-    public override void Execute()
+    public override void Execute(Vector3 origin)
     {
         Debug.Log("Performed " + GetAttackName());
 

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Grid;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,12 +19,12 @@ public class Enemy : Entity
 
     public override void ExecutePrimaryAttack()
     {
-        enemyType.GetPrimaryAttack().Execute();
+        enemyType.GetPrimaryAttack().Execute(transform.position);
     }
 
     public override void ExecuteSecondaryAttack()
     {
-        enemyType.GetSecondaryAttack().Execute();
+        enemyType.GetSecondaryAttack().Execute(transform.position);
     }
 
     public override bool IsFlying()

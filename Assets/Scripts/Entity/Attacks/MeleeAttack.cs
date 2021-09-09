@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Grid;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +10,7 @@ public class MeleeAttack : Attack
     [SerializeField, Range(1, 3)] private int size;
     [SerializeField] private bool knockback;
     [SerializeField] private TargetingMode mode;
-    public override void Execute()
+    public override void Execute(Vector3 origin)
     {
         Debug.Log("Performed " + GetAttackName());
 

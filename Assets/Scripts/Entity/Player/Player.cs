@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Grid;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,12 +22,12 @@ public class Player : Entity
 
     public override void ExecutePrimaryAttack()
     {
-        primaryAttack?.Execute();
+        primaryAttack?.Execute(transform.position);
     }
 
     public override void ExecuteSecondaryAttack()
     {
-        secondaryAttack?.Execute();
+        secondaryAttack?.Execute(transform.position);
     }
 
     public override bool IsFlying()
