@@ -5,6 +5,8 @@ using UnityEngine;
 public class Player : Entity
 {
     [SerializeField] private int maxHealth;
+    [SerializeField] private bool flying;
+    [SerializeField] private bool heavy;
 
     [SerializeField] MeleeAttack primaryAttack;
     [SerializeField] RangeAttack secondaryAttack;
@@ -14,21 +16,25 @@ public class Player : Entity
 
     public override void ExecuteInteraction()
     {
-        throw new System.NotImplementedException();
+        target.Execute();
     }
 
     public override void ExecutePrimaryAttack()
     {
-        throw new System.NotImplementedException();
+        primaryAttack?.Execute();
     }
 
     public override void ExecuteSecondaryAttack()
     {
-        throw new System.NotImplementedException();
+        secondaryAttack?.Execute();
     }
 
     public override bool IsFlying()
     {
-        throw new System.NotImplementedException();
+        return flying;
+    }
+    public override bool IsHeavy()
+    {
+        return heavy;
     }
 }

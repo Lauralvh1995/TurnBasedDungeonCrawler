@@ -9,7 +9,7 @@ public class EntityActions : MonoBehaviour
     [SerializeField] private Entity entity;
 
     [SerializeField] private GridController grid;
-    [SerializeField] private float turnSpeed = 0.8f;
+    [SerializeField] private float turnSpeed = 0.1f;
     bool lockedInput;
 
     public void Awake()
@@ -68,7 +68,10 @@ public class EntityActions : MonoBehaviour
     {
         entity.ExecuteSecondaryAttack();
     }
-    public void Wait() { }
+    public void Wait() 
+    { 
+        //Pass turn
+    }
     public void Interact() 
     {
         entity.ExecuteInteraction();

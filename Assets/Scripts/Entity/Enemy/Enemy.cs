@@ -30,4 +30,8 @@ public class Enemy : Entity
     {
         return enemyType.GetFlying();
     }
+    public override bool IsHeavy()
+    {
+        return enemyType.GetHeavy();
+    }
 }

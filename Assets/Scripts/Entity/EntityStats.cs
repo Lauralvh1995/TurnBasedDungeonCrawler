@@ -7,6 +7,7 @@ public class EntityStats : ScriptableObject
 {
     [SerializeField] private int maxHP;
     [SerializeField] private bool flying;
+    [SerializeField] private bool heavy;
 
     [SerializeField] Attack primaryAttack;
     [SerializeField] Attack secondaryAttack;
@@ -19,6 +20,10 @@ public class EntityStats : ScriptableObject
     public bool GetFlying()
     {
         return flying;
+    }
+    public bool GetHeavy()
+    {
+        return heavy;
     }
     public Attack GetPrimaryAttack()
     {

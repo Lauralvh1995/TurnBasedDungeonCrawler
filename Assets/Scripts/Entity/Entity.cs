@@ -14,4 +14,5 @@ public abstract class Entity : MonoBehaviour
     public abstract void ExecuteInteraction();
 
     public abstract bool IsFlying();
+    public abstract bool IsHeavy();
 }
