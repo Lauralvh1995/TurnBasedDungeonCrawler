@@ -52,9 +52,12 @@ namespace Assets.Scripts.Grid
         public void UpdatePassability(Vector3 pos)
         {
             Tile tile = GetTileFromWorldPosition(pos);
-            tile.CheckOccupation(pos, groundMask, entityMask);
-            Debug.Log(tile.ToString());
-            //tile.GetNeighbours();
+            if (tile != null)
+            {
+                tile.CheckOccupation(pos, groundMask, entityMask);
+                Debug.Log(tile.ToString());
+                //tile.GetNeighbours();
+            }
         }
 
         public Tile GetTileFromWorldPosition(Vector3 pos)

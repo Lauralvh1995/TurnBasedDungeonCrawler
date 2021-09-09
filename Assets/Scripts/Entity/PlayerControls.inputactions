@@ -110,72 +110,6 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "Button With One Modifier",
-                    "id": "21ee269e-88d5-4492-8cc1-7d8c17108e31",
-                    "path": "ButtonWithOneModifier",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "TurnLeft",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "Modifier",
-                    "id": "e52439ed-9eee-4816-9b65-44c5d7cd758a",
-                    "path": "<Keyboard>/shift",
-                    "interactions": "",
-                    "processors": "Invert",
-                    "groups": "Keyboard+Mouse",
-                    "action": "TurnLeft",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Button",
-                    "id": "1de5c7f7-6024-4688-90f9-2d185d1bc735",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "Invert",
-                    "groups": "Keyboard+Mouse",
-                    "action": "TurnLeft",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Button With One Modifier",
-                    "id": "e05b14a1-cfa2-4cf3-83cd-ab975eda8a95",
-                    "path": "ButtonWithOneModifier",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "TurnRight",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "Modifier",
-                    "id": "26fa71ee-9669-494b-a418-8090d2a8ff29",
-                    "path": "<Keyboard>/shift",
-                    "interactions": "",
-                    "processors": "Invert",
-                    "groups": "Keyboard+Mouse",
-                    "action": "TurnRight",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Button",
-                    "id": "0a8f25b0-1ad4-45cc-9eb6-ba88d21f103a",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "Invert",
-                    "groups": "Keyboard+Mouse",
-                    "action": "TurnRight",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "",
                     "id": "a87baf2b-856c-45c5-a2a8-18cb26dcc75c",
                     "path": "<Mouse>/leftButton",
@@ -210,89 +144,56 @@
                 },
                 {
                     "name": "",
-                    "id": "3c008bcc-8e0f-4ceb-80bf-347f0ff437ff",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard+Mouse",
-                    "action": "Interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "Button With One Modifier",
-                    "id": "07d1cd23-6023-448f-b534-aafc65d74899",
-                    "path": "ButtonWithOneModifier",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "StrafeLeft",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "modifier",
-                    "id": "93e4e945-23a5-43db-80f2-d1e8e3eaeb5b",
-                    "path": "<Keyboard>/shift",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard+Mouse",
-                    "action": "StrafeLeft",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "button",
-                    "id": "89ba4e66-2146-4c36-af7e-423f14f49583",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard+Mouse",
-                    "action": "StrafeLeft",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Button With One Modifier",
-                    "id": "0e969400-d9ad-45c4-b0a9-5d4dc7ef4d84",
-                    "path": "ButtonWithOneModifier",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "StrafeRight",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "modifier",
-                    "id": "2c92e2f4-97aa-4a29-921e-1784302a42c7",
-                    "path": "<Keyboard>/shift",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard+Mouse",
-                    "action": "StrafeRight",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "button",
-                    "id": "7999ff8a-defa-462a-a458-1afa8e14963d",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard+Mouse",
-                    "action": "StrafeRight",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "",
                     "id": "53772399-fff3-4edd-a696-92ffe96317c4",
-                    "path": "<Keyboard>/q",
+                    "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard+Mouse",
                     "action": "Wait",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3b3b29d3-e719-40ff-8d69-50eac038587d",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard+Mouse",
+                    "action": "TurnLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f65cb5a6-beb0-48a5-958a-26383b3684db",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard+Mouse",
+                    "action": "TurnRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4e876875-89bb-498a-bae8-9a4d2a0f86c9",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard+Mouse",
+                    "action": "StrafeLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cdeb37d6-23c0-4657-be7f-4f1e3142a04b",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard+Mouse",
+                    "action": "StrafeRight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

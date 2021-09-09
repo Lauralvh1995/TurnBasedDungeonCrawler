@@ -143,7 +143,7 @@ namespace Assets.Scripts.Grid
                 AddNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.down));
             }
 
-            if (Physics.OverlapSphere(pos, 0.2f, entityMask).Length > 0)
+            if (Physics.OverlapSphere(pos, 0.3f, entityMask).Length > 0)
             {
                 occupied = true;
             }
