@@ -43,4 +43,9 @@ public class Player : Entity
     {
         Debug.Log("You died :(");
     }
+
+    protected override string GetName()
+    {
+        return "You";
+    }
 }

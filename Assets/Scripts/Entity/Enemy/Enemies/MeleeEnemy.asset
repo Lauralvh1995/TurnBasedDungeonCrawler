@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3627ec7dda03614db9bca9a341c6196, type: 3}
   m_Name: MeleeEnemy
   m_EditorClassIdentifier: 
+  enemyName: MeleeTest
   maxHP: 3
   flying: 0
+  heavy: 0
   primaryAttack: {fileID: 11400000, guid: f0c17ccae4a9fe14d9adef8715e9dfa4, type: 2}
   secondaryAttack: {fileID: 0}
-  aiType: {fileID: 0}
+  aiType: {fileID: 11400000, guid: 7c40e6c061e851543ab10de6abce3a11, type: 2}

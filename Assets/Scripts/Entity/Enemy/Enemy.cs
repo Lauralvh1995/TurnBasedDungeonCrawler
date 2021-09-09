@@ -44,4 +44,9 @@ public class Enemy : Entity
     {
         Debug.Log(enemyType.GetName() + " died");
     }
+
+    protected override string GetName()
+    {
+        return enemyType.GetName();
+    }
 }

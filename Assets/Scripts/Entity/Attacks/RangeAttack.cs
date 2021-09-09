@@ -15,7 +15,7 @@ public class RangeAttack : Attack
         //check all tiles in range if there is a target there
         HashSet<Collider> hits = new HashSet<Collider>();
         Vector3 nextRayOrigin = origin.position;
-        for (int i = 0; i < range; i++)
+        for (int i = 0; i < range + 1; i++)
         {
             RaycastHit raycastHit;
             Physics.Raycast(new Ray(nextRayOrigin, origin.rotation * Vector3.forward), out raycastHit, 1f);

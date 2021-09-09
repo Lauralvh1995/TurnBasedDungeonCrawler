@@ -11,11 +11,14 @@ public abstract class Entity : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-        if(health < 0)
+        Debug.Log(GetName() + " took " + damage + ". Health remaining: " + health);
+        if(health <= 0)
         {
             Die();
         }
     }
+
+    protected abstract string GetName();
 
     public void KnockBack(Transform culprit)
     {
