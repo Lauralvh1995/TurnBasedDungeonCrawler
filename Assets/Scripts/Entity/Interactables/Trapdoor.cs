@@ -3,14 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Toggleable : Interactable
+public class Trapdoor : Toggleable
 {
-    [SerializeField] protected bool on;
-    [SerializeField] protected bool locked;
-
-    [SerializeField] protected Transform fill;
-    [SerializeField] protected GridController grid;
-
     private void OnEnable()
     {
         grid = FindObjectOfType<GridController>();
@@ -29,10 +23,9 @@ public abstract class Toggleable : Interactable
         //throw new System.NotImplementedException();
     }
 
-    public virtual void ChangeState(bool state)
+    public override void ChangeState(bool state)
     {
-        this.on = state;
-        fill.GetComponent<BoxCollider>().enabled = state;
-        fill.GetComponent<MeshRenderer>().enabled = state;
+        base.ChangeState(state);
+        grid.UpdatePassability(transform.position);
     }
 }
