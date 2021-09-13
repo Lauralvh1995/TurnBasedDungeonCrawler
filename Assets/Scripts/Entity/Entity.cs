@@ -7,7 +7,11 @@ using UnityEngine;
 public abstract class Entity : MonoBehaviour
 {
     [SerializeField] protected int health;
-
+    [SerializeField] protected GridController grid;
+    private void OnEnable()
+    {
+        grid = FindObjectOfType<GridController>();
+    }
     public void TakeDamage(int damage)
     {
         health -= damage;

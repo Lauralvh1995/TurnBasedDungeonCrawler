@@ -11,7 +11,7 @@ public class Toggleable : Interactable
     [SerializeField] private Transform fill;
     [SerializeField] private GridController grid;
 
-    private void Awake()
+    private void OnEnable()
     {
         grid = FindObjectOfType<GridController>();
     }

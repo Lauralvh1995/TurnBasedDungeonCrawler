@@ -43,6 +43,11 @@ public class Enemy : Entity
     public override void Die()
     {
         base.Die();
+        Vector3 pos = transform.position;
+        GetComponent<BoxCollider>().enabled = false;
+        grid.UpdatePassability(pos);
+
+        gameObject.SetActive(false);
         //Debug.Log(enemyType.GetName() + " died");
     }
 
