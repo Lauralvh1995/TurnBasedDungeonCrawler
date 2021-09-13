@@ -13,7 +13,9 @@ Pokémon Mystery Dungeon
 
 Metroid Prime
 
-![](.gitbook/assets/0.png)Super Metroid
+Super Metroid
+
+![](.gitbook/assets/0.png)
 
 It all started with the idea: What if Metroid was a grid-based dungeon crawler?
 
