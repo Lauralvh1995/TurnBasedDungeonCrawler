@@ -84,38 +84,10 @@ namespace Assets.Scripts.Grid
                 Debug.Log("No destination possible!");
                 return false;
             }
-            if (direction == Vector3.forward)
+            if(Physics.Raycast(currentPos,direction, 1f, groundMask))
             {
-                if (currentTile.FrontWall || destinationTile.BackWall)
-                {
-                    Debug.Log("Front blocked");
-                    return false;
-                }
-            }
-            else if (direction == Vector3.back)
-            {
-                if (currentTile.BackWall || destinationTile.FrontWall)
-                {
-                    Debug.Log("Back blocked");
-                    return false;
-                }
-            }
-            else if (direction == Vector3.left)
-            {
-                if (currentTile.LeftWall || destinationTile.RightWall)
-                {
-                    Debug.Log("Left blocked");
-                    return false;
-                }
-            }
-            else if (direction == Vector3.right)
-            {
-                if (currentTile.RightWall || destinationTile.LeftWall)
-                {
-                    Debug.Log("Right blocked");
-                    return false;
-                }
-
+                Debug.Log("Hit a wall!");
+                return false;
             }
             //check if destination tile is occupied or passable
             if (destinationTile.Occupied)

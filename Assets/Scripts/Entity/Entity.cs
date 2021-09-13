@@ -43,5 +43,8 @@ public abstract class Entity : MonoBehaviour
 
     public abstract bool IsFlying();
     public abstract bool IsHeavy();
-    public abstract void Die();
+    public virtual void Die()
+    {
+        Debug.Log(GetName()+ "died :(");
+    }
 }
