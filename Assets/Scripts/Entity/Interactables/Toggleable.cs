@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Grid;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,14 +9,19 @@ public class Toggleable : Interactable
     [SerializeField] private bool locked;
 
     [SerializeField] private Transform fill;
+    [SerializeField] private GridController grid;
+
+    private void Awake()
+    {
+        grid = FindObjectOfType<GridController>();
+    }
+
     public override void Execute()
     {
-        if(!locked)
-            on = !on;
-
-        fill.GetComponent<BoxCollider>().enabled = on;
-        fill.GetComponent<MeshRenderer>().enabled = on;
+        if (!locked)
+            ChangeState(!on);
     }
+
 
     public override void Execute(Attack interactingAttack, Vector3 origin)
     {
@@ -28,5 +34,7 @@ public class Toggleable : Interactable
         this.on = state;
         fill.GetComponent<BoxCollider>().enabled = state;
         fill.GetComponent<MeshRenderer>().enabled = state;
+        grid.UpdatePassability(transform.position + transform.rotation * Vector3.forward * 0.5f);
+        grid.UpdatePassability(transform.position + transform.rotation * Vector3.back * 0.5f);
     }
 }
