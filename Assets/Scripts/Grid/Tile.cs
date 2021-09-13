@@ -212,7 +212,7 @@ namespace Assets.Scripts.Grid
             {
                 Gizmos.color = impassableColor;
             }
-            Gizmos.DrawWireCube(pos + (Vector3.down * .5f) + new Vector3(0, 0.05f, 0), new Vector3(1f, .1f, 1f));
+            Gizmos.DrawWireCube(pos + (Vector3.down * .45f) + new Vector3(0, 0.05f, 0), new Vector3(1f, .1f, 1f));
             if (ceiling)
             {
                 Gizmos.color = impassableColor;
