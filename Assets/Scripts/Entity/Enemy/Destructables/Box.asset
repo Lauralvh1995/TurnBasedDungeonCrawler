@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Box
   m_EditorClassIdentifier: 
   enemyName: Box
-  maxHP: 1
+  maxHP: 2
   flying: 0
   heavy: 0
   primaryAttack: {fileID: 0}
