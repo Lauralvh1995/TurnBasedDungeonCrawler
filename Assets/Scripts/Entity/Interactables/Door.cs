@@ -5,18 +5,6 @@ using UnityEngine;
 
 public class Door : Toggleable
 {
-    private void OnEnable()
-    {
-        grid = FindObjectOfType<GridController>();
-    }
-
-    public override void Execute()
-    {
-        if (!locked)
-            ChangeState(!on);
-    }
-
-
     public override void Execute(Attack interactingAttack, Vector3 origin)
     {
         //TODO: write check for stuff like powerglove/destruction

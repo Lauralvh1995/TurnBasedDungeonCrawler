@@ -4,20 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Trapdoor : Toggleable
-{
-    private void OnEnable()
-    {
-        grid = FindObjectOfType<GridController>();
-    }
-
-    public override void Execute()
-    {
-        if (!locked)
-            ChangeState(!on);
-    }
-
-
-    public override void Execute(Attack interactingAttack, Vector3 origin)
+{    public override void Execute(Attack interactingAttack, Vector3 origin)
     {
         //TODO: write check for stuff like powerglove/destruction
         //throw new System.NotImplementedException();
@@ -26,6 +13,7 @@ public class Trapdoor : Toggleable
     public override void ChangeState(bool state)
     {
         base.ChangeState(state);
+        Debug.Log("Trapdoor at " + transform.position + " updating");
         grid.UpdatePassability(transform.position);
     }
 }
