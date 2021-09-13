@@ -42,7 +42,8 @@ public class Enemy : Entity
     }
     public override void Die()
     {
-        Debug.Log(enemyType.GetName() + " died");
+        base.Die();
+        //Debug.Log(enemyType.GetName() + " died");
     }
 
     protected override string GetName()

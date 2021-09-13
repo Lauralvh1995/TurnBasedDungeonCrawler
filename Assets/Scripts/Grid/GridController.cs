@@ -84,7 +84,7 @@ namespace Assets.Scripts.Grid
                 Debug.Log("No destination possible!");
                 return false;
             }
-            if (Physics.Raycast(currentPos, direction, 1f, groundMask))
+            if(Physics.Raycast(currentPos,direction, 1f, groundMask))
             {
                 Debug.Log("Hit a wall!");
                 return false;

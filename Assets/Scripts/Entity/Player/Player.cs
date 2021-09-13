@@ -41,7 +41,8 @@ public class Player : Entity
     }
     public override void Die()
     {
-        Debug.Log("You died :(");
+        base.Die();
+        //Debug.Log("You died :(");
     }
 
     protected override string GetName()

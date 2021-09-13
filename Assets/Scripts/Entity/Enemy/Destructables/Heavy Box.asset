@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3627ec7dda03614db9bca9a341c6196, type: 3}
   m_Name: Heavy Box
   m_EditorClassIdentifier: 
+  enemyName: Heavy Box
   maxHP: 2
   flying: 0
   heavy: 1
