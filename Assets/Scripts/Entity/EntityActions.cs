@@ -63,10 +63,12 @@ public class EntityActions : MonoBehaviour
     public void Attack() 
     {
         entity.ExecutePrimaryAttack();
+        //Pass Turn
     }
     public void AlternateAttack() 
     {
         entity.ExecuteSecondaryAttack();
+        //Pass Turn
     }
     public void Wait() 
     { 
@@ -75,6 +77,7 @@ public class EntityActions : MonoBehaviour
     public void Interact() 
     {
         entity.ExecuteInteraction();
+        //Pass Turn
     }
 
     private IEnumerator Rotate(Vector3 angle, float time)
@@ -87,6 +90,7 @@ public class EntityActions : MonoBehaviour
             yield return null;
         }
         transform.rotation = toAngle;
+        entity.UpdateInteractables();
         lockedInput = false;
     }
 
@@ -103,11 +107,12 @@ public class EntityActions : MonoBehaviour
                 yield return null;
             }
             transform.position = to;
-            //grid.Regenerate();
+            grid.UpdatePassability(to);
+            grid.UpdatePassability(from);
+            entity.UpdateInteractables();
+            //Pass Turn
         }
         lockedInput = false;
-        grid.UpdatePassability(to);
-        grid.UpdatePassability(from);
     }
 }
 

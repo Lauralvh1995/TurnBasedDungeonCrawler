@@ -33,6 +33,8 @@ public abstract class Entity : MonoBehaviour
         }
     }
 
+    public abstract void UpdateInteractables();
+
     public abstract void ExecutePrimaryAttack();
 
     public abstract void ExecuteSecondaryAttack();
@@ -45,6 +47,6 @@ public abstract class Entity : MonoBehaviour
     public abstract bool IsHeavy();
     public virtual void Die()
     {
-        Debug.Log(GetName()+ "died :(");
+        Debug.Log(GetName()+ " died :(");
     }
 }

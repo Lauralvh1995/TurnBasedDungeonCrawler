@@ -50,4 +50,9 @@ public class Enemy : Entity
     {
         return enemyType.GetName();
     }
+
+    public override void UpdateInteractables()
+    {
+        //Enemies don't use interactables for now
+    }
 }
