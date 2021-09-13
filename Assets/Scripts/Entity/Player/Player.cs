@@ -19,7 +19,7 @@ public class Player : Entity
 
     public override void ExecuteInteraction()
     {
-        target.Execute();
+        target?.Execute();
     }
     public override void ExecutePrimaryAttack()
     {
