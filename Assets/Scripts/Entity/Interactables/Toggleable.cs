@@ -22,11 +22,24 @@ public abstract class Toggleable : Interactable
             ChangeState(!on);
     }
 
+    public void Execute(bool eventTriggeredMe)
+    {
+        if(eventTriggeredMe)
+        {
+            ChangeState(!on);
+            locked = true;
+        }
+    }
 
     public override void Execute(Attack interactingAttack, Vector3 origin)
     {
         //TODO: write check for stuff like powerglove/destruction
         //throw new System.NotImplementedException();
+    }
+
+    public void Lock(bool state)
+    {
+        locked = state;
     }
 
     public virtual void ChangeState(bool state)
