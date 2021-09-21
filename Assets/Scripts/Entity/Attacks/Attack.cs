@@ -7,6 +7,7 @@ using UnityEngine;
 public abstract class Attack : ScriptableObject
 {
     [SerializeField] protected string attackName;
+    [SerializeField] protected Sprite iconSprite;
     public string GetAttackName() {
         return attackName;
     }
