@@ -17,6 +17,8 @@ public class Player : Entity
     [SerializeField] List<Interactable> interactables;
     [SerializeField] LayerMask interactableMask;
 
+    [SerializeField] private bool inMapUI;
+
     public override void ExecuteInteraction()
     {
         target?.Execute();
@@ -36,6 +38,14 @@ public class Player : Entity
     public override bool IsHeavy()
     {
         return heavy;
+    }
+    public void SetInMap(bool status)
+    {
+        inMapUI = status;
+    }
+    public bool IsInMap()
+    {
+        return inMapUI;
     }
     public override void SetFlying(bool value)
     {

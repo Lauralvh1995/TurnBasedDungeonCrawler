@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(EntityActions))]
 public class PlayerActions : MonoBehaviour
 {
+    private Player player;
     private PlayerInput playerInput;
     private EntityActions actions;
 
@@ -22,6 +23,7 @@ public class PlayerActions : MonoBehaviour
 
     public void Awake()
     {
+        player = GetComponent<Player>();
         playerInput = GetComponent<PlayerInput>();
         actions = GetComponent<EntityActions>();
 
@@ -53,5 +55,17 @@ public class PlayerActions : MonoBehaviour
     private void OnDisable()
     {
         
+    }
+
+    private void Update()
+    {
+        if (player.IsInMap())
+        {
+            playerInput.enabled = false;
+        }
+        else
+        {
+            playerInput.enabled = true;
+        }
     }
 }

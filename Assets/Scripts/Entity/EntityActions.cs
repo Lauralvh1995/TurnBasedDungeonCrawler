@@ -19,6 +19,7 @@ public class EntityActions : MonoBehaviour
         if(grid == null)
             grid = FindObjectOfType<GridController>();
     }
+
     public void MoveForward() {
         if (!lockedInput)
         {
