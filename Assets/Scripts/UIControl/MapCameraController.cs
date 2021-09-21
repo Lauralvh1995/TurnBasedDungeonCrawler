@@ -6,14 +6,22 @@ public class MapCameraController : MonoBehaviour
 {
     [SerializeField] private Player player;
     [SerializeField] private Vector3 offset;
-
-    void ResetMap()
+    private void OnEnable()
+    {
+        ResetMap();
+    }
+    public void ResetMap()
     {
         transform.position = player.transform.position + offset;
     }
 
-    private void Update()
+    public void GoUp()
     {
-        
+        transform.position += Vector3.up;
+    }
+
+    public void GoDown()
+    {
+        transform.position += Vector3.down;
     }
 }
