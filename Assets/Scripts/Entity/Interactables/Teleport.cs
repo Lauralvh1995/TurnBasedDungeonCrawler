@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Teleport : Interactable
 {
-    [SerializeField] private Vector3 destination;
+    [SerializeField] private Vector3 localDestination;
     [SerializeField] private Player player;
 
     private void Awake()
@@ -13,7 +13,8 @@ public class Teleport : Interactable
     }
     public override void Execute()
     {
-        player.transform.position = destination;
+        player.transform.position += transform.rotation * localDestination;
+        player.UpdateInteractables();
     }
 
     public override void Execute(Attack interactingAttack, Vector3 origin)
@@ -23,6 +24,6 @@ public class Teleport : Interactable
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawSphere(destination, 0.1f);
+        Gizmos.DrawSphere(transform.position + transform.rotation * localDestination, 0.1f);
     }
 }

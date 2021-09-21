@@ -45,7 +45,10 @@ public abstract class Toggleable : Interactable
     public virtual void ChangeState(bool state)
     {
         this.on = state;
-        fill.GetComponent<BoxCollider>().enabled = state;
-        fill.GetComponent<MeshRenderer>().enabled = state;
+        if (fill != null)
+        {
+            fill.GetComponent<BoxCollider>().enabled = state;
+            fill.GetComponent<MeshRenderer>().enabled = state;
+        }
     }
 }

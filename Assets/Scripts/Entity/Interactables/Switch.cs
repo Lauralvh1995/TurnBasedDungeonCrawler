@@ -7,16 +7,16 @@ public class Switch : Interactable
     [SerializeField] private bool on;
     [SerializeField] private bool locked;
 
-    [SerializeField] private List<Toggleable> listeners;
+    [SerializeField] private List<Listener> listeners;
 
     public override void Execute()
     {
         if (!locked)
         {
             on = !on;
-            foreach(Toggleable t in listeners)
+            foreach(Listener l in listeners)
             {
-                t.ChangeState(on);
+                l.Execute();
             }
         }
     }
