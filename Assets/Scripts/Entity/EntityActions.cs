@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(Entity))]
 public class EntityActions : MonoBehaviour
@@ -62,12 +63,14 @@ public class EntityActions : MonoBehaviour
     }
     public void Attack() 
     {
-        entity.ExecutePrimaryAttack();
+        if(!EventSystem.current.IsPointerOverGameObject() || entity is Enemy)
+            entity.ExecutePrimaryAttack();
         //Pass Turn
     }
     public void AlternateAttack() 
     {
-        entity.ExecuteSecondaryAttack();
+        if (!EventSystem.current.IsPointerOverGameObject() || entity is Enemy)
+            entity.ExecuteSecondaryAttack();
         //Pass Turn
     }
     public void Wait() 
