@@ -11,6 +11,7 @@ public class MapCameraController : MonoBehaviour
     [SerializeField] private Player player;
     [SerializeField] private Vector3 offset;
     [SerializeField] private Camera mapCamera;
+    [SerializeField] private RectTransform mapImage;
     private void OnEnable()
     {
         grid = FindObjectOfType<GridController>();
@@ -19,6 +20,7 @@ public class MapCameraController : MonoBehaviour
     }
     public void ResetMap()
     {
+        mapImage.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, mapImage.rect.height);
         transform.position = player.transform.position + offset;
         mapCamera.orthographicSize = defaultZoom;
     }
@@ -53,9 +55,17 @@ public class MapCameraController : MonoBehaviour
     public void ZoomIn()
     {
         mapCamera.orthographicSize--;
+        if(mapCamera.orthographicSize <= 0)
+        {
+            mapCamera.orthographicSize = 1;
+        }
     }
     public void ZoomOut()
     {
         mapCamera.orthographicSize++;
+        if(mapCamera.orthographicSize > 25)
+        {
+            mapCamera.orthographicSize = 25;
+        }
     }
 }

@@ -1051,7 +1051,7 @@ RectTransform:
   m_Children:
   - {fileID: 356330240}
   m_Father: {fileID: 739377431}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -4696,17 +4696,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 447952688}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 739377431}
-  m_RootOrder: 1
+  m_Father: {fileID: 2024132350}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 500, y: 500}
+  m_SizeDelta: {x: -400, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &447952690
 MonoBehaviour:
@@ -7257,7 +7257,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2024132350}
-  - {fileID: 447952689}
   - {fileID: 126656280}
   - {fileID: 1173124851}
   m_Father: {fileID: 898216225}
@@ -9563,7 +9562,7 @@ RectTransform:
   - {fileID: 352631313}
   - {fileID: 933431555}
   m_Father: {fileID: 739377431}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -12197,11 +12196,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f1abae906553b540bd220fcab47d3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultZoom: 10
+  defaultZoom: 5
   grid: {fileID: 0}
   player: {fileID: 721937876}
   offset: {x: 0, y: 0.5, z: 0}
   mapCamera: {fileID: 0}
+  mapImage: {fileID: 447952689}
 --- !u!114 &1600318042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12260,7 +12260,7 @@ Camera:
   far clip plane: 1
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 5
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -15375,7 +15375,8 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 447952689}
   m_Father: {fileID: 739377431}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
