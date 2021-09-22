@@ -6,7 +6,6 @@ public class Switch : Interactable
 {
     [SerializeField] private bool on;
     [SerializeField] private bool locked;
-    [SerializeField] private bool facing;
 
     [SerializeField] private List<Listener> listeners;
 
@@ -14,15 +13,10 @@ public class Switch : Interactable
     {
         if (!locked)
         {
-            RaycastHit hit;
-            Physics.Raycast(transform.position, transform.position + transform.forward, out hit, 1f);
-            if (hit.collider?.GetComponent<Player>() || facing == false)
+            on = !on;
+            foreach (Listener l in listeners)
             {
-                on = !on;
-                foreach (Listener l in listeners)
-                {
-                    l.Execute();
-                }
+                l.Execute();
             }
         }
     }
@@ -31,10 +25,5 @@ public class Switch : Interactable
     {
         //Think about remotely triggerable lever logic and stuff.
         //throw new System.NotImplementedException();
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawLine(transform.position, transform.position + transform.forward);
     }
 }
