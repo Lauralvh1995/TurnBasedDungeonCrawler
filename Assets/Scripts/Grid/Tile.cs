@@ -93,6 +93,15 @@ namespace Assets.Scripts.Grid
             }
         }
 
+        public void SetFlooded(bool status)
+        {
+            isFlooded = status;
+        }
+        public bool GetFlooded()
+        {
+            return isFlooded;
+        }
+
         public void CheckOccupation(Vector3 pos, LayerMask groundMask, LayerMask entityMask)
         {
             if(Physics.CheckSphere(pos + Vector3.left*0.45f, 0.1f, groundMask))

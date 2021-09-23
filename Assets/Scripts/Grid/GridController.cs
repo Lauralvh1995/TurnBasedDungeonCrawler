@@ -49,6 +49,21 @@ namespace Assets.Scripts.Grid
             }
         }
 
+        public void ChangeWaterLevel(int level)
+        {
+            foreach(Tile t in grid.GetGridArray())
+            {
+                if(t.Z <= level)
+                {
+                    t.SetFlooded(true);
+                }
+                else
+                {
+                    t.SetFlooded(false);
+                }
+            }
+        }
+
         public void UpdatePassability(Vector3 pos)
         {
             Tile tile = GetTileFromWorldPosition(pos);
