@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(BoxCollider))]
 public abstract class Trigger : MonoBehaviour, ICanInteract
 {
     [SerializeField] protected List<Attack> requiredAttacks;
