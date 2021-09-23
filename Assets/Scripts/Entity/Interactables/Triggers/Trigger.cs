@@ -4,9 +4,11 @@ using UnityEngine;
 
 public abstract class Trigger : MonoBehaviour, ICanInteract
 {
+    [SerializeField] protected List<Attack> requiredAttacks;
     [SerializeField] protected List<Listener> listeners;
     public virtual void Execute()
     {
+        Debug.Log("Triggered at " + transform.position);
         foreach (Listener l in listeners)
         {
             l.Execute();

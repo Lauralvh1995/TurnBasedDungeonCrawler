@@ -11,6 +11,6 @@ public class PlayerPosition : Condition
     }
     public override bool Check()
     {
-        return player.transform.position == transform.position;
+        return Vector3.Distance(transform.position, player.transform.position) < 0.1f;
     }
 }

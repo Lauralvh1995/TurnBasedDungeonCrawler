@@ -16,10 +16,7 @@ public class Sensor : MonoBehaviour
             triggered = true;
             foreach (Listener listener in listeners)
             {
-                if(listener.GetComponent<Door>() != null)
-                {
-                    listener.Execute();
-                }
+                listener.Execute();
             }
         }
     }

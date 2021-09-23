@@ -14,7 +14,7 @@ public class Teleport : Listener
     }
     public override void Execute()
     {
-        bool check = false;
+         bool check = false;
         foreach(Condition c in conditions)
         {
             check = c.Check();
