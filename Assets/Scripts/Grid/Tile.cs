@@ -7,12 +7,13 @@ using UnityEngine;
 
 namespace Assets.Scripts.Grid
 {
-    public class Tile : IGridObject
+    public class Tile
     {
         private readonly Grid<Tile> tileGrid;
         private int x, y, z;
 
         [SerializeField] private bool occupied;
+        [SerializeField] private bool isFlooded;
 
         [SerializeField] private bool leftWall;
         [SerializeField] private bool rightWall;

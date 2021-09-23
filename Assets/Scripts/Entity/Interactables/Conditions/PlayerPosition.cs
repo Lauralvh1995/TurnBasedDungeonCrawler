@@ -1,0 +1,16 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerPosition : Condition
+{
+    [SerializeField] Player player;
+    private void Awake()
+    {
+        player = FindObjectOfType<Player>();
+    }
+    public override bool Check()
+    {
+        return player.transform.position == transform.position;
+    }
+}

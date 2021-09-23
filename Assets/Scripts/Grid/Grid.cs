@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Assets.Scripts.Grid
 {
     [Serializable]
-    public class Grid<TGridObject> where TGridObject : IGridObject
+    public class Grid<TGridObject>
     {
         private int width;
         private int length;

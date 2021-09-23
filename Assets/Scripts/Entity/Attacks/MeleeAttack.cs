@@ -63,7 +63,7 @@ public class MeleeAttack : Attack
             {
                 c.GetComponent<Entity>()?.KnockBack(origin);
             }
-            c.GetComponent<Interactable>()?.Execute(this, origin.position);
+            c.GetComponent<Trigger>()?.Execute(this, origin.position);
         }
     }
 }

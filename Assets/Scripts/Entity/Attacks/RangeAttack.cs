@@ -49,7 +49,7 @@ public class RangeAttack : Attack
         foreach (Collider c in hits)
         {
             c.GetComponent<Entity>()?.TakeDamage(damage);
-            c.GetComponent<Interactable>()?.Execute(this, origin.position);
+            c.GetComponent<Trigger>()?.Execute(this, origin.position);
         }
         
     }

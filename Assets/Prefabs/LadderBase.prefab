@@ -196,7 +196,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3690308233503811332}
-  - component: {fileID: 4766218294793190845}
   - component: {fileID: 3690308233503811355}
   m_Layer: 0
   m_Name: LadderBase
@@ -224,20 +223,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4766218294793190845
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3690308233503811333}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d6718c3bd19a4847bf4f370c37934da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactables:
-  - {fileID: 3690308233503811355}
 --- !u!114 &3690308233503811355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,10 +235,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eeb6fa08adc1ea46aa3934f7de7c32a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredAttacks: []
+  grid: {fileID: 0}
   localDestination: {x: 0, y: 1, z: 1}
   player: {fileID: 0}
-  grid: {fileID: 0}
 --- !u!1 &5582390359987399737
 GameObject:
   m_ObjectHideFlags: 0
@@ -358,9 +342,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7706404463242833558}
   - component: {fileID: 4914128841377786863}
-  - component: {fileID: 2078551533810168564}
+  - component: {fileID: 6040738277573192178}
   m_Layer: 10
-  m_Name: ReturnSwitch
+  m_Name: ReturnButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -393,7 +377,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3, y: 0.3, z: 0.3}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2078551533810168564
+--- !u!114 &6040738277573192178
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -402,15 +386,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6399216719988810992}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8acb18809fde73d4b912f36373b050bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e6462046bc94444f830db2c00f189b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredAttacks: []
-  on: 0
-  locked: 0
-  facing: 1
   listeners:
-  - {fileID: 4533123190493611237}
+  - {fileID: 5425233859271927840}
 --- !u!1 &6684151915458697623
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,7 +400,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1183550118371957001}
-  - component: {fileID: 4533123190493611237}
   - component: {fileID: 5425233859271927840}
   m_Layer: 0
   m_Name: ReturnBase
@@ -444,20 +423,6 @@ Transform:
   m_Father: {fileID: 3690308233503811332}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4533123190493611237
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6684151915458697623}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d6718c3bd19a4847bf4f370c37934da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactables:
-  - {fileID: 5425233859271927840}
 --- !u!114 &5425233859271927840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -470,10 +435,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eeb6fa08adc1ea46aa3934f7de7c32a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredAttacks: []
+  grid: {fileID: 0}
   localDestination: {x: 0, y: -1, z: -1}
   player: {fileID: 0}
-  grid: {fileID: 0}
 --- !u!1 &8670191563407768717
 GameObject:
   m_ObjectHideFlags: 0
@@ -484,9 +448,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5136114568778472982}
   - component: {fileID: 48094899338407106}
-  - component: {fileID: 2309294551020369489}
+  - component: {fileID: 5639569820393480234}
   m_Layer: 10
-  m_Name: LadderSwitch
+  m_Name: LadderButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -519,7 +483,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3, y: 0.3, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2309294551020369489
+--- !u!114 &5639569820393480234
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -528,12 +492,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 8670191563407768717}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8acb18809fde73d4b912f36373b050bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e6462046bc94444f830db2c00f189b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredAttacks: []
-  on: 0
-  locked: 0
-  facing: 1
   listeners:
-  - {fileID: 4766218294793190845}
+  - {fileID: 3690308233503811355}

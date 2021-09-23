@@ -12,9 +12,9 @@ public class Player : Entity
     [SerializeField] MeleeAttack primaryAttack;
     [SerializeField] RangeAttack secondaryAttack;
 
-    [SerializeField] Interactable target;
+    [SerializeField] ICanInteract target;
     [SerializeField] private int currentTargetIndex = 0;
-    [SerializeField] List<Interactable> interactables;
+    [SerializeField] List<ICanInteract> interactables;
     [SerializeField] LayerMask interactableMask;
 
     [SerializeField] private bool inMapUI;
@@ -71,7 +71,7 @@ public class Player : Entity
         if (hits.Length > 0) {
             foreach (RaycastHit hit in hits)
             {
-                interactables.Add(hit.collider.GetComponent<Interactable>());
+                interactables.Add(hit.collider.GetComponent<ICanInteract>());
             } }
         if (interactables.Count > 0)
         {
