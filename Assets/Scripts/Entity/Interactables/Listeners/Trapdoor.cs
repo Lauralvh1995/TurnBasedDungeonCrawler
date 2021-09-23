@@ -7,11 +7,6 @@ public class Trapdoor : Listener
 {
     [SerializeField] private bool on;
     [SerializeField] private Transform fill;
-    public void Execute(Attack interactingAttack, Vector3 origin)
-    {
-        //TODO: write check for stuff like powerglove/destruction
-        //throw new System.NotImplementedException();
-    }
 
     public void ChangeState(bool state)
     {
