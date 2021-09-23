@@ -47,12 +47,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requiredAttacks: []
+  listeners: []
   on: 1
-  locked: 0
-  listeners:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!65 &8470564989406969182
 BoxCollider:
   m_ObjectHideFlags: 0

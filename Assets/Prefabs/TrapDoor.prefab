@@ -44,11 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5937dc94958c2e44fb7c3c8274a2807c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredAttacks: []
-  on: 0
-  locked: 1
-  fill: {fileID: 7737984859718299733}
+  conditions: []
   grid: {fileID: 0}
+  on: 1
+  fill: {fileID: 7737984859718299733}
 --- !u!1 &7737984859718299732
 GameObject:
   m_ObjectHideFlags: 0

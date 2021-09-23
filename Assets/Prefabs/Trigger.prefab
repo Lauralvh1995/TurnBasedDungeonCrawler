@@ -58,6 +58,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggered: 0
-  listeners:
-  - {fileID: 0}
-  - {fileID: 0}
+  listeners: []
