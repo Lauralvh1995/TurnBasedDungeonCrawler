@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.Grid;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,25 +8,24 @@ using UnityEngine.Events;
 public class WaterLevel : MonoBehaviour
 {
     [SerializeField] private int currentLevel;
-    [SerializeField] private WaterLevelEvent waterLevelChangedEvent;
+    [SerializeField] private GridController grid;
     [SerializeField] Transform waterLevelVisual;
 
-    public void IncreaseLevel()
+    public void ChangeLevel(bool state)
     {
-        currentLevel++;
-        waterLevelVisual.position += Vector3.up;
-        waterLevelChangedEvent?.Invoke(currentLevel);
-    }
-    public void DecreaseLevel()
-    {
-        currentLevel--; 
-        waterLevelVisual.position += Vector3.down;
-        waterLevelChangedEvent?.Invoke(currentLevel);
+        if (state)
+        {
+            currentLevel++;
+            waterLevelVisual.position += Vector3.up;
+            grid.ChangeWaterLevel(currentLevel);
+        }
+        else
+        {
+            currentLevel--;
+            waterLevelVisual.position += Vector3.down;
+            grid.ChangeWaterLevel(currentLevel);
+        }
     }
 }
 
-[Serializable]
-public class WaterLevelEvent : UnityEvent<int>
-{
 
-}

@@ -56,6 +56,7 @@ namespace Assets.Scripts.Grid
                 if(t.Z <= level)
                 {
                     t.SetFlooded(true);
+                    Debug.Log("Flooded " + t.ToString()); ;
                 }
                 else
                 {

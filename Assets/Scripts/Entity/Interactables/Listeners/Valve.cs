@@ -1,26 +1,22 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Valve : Listener
 {
     [SerializeField] private bool on;
-    [SerializeField] private WaterLevel waterLevel;
+    [SerializeField] private WaterLevelEvent waterLevelChanged;
 
-    private void Start()
-    {
-        waterLevel = grid.GetComponent<WaterLevel>();
-    }
     public override void Execute()
     {
         on = !on;
-        if (on)
-        {
-            waterLevel.IncreaseLevel();
-        }
-        else
-        {
-            waterLevel.DecreaseLevel();
-        }
+        waterLevelChanged.Invoke(on);
     }
+}
+[Serializable]
+public class WaterLevelEvent : UnityEvent<bool>
+{
+
 }
