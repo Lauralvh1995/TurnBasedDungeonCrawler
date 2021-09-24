@@ -7,7 +7,7 @@ public class Valve : Listener
     [SerializeField] private bool on;
     [SerializeField] private WaterLevel waterLevel;
 
-    private void Awake()
+    private void Start()
     {
         waterLevel = grid.GetComponent<WaterLevel>();
     }
