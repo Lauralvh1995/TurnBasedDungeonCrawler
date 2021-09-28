@@ -11,8 +11,8 @@ public class Door : Listener
     {
         on = state;
         fill.gameObject.SetActive(on);
-        grid.UpdatePassability(transform.position + transform.rotation * Vector3.forward * 0.5f);
-        grid.UpdatePassability(transform.position + transform.rotation * Vector3.back * 0.5f);
+        GridController.Instance.UpdatePassability(transform.position + transform.rotation * Vector3.forward * 0.5f);
+        GridController.Instance.UpdatePassability(transform.position + transform.rotation * Vector3.back * 0.5f);
     }
 
     public override void Execute()

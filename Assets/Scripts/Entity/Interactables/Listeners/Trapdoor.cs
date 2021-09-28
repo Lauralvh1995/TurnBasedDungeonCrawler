@@ -13,7 +13,7 @@ public class Trapdoor : Listener
         on = state;
         fill.gameObject.SetActive(on);
         Debug.Log("Trapdoor at " + transform.position + " updating");
-        grid.UpdatePassability(transform.position);
+        GridController.Instance.UpdatePassability(transform.position);
     }
 
     public override void Execute()

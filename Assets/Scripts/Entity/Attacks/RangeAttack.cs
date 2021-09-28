@@ -9,6 +9,7 @@ public class RangeAttack : Attack
     [SerializeField, Range(1, 3)] private int radius;
     [SerializeField, Range(1, 5)] private int damage;
     [SerializeField] private bool piercing;
+    [SerializeField] private BeamProperty property;
     public override void Execute(Transform origin)
     {
         Debug.Log("Performed " + attackName);
@@ -20,6 +21,7 @@ public class RangeAttack : Attack
             RaycastHit raycastHit;
             Physics.Raycast(new Ray(nextRayOrigin, origin.rotation * Vector3.forward), out raycastHit, 1f);
             nextRayOrigin = origin.position + (origin.rotation * Vector3.forward * i);
+            property?.ExecuteBeamEffect(nextRayOrigin);
             //if target found, add to targets
             if (raycastHit.collider != null)
             {
@@ -51,6 +53,5 @@ public class RangeAttack : Attack
             c.GetComponent<Entity>()?.TakeDamage(damage);
             c.GetComponent<Trigger>()?.Execute(this, origin.position);
         }
-        
     }
 }

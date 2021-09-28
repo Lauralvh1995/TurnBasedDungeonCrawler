@@ -10,7 +10,6 @@ public class Teleport : Listener
     private void Awake()
     {
         player = FindObjectOfType<Player>();
-        grid = FindObjectOfType<GridController>();
     }
     public override void Execute()
     {
@@ -24,7 +23,7 @@ public class Teleport : Listener
             Vector3 playerOldPos = player.transform.position;
             player.transform.position = transform.position + transform.rotation * localDestination;
             player.UpdateInteractables();
-            grid.UpdatePassability(playerOldPos);
+            GridController.Instance.UpdatePassability(playerOldPos);
         }
     }
 

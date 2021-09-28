@@ -45,7 +45,7 @@ public class Enemy : Entity
         base.Die();
         Vector3 pos = transform.position;
         GetComponent<BoxCollider>().enabled = false;
-        grid.UpdatePassability(pos);
+        GridController.Instance.UpdatePassability(pos);
 
         gameObject.SetActive(false);
         //Debug.Log(enemyType.GetName() + " died");

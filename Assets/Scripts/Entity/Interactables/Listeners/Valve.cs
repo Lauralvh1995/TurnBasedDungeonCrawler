@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class Valve : Listener
 {
     [SerializeField] private bool on;
-    [SerializeField] private WaterLevelEvent waterLevelChanged;
+    [SerializeField] public WaterLevelEvent waterLevelChanged;
 
     public override void Execute()
     {

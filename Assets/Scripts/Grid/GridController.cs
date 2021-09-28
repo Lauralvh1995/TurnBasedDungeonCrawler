@@ -6,17 +6,21 @@ namespace Assets.Scripts.Grid
 {
     public class GridController : MonoBehaviour
     {
+        public static GridController Instance { get; private set; }
         [SerializeField, Range(1, 20)] int gridWidth = 10;
         [SerializeField, Range(1, 20)] int gridLength = 10;
         [SerializeField, Range(1, 10)] int gridHeight = 5;
         [SerializeField] private LayerMask groundMask;
         [SerializeField] private LayerMask entityMask;
 
+        [SerializeField] private WaterLevel level;
+
         [SerializeField]
         Grid<Tile> grid;
 
         private void Awake()
         {
+            Instance = this;
             grid = new Grid<Tile>(gridWidth, gridHeight, gridLength, transform.position, 1f);
             for (int x = 0; x < grid.GetGridArray().GetLength(0); x++)
             {
@@ -27,6 +31,12 @@ namespace Assets.Scripts.Grid
                         grid.GetGridArray()[x, y, z] = new Tile(grid);
                         grid.GetGridArray()[x, y, z].SetCoords(x, y, z);
                         grid.GetGridArray()[x, y, z].CheckOccupation(grid.GetWorldPosition(x, y, z), groundMask, entityMask);
+
+                        if(y <= level.GetCurrentLevel())
+                        {
+                            Debug.Log(grid.GetGridArray()[x, y, z].ToString() + "should be flooded");
+                            grid.GetGridArray()[x, y, z].SetFlooded(true);
+                        }
                     }
                 }
             }
@@ -53,7 +63,7 @@ namespace Assets.Scripts.Grid
         {
             foreach(Tile t in grid.GetGridArray())
             {
-                if(t.Z <= level)
+                if(t.Y <= level)
                 {
                     t.SetFlooded(true);
                     Debug.Log("Flooded " + t.ToString()); ;

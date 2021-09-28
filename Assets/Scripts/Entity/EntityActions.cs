@@ -8,16 +8,12 @@ using UnityEngine.EventSystems;
 public class EntityActions : MonoBehaviour
 {
     [SerializeField] private Entity entity;
-
-    [SerializeField] private GridController grid;
     [SerializeField] private float turnSpeed = 0.1f;
     bool lockedInput;
 
     public void Awake()
     {
         entity = GetComponent<Entity>();
-        if(grid == null)
-            grid = FindObjectOfType<GridController>();
     }
 
     public void MoveForward() {
@@ -103,7 +99,7 @@ public class EntityActions : MonoBehaviour
         Vector3 from = transform.position;
         Vector3 to = transform.position + transform.rotation * direction;
         //TODO: Add flying support
-        if (grid.CanMoveThere(from, to, entity.IsFlying()))
+        if (GridController.Instance.CanMoveThere(from, to, entity.IsFlying()))
         {
             for (float t = 0f; t <= 1; t += Time.deltaTime / time)
             {
@@ -111,8 +107,8 @@ public class EntityActions : MonoBehaviour
                 yield return null;
             }
             transform.position = to;
-            grid.UpdatePassability(to);
-            grid.UpdatePassability(from);
+            GridController.Instance.UpdatePassability(to);
+            GridController.Instance.UpdatePassability(from);
             entity.UpdateInteractables();
             //Pass Turn
         }

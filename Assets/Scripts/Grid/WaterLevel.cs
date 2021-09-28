@@ -8,7 +8,6 @@ using UnityEngine.Events;
 public class WaterLevel : MonoBehaviour
 {
     [SerializeField] private int currentLevel;
-    [SerializeField] private GridController grid;
     [SerializeField] Transform waterLevelVisual;
 
     public void ChangeLevel(bool state)
@@ -17,14 +16,19 @@ public class WaterLevel : MonoBehaviour
         {
             currentLevel++;
             waterLevelVisual.position += Vector3.up;
-            grid.ChangeWaterLevel(currentLevel);
+            GridController.Instance.ChangeWaterLevel(currentLevel);
         }
         else
         {
             currentLevel--;
             waterLevelVisual.position += Vector3.down;
-            grid.ChangeWaterLevel(currentLevel);
+            GridController.Instance.ChangeWaterLevel(currentLevel);
         }
+    }
+
+    public int GetCurrentLevel()
+    {
+        return currentLevel;
     }
 }
 
