@@ -12331,6 +12331,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entity: {fileID: 0}
   turnSpeed: 0.3
+  lockedInput: 0
 --- !u!114 &721937876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28011,6 +28012,7 @@ GameObject:
   - component: {fileID: 1942948469}
   - component: {fileID: 1942948468}
   - component: {fileID: 1942948470}
+  - component: {fileID: 1942948471}
   m_Layer: 0
   m_Name: GridHolder
   m_TagString: Untagged
@@ -28068,6 +28070,59 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLevel: 0
   waterLevelVisual: {fileID: 150308245}
+--- !u!114 &1942948471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942948467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a8c534667466f43b00a37a08c9756e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TurnState: 0
+  onStartPlayerTurn:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 721937875}
+        m_MethodName: LockInput
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onStartEnvironmentTurn:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 721937875}
+        m_MethodName: LockInput
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1942948471}
+        m_MethodName: ProcessEnemies
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  enemies: []
 --- !u!1001 &1949519166
 PrefabInstance:
   m_ObjectHideFlags: 0

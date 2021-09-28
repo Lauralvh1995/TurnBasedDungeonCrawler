@@ -6,10 +6,20 @@ using UnityEngine;
 public class Enemy : Entity
 {
     [SerializeField] EntityStats enemyType;
+    [SerializeField] bool hadTurn = false;
 
     private void Awake()
     {
         health = enemyType.GetMaxHP();
+    }
+    public void TakeAction()
+    {
+        //TODO: write action logic
+    }
+
+    public bool TookTurn()
+    {
+        return hadTurn;
     }
 
     public override void ExecuteInteraction()
@@ -46,7 +56,8 @@ public class Enemy : Entity
         Vector3 pos = transform.position;
         GetComponent<BoxCollider>().enabled = false;
         GridController.Instance.UpdatePassability(pos);
-
+        //remove all listeners from the turn manager
+        //TurnManager.Instance.onStartPlayerTurn.RemoveListener(/*everything belonging to me*/);
         gameObject.SetActive(false);
         //Debug.Log(enemyType.GetName() + " died");
     }

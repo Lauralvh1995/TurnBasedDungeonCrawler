@@ -50,6 +50,7 @@ MonoBehaviour:
   listeners: []
   triggered: 0
   graphic: {fileID: 398246622538355653}
+  brokenMat: {fileID: 2100000, guid: 87e14f28f4d2c3344b7a769f035bcb19, type: 2}
 --- !u!114 &398246622193548108
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ public abstract class TempTileObject : MonoBehaviour
     {
         //add yourself as listener to listeners
     }
-    void OnTurnTick()
+    public virtual void OnTurnTick()
     {
         if (disappearCondition.Check())
         {
@@ -21,11 +21,11 @@ public abstract class TempTileObject : MonoBehaviour
         }
         if (triggered)
         {
-            Die(true);
+            Die();
         }
     }
 
-    protected virtual void Die( bool set)
+    protected virtual void Die()
     {
         //remove yourself as listener from listeners
         Destroy(this);

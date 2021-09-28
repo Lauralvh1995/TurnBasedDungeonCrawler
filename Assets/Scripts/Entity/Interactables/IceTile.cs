@@ -6,6 +6,8 @@ using UnityEngine;
 public class IceTile : TempTileObject
 {
     [SerializeField] Transform graphic;
+    [SerializeField] Material brokenMat;
+    int waitCount = 0;
     private void OnEnable()
     {
         listeners = FindObjectsOfType<Valve>();
@@ -17,9 +19,26 @@ public class IceTile : TempTileObject
                 v.waterLevelChanged.AddListener(Die);
             }
         }
+        TurnManager.Instance.onStartEnvironmentTurn.AddListener(OnTurnTick);
     }
 
-    protected override void Die(bool set)
+    public override void OnTurnTick()
+    {
+        if (disappearCondition.Check())
+        {
+            triggered = true;
+            graphic.GetComponent<Renderer>().material = brokenMat;
+        }
+
+        if (triggered)
+        {
+            waitCount++;
+            if(waitCount > 1)
+                Die(true);
+        }
+    }
+
+    protected void Die(bool set)
     {
         foreach (Listener l in listeners)
         {
@@ -29,6 +48,7 @@ public class IceTile : TempTileObject
                 v.waterLevelChanged.RemoveListener(Die);
             }
         }
+        TurnManager.Instance.onStartEnvironmentTurn.RemoveListener(OnTurnTick);
         Vector3 pos = transform.position;
         graphic.GetComponent<BoxCollider>().enabled = false;
         GridController.Instance.UpdatePassability(pos);

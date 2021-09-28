@@ -9,11 +9,16 @@ public class EntityActions : MonoBehaviour
 {
     [SerializeField] private Entity entity;
     [SerializeField] private float turnSpeed = 0.1f;
-    bool lockedInput;
+    [SerializeField] bool lockedInput;
 
     public void Awake()
     {
         entity = GetComponent<Entity>();
+    }
+
+    public void LockInput(bool state)
+    {
+        lockedInput = state;
     }
 
     public void MoveForward() {
@@ -60,24 +65,36 @@ public class EntityActions : MonoBehaviour
     }
     public void Attack() 
     {
-        if(!EventSystem.current.IsPointerOverGameObject() || entity is Enemy)
-            entity.ExecutePrimaryAttack();
-        //Pass Turn
+        if (!lockedInput)
+        {
+            if (!EventSystem.current.IsPointerOverGameObject() || entity is Enemy)
+                entity.ExecutePrimaryAttack();
+            TurnManager.Instance.PassTurn();
+        }
     }
-    public void AlternateAttack() 
+    public void AlternateAttack()
     {
-        if (!EventSystem.current.IsPointerOverGameObject() || entity is Enemy)
-            entity.ExecuteSecondaryAttack();
-        //Pass Turn
+        if (!lockedInput)
+        {
+            if (!EventSystem.current.IsPointerOverGameObject() || entity is Enemy)
+                entity.ExecuteSecondaryAttack();
+            TurnManager.Instance.PassTurn();
+        }
     }
     public void Wait() 
-    { 
-        //Pass turn
+    {
+        if (!lockedInput)
+        {
+            TurnManager.Instance.PassTurn();
+        }
     }
     public void Interact() 
     {
-        entity.ExecuteInteraction();
-        //Pass Turn
+        if (!lockedInput)
+        {
+            entity.ExecuteInteraction();
+            TurnManager.Instance.PassTurn();
+        }
     }
 
     private IEnumerator Rotate(Vector3 angle, float time)
@@ -98,7 +115,6 @@ public class EntityActions : MonoBehaviour
     {
         Vector3 from = transform.position;
         Vector3 to = transform.position + transform.rotation * direction;
-        //TODO: Add flying support
         if (GridController.Instance.CanMoveThere(from, to, entity.IsFlying()))
         {
             for (float t = 0f; t <= 1; t += Time.deltaTime / time)
@@ -110,7 +126,7 @@ public class EntityActions : MonoBehaviour
             GridController.Instance.UpdatePassability(to);
             GridController.Instance.UpdatePassability(from);
             entity.UpdateInteractables();
-            //Pass Turn
+            TurnManager.Instance.PassTurn();
         }
         lockedInput = false;
     }

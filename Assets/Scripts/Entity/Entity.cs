@@ -16,7 +16,6 @@ public abstract class Entity : MonoBehaviour
             Die();
         }
     }
-
     protected abstract string GetName();
 
     public void KnockBack(Transform culprit)
