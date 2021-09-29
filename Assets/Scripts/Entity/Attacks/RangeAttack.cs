@@ -9,7 +9,6 @@ public class RangeAttack : Attack
     [SerializeField, Range(1, 3)] private int radius;
     [SerializeField, Range(1, 5)] private int damage;
     [SerializeField] private bool piercing;
-    [SerializeField] private AttackProperty property;
     public override void Execute(Transform origin)
     {
         Debug.Log("Performed " + attackName);

@@ -12350,6 +12350,13 @@ MonoBehaviour:
   heavy: 0
   primaryAttack: {fileID: 11400000, guid: f0c17ccae4a9fe14d9adef8715e9dfa4, type: 2}
   secondaryAttack: {fileID: 11400000, guid: a6d1865ecbbc85f4b82a0ebf3183cc51, type: 2}
+  possibleMeleeAttacks:
+  - {fileID: 11400000, guid: f0c17ccae4a9fe14d9adef8715e9dfa4, type: 2}
+  - {fileID: 11400000, guid: 7ebc32024664d1d45be0b64e75eaa05a, type: 2}
+  possibleRangeAttacks:
+  - {fileID: 11400000, guid: c860243ed3a18064294bcdbc4090c000, type: 2}
+  - {fileID: 11400000, guid: a6d1865ecbbc85f4b82a0ebf3183cc51, type: 2}
+  - {fileID: 11400000, guid: 63429a789a85098499fab4cfcff17210, type: 2}
   target: {fileID: 0}
   currentTargetIndex: 0
   interactables: []

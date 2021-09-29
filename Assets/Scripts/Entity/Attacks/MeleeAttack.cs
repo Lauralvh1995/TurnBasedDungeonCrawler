@@ -8,7 +8,6 @@ public class MeleeAttack : Attack
 {
     [SerializeField, Range(1, 5)] private int damage;
     [SerializeField, Range(1, 3)] private int size;
-    [SerializeField] private bool knockback;
     [SerializeField] private TargetingMode mode;
     public override void Execute(Transform origin)
     {
@@ -58,11 +57,7 @@ public class MeleeAttack : Attack
         //if target is interactable, check if it triggers
         foreach (Collider c in hits)
         {
-            c.GetComponent<Entity>()?.TakeDamage(damage);
-            if (knockback)
-            {
-                c.GetComponent<Entity>()?.KnockBack(origin);
-            }
+            property.ExecuteAttackProperty(origin.position);
             c.GetComponent<Trigger>()?.Execute(this, origin.position);
         }
     }

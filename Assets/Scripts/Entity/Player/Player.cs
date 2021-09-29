@@ -11,6 +11,8 @@ public class Player : Entity
 
     [SerializeField] MeleeAttack primaryAttack;
     [SerializeField] RangeAttack secondaryAttack;
+    [SerializeField] List<MeleeAttack> possibleMeleeAttacks;
+    [SerializeField] List<RangeAttack> possibleRangeAttacks;
 
     [SerializeField] Trigger target;
     [SerializeField] private int currentTargetIndex = 0;

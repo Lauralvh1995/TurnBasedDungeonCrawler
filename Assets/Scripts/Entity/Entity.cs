@@ -18,19 +18,6 @@ public abstract class Entity : MonoBehaviour
     }
     protected abstract string GetName();
 
-    public void KnockBack(Transform culprit)
-    {
-        if (!IsHeavy())
-        {
-            bool originallyFlying = IsFlying();
-            SetFlying(true);
-            //TODO: check which direction you should fly, prioritizing the culprit's front and back
-
-
-            SetFlying(originallyFlying);
-        }
-    }
-
     public abstract void UpdateInteractables();
 
     public abstract void ExecutePrimaryAttack();
