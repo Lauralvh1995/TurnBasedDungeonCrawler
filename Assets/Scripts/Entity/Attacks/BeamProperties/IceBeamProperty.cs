@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName ="Ice Beam Property", menuName ="RangedAttacks/Beam Properties/Ice Beam")]
-public class IceBeamProperty : BeamProperty
+[CreateAssetMenu(fileName ="Ice Beam Property", menuName ="Attacks/Attack Properties/Ice Beam")]
+public class IceBeamProperty : AttackProperty
 {
     [SerializeField] Transform iceTilePrefab;
-    public override void ExecuteBeamEffect(Vector3 location)
+    public override void ExecuteAttackProperty(Vector3 location)
     {
         Debug.Log("Executing Beam Effect");
         Tile currentTile = GridController.Instance.GetTileFromWorldPosition(location);
