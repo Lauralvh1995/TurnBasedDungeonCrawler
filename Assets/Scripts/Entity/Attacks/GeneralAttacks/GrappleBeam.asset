@@ -9,8 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f035a76342203ec4f9dfb2f7e8a19956, type: 3}
-  m_Name: IceBeam
+  m_Script: {fileID: 11500000, guid: 4d1067570dcbb0146af351d4b96cc6e7, type: 3}
+  m_Name: GrappleBeam
   m_EditorClassIdentifier: 
-  iceTilePrefab: {fileID: 398246622193548110, guid: 621844aaefd492140a19cd0bb2251e67,
-    type: 3}
+  attackName: Grapple Beam
+  iconSprite: {fileID: 0}
+  range: 3
+  radius: 1
+  damage: 2
+  piercing: 0
+  property: {fileID: 11400000, guid: 856fd96dc9add3c46a99a500d7f117de, type: 2}
