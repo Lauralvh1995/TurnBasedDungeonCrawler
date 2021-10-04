@@ -18,9 +18,16 @@ public class Door : Listener
     public override void Execute()
     {
         bool check = false;
-        foreach(Condition c in conditions)
+        if (conditions.Count > 0)
         {
-            check = c.Check();
+            foreach (Condition c in conditions)
+            {
+                check = c.Check();
+            }
+        }
+        else
+        {
+            check = true;
         }
         if (check)
         {

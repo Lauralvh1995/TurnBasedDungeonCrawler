@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 2148449445285962442}
   - component: {fileID: 2148449445285962444}
   - component: {fileID: 2148449445285962445}
-  - component: {fileID: 2673313128085232770}
+  - component: {fileID: 5744502030761022696}
   m_Layer: 10
   m_Name: Door
   m_TagString: Untagged
@@ -140,10 +140,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conditions: []
-  grid: {fileID: 0}
   on: 1
   fill: {fileID: 2148449445362760656}
---- !u!114 &2673313128085232770
+--- !u!114 &5744502030761022696
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

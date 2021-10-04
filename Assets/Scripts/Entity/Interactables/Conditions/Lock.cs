@@ -7,7 +7,7 @@ public class Lock : Condition
     [SerializeField] private bool locked;
     public override bool Check()
     {
-        return locked;
+        return !locked;
     }
 
     public void Unlock()
