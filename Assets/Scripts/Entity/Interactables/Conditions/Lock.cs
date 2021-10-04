@@ -9,4 +9,9 @@ public class Lock : Condition
     {
         return locked;
     }
+
+    public void Unlock()
+    {
+        locked = false;
+    }
 }
