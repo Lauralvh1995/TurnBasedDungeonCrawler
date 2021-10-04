@@ -57,7 +57,7 @@ public class MeleeAttack : Attack
         //if target is interactable, check if it triggers
         foreach (Collider c in hits)
         {
-            property.ExecuteAttackProperty(origin.position);
+            property?.ExecuteAttackProperty(origin.position);
             c.GetComponent<Trigger>()?.Execute(this, origin.position);
         }
     }

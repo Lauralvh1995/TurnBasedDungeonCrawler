@@ -73,7 +73,7 @@ namespace Assets.Scripts.Grid
             get => x; set
             {
                 x = value;
-                Debug.Log(x);
+                //Debug.Log(x);
             }
         }
         public int Y
@@ -81,7 +81,7 @@ namespace Assets.Scripts.Grid
             get => y; set
             {
                 y = value;
-                Debug.Log(y);
+                //Debug.Log(y);
             }
         }
         public int Z
@@ -89,7 +89,7 @@ namespace Assets.Scripts.Grid
             get => z; set
             {
                 z = value;
-                Debug.Log(z);
+                //Debug.Log(z);
             }
         }
 
@@ -186,7 +186,7 @@ namespace Assets.Scripts.Grid
             {
                 Gizmos.color = passableColor;
             }
-            Gizmos.DrawWireCube(pos + Vector3.left * .5f + new Vector3(0.05f, 0, 0f), new Vector3(0.1f, 1f, 1f));
+            //Gizmos.DrawWireCube(pos + Vector3.left * .5f + new Vector3(0.05f, 0, 0f), new Vector3(0.1f, 1f, 1f));
             if (rightWall)
             {
                 Gizmos.color = impassableColor;
@@ -195,7 +195,7 @@ namespace Assets.Scripts.Grid
             {
                 Gizmos.color = passableColor;
             }
-            Gizmos.DrawWireCube(pos + Vector3.right * .5f - new Vector3(0.05f, 0, 0f), new Vector3(0.1f, 1f, 1f));
+            //Gizmos.DrawWireCube(pos + Vector3.right * .5f - new Vector3(0.05f, 0, 0f), new Vector3(0.1f, 1f, 1f));
             if (backWall)
             {
                 Gizmos.color = impassableColor;
@@ -204,7 +204,7 @@ namespace Assets.Scripts.Grid
             {
                 Gizmos.color = passableColor;
             }
-            Gizmos.DrawWireCube(pos + Vector3.back * .5f + new Vector3(0, 0, 0.05f), new Vector3(1f, 1f, .1f));
+            //Gizmos.DrawWireCube(pos + Vector3.back * .5f + new Vector3(0, 0, 0.05f), new Vector3(1f, 1f, .1f));
             if (frontWall)
             {
                 Gizmos.color = impassableColor;
@@ -213,7 +213,7 @@ namespace Assets.Scripts.Grid
             {
                 Gizmos.color = passableColor;
             }
-            Gizmos.DrawWireCube(pos + Vector3.forward * .5f - new Vector3(0, 0, 0.05f), new Vector3(1f, 1f, .1f));
+            //Gizmos.DrawWireCube(pos + Vector3.forward * .5f - new Vector3(0, 0, 0.05f), new Vector3(1f, 1f, .1f));
             if (floor)
             {
                 Gizmos.color = passableColor;
@@ -231,7 +231,7 @@ namespace Assets.Scripts.Grid
             {
                 Gizmos.color = passableColor;
             }
-            Gizmos.DrawWireCube(pos + (Vector3.up * .5f) - new Vector3(0, 0.05f, 0) , new Vector3(1f, .1f, 1f));
+            //Gizmos.DrawWireCube(pos + (Vector3.up * .5f) - new Vector3(0, 0.05f, 0) , new Vector3(1f, .1f, 1f));
 
             if (occupied)
             {
@@ -241,13 +241,13 @@ namespace Assets.Scripts.Grid
             {
                 Gizmos.color = inoccupiedColor;
             }
-            Gizmos.DrawCube(pos, new Vector3(0.3f, 0.3f, 0.3f));
+            //Gizmos.DrawCube(pos, new Vector3(0.3f, 0.3f, 0.3f));
 
             
         }
         public override string ToString()
         {
-            return "Tile: {" + x +","+ y + "," + z + "}";
+            return "Tile: {" + X +","+ Y + "," + Z + "}";
         }
     }
 }

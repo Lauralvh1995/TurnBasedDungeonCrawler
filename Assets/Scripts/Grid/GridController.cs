@@ -54,6 +54,14 @@ namespace Assets.Scripts.Grid
                         grid.GetGridArray()[x, y, z] = new Tile(grid);
                         grid.GetGridArray()[x, y, z].SetCoords(x, y, z);
                         grid.GetGridArray()[x, y, z].CheckOccupation(grid.GetWorldPosition(x, y, z), groundMask, entityMask);
+                        if(y <= level.GetCurrentLevel())
+                        {
+                            grid.GetGridArray()[x, y, z].SetFlooded(true);
+                        }
+                        else
+                        {
+                            grid.GetGridArray()[x, y, z].SetFlooded(false);
+                        }
                     }
                 }
             }
@@ -83,6 +91,14 @@ namespace Assets.Scripts.Grid
             {
                 tile.CheckOccupation(pos, groundMask, entityMask);
                 Debug.Log(tile.ToString());
+                if (tile.Y <= level.GetCurrentLevel())
+                {
+                    tile.SetFlooded(true);
+                }
+                else
+                {
+                    tile.SetFlooded(false);
+                }
                 //tile.GetNeighbours();
             }
         }

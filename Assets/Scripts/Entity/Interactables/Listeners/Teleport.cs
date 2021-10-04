@@ -29,6 +29,6 @@ public class Teleport : Listener
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawSphere(transform.position + transform.rotation * localDestination, 0.1f);
+        //Gizmos.DrawSphere(transform.position + transform.rotation * localDestination, 0.1f);
     }
 }
