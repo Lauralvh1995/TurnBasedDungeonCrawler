@@ -24,6 +24,7 @@ public class WaterLevel : MonoBehaviour
             waterLevelVisual.position += Vector3.down;
             GridController.Instance.ChangeWaterLevel(currentLevel);
         }
+        
     }
 
     public int GetCurrentLevel()

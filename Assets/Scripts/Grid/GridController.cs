@@ -66,12 +66,13 @@ namespace Assets.Scripts.Grid
                 if(t.Y <= level)
                 {
                     t.SetFlooded(true);
-                    Debug.Log("Flooded " + t.ToString()); ;
+                    Debug.Log("Flooded " + t.ToString());
                 }
                 else
                 {
                     t.SetFlooded(false);
                 }
+                UpdatePassability(grid.GetWorldPosition(t.X, t.Y, t.Z));  //Somehow this doesn't update the tiles that just gained a floor :(
             }
         }
 

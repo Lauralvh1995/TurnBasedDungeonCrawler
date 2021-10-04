@@ -47,7 +47,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conditions: []
-  grid: {fileID: 0}
   on: 0
   waterLevelChanged:
     m_PersistentCalls:
@@ -117,7 +116,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1845317288713822769}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0.361}
+  m_LocalPosition: {x: 0, y: 0, z: 0.4}
   m_LocalScale: {x: 0.3, y: 0.05, z: 0.3}
   m_Children:
   - {fileID: 1845317289252053702}

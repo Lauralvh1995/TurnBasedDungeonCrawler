@@ -73,7 +73,7 @@ namespace Assets.Scripts.Grid
             get => x; set
             {
                 x = value;
-                //Debug.Log(x);
+                Debug.Log(x);
             }
         }
         public int Y
@@ -81,7 +81,7 @@ namespace Assets.Scripts.Grid
             get => y; set
             {
                 y = value;
-                //Debug.Log(y);
+                Debug.Log(y);
             }
         }
         public int Z
@@ -89,7 +89,7 @@ namespace Assets.Scripts.Grid
             get => z; set
             {
                 z = value;
-                //Debug.Log(z);
+                Debug.Log(z);
             }
         }
 
@@ -104,7 +104,7 @@ namespace Assets.Scripts.Grid
 
         public void CheckOccupation(Vector3 pos, LayerMask groundMask, LayerMask entityMask)
         {
-            if(Physics.CheckSphere(pos + Vector3.left*0.45f, 0.1f, groundMask))
+            if(Physics.CheckSphere(pos + Vector3.left*0.45f, 0.2f, groundMask))
             {
                 leftWall = true;
                 RemoveNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.left));
@@ -114,7 +114,7 @@ namespace Assets.Scripts.Grid
                 leftWall = false;
                 AddNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.left));
             }
-            if (Physics.CheckSphere(pos + Vector3.right * 0.45f, 0.1f, groundMask))
+            if (Physics.CheckSphere(pos + Vector3.right * 0.45f, 0.2f, groundMask))
             {
                 rightWall = true;
                 RemoveNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.right));
@@ -124,7 +124,7 @@ namespace Assets.Scripts.Grid
                 rightWall = false;
                 AddNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.right));
             }
-            if (Physics.CheckSphere(pos + Vector3.forward * 0.45f, 0.1f, groundMask))
+            if (Physics.CheckSphere(pos + Vector3.forward * 0.45f, 0.2f, groundMask))
             {
                 frontWall = true;
                 RemoveNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.forward));
@@ -134,7 +134,7 @@ namespace Assets.Scripts.Grid
                 frontWall = true;
                 AddNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.forward));
             }
-            if (Physics.CheckSphere(pos + Vector3.back * 0.45f, 0.1f, groundMask))
+            if (Physics.CheckSphere(pos + Vector3.back * 0.45f, 0.2f, groundMask))
             {
                 backWall = true;
                 RemoveNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.back));
@@ -144,7 +144,7 @@ namespace Assets.Scripts.Grid
                 backWall = false;
                 AddNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.back));
             }
-            if (Physics.CheckSphere(pos + Vector3.up * 0.45f, 0.1f, groundMask))
+            if (Physics.CheckSphere(pos + Vector3.up * 0.45f, 0.2f, groundMask))
             {
                 ceiling = true;
                 RemoveNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.up));
@@ -154,7 +154,7 @@ namespace Assets.Scripts.Grid
                 ceiling = false;
                 AddNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.up));
             }
-            if (Physics.CheckSphere(pos + Vector3.down * 0.45f, 0.1f, groundMask))
+            if (Physics.CheckSphere(pos + Vector3.down * 0.45f, 0.2f, groundMask))
             {
                 floor = true;
                 RemoveNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.down));
