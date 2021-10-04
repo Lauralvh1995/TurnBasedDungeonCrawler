@@ -6,14 +6,14 @@ using UnityEngine;
 namespace Assets.Scripts.Grid
 {
     [Serializable]
-    public class Grid<TGridObject>
+    public class Grid<Tile>
     {
         private int width;
         private int length;
         private int height;
         private float cellSize;
         private Vector3 origin;
-        private TGridObject[,,] gridArray;
+        private Tile[,,] gridArray;
 
         public Grid(int width, int length, int height, Vector3 origin, float cellSize)
         {
@@ -23,10 +23,10 @@ namespace Assets.Scripts.Grid
             this.origin = origin;
             this.cellSize = cellSize;
 
-            gridArray = new TGridObject[width, length, height];
+            gridArray = new Tile[width, length, height];
         }
 
-        public TGridObject[,,] GetGridArray()
+        public Tile[,,] GetGridArray()
         {
             return gridArray;
         }
@@ -35,7 +35,7 @@ namespace Assets.Scripts.Grid
             return new Vector3(x, y, z)*cellSize + origin;
         }
 
-        public TGridObject GetFromWorldPosition(Vector3 pos)
+        public Tile GetFromWorldPosition(Vector3 pos)
         {
             Vector3 newPos = pos - origin;
             int x = Mathf.RoundToInt(newPos.x/cellSize);

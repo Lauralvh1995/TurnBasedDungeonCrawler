@@ -11,6 +11,7 @@ namespace Assets.Scripts.Grid
     {
         private readonly Grid<Tile> tileGrid;
         private int x, y, z;
+        private Vector3 worldPos;
 
         [SerializeField] private bool occupied;
         [SerializeField] private bool isFlooded;
@@ -59,6 +60,16 @@ namespace Assets.Scripts.Grid
             X = x;
             Y = y;
             Z = z;
+        }
+
+        public void SetWorldPosition(Vector3 pos)
+        {
+            worldPos = pos;
+        }
+
+        public Vector3 GetWorldPosition()
+        {
+            return worldPos;
         }
 
         public bool LeftWall { get => leftWall; set => leftWall = value; }

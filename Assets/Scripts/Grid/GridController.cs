@@ -30,12 +30,17 @@ namespace Assets.Scripts.Grid
                     {
                         grid.GetGridArray()[x, y, z] = new Tile(grid);
                         grid.GetGridArray()[x, y, z].SetCoords(x, y, z);
+                        grid.GetGridArray()[x, y, z].SetWorldPosition(grid.GetWorldPosition(x, y, z));
                         grid.GetGridArray()[x, y, z].CheckOccupation(grid.GetWorldPosition(x, y, z), groundMask, entityMask);
 
                         if(y <= level.GetCurrentLevel())
                         {
                             Debug.Log(grid.GetGridArray()[x, y, z].ToString() + "should be flooded");
                             grid.GetGridArray()[x, y, z].SetFlooded(true);
+                        }
+                        else
+                        {
+                            grid.GetGridArray()[x, y, z].SetFlooded(false);
                         }
                     }
                 }
@@ -53,6 +58,7 @@ namespace Assets.Scripts.Grid
                     {
                         grid.GetGridArray()[x, y, z] = new Tile(grid);
                         grid.GetGridArray()[x, y, z].SetCoords(x, y, z);
+                        grid.GetGridArray()[x, y, z].SetWorldPosition(grid.GetWorldPosition(x, y, z));
                         grid.GetGridArray()[x, y, z].CheckOccupation(grid.GetWorldPosition(x, y, z), groundMask, entityMask);
                         if(y <= level.GetCurrentLevel())
                         {
@@ -67,11 +73,11 @@ namespace Assets.Scripts.Grid
             }
         }
 
-        public void ChangeWaterLevel(int level)
+        public void ChangeWaterLevel()
         {
             foreach(Tile t in grid.GetGridArray())
             {
-                if(t.Y <= level)
+                if(t.Y <= level.GetCurrentLevel())
                 {
                     t.SetFlooded(true);
                     Debug.Log("Flooded " + t.ToString());
@@ -80,8 +86,9 @@ namespace Assets.Scripts.Grid
                 {
                     t.SetFlooded(false);
                 }
-                UpdatePassability(grid.GetWorldPosition(t.X, t.Y, t.Z));  //Somehow this doesn't update the tiles that just gained a floor :(
+                UpdatePassability(t.GetWorldPosition());
             }
+            //Regenerate();
         }
 
         public void UpdatePassability(Vector3 pos)
@@ -114,6 +121,11 @@ namespace Assets.Scripts.Grid
             x = tile.X;
             y = tile.Y;
             z = tile.Z;
+        }
+
+        public Vector3 GetWorldPositionFromTile(Tile t)
+        {
+            return t.GetWorldPosition();
         }
 
         public bool CanMoveThere(Vector3 currentPos, Vector3 destination, bool isFlying)

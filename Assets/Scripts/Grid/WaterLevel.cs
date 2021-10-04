@@ -10,21 +10,33 @@ public class WaterLevel : MonoBehaviour
     [SerializeField] private int currentLevel;
     [SerializeField] Transform waterLevelVisual;
 
+    [SerializeField] private float waterChangeSpeed = 0.3f;
+
     public void ChangeLevel(bool state)
     {
         if (state)
         {
             currentLevel++;
-            waterLevelVisual.position += Vector3.up;
-            GridController.Instance.ChangeWaterLevel(currentLevel);
+            StartCoroutine(ChangeWaterLevel(Vector3.up));
         }
         else
         {
             currentLevel--;
-            waterLevelVisual.position += Vector3.down;
-            GridController.Instance.ChangeWaterLevel(currentLevel);
+            StartCoroutine(ChangeWaterLevel(Vector3.down));
         }
-        GridController.Instance.Regenerate();
+    }
+
+    IEnumerator ChangeWaterLevel(Vector3 dir)
+    {
+        Vector3 from = waterLevelVisual.position;
+        Vector3 to = waterLevelVisual.position + dir;
+        
+        for (float t = 0f; t <= 1; t += Time.deltaTime / waterChangeSpeed)
+        {
+            waterLevelVisual.position = Vector3.Lerp(from, to, t);
+            yield return null;
+        }
+        GridController.Instance.ChangeWaterLevel();
     }
 
     public int GetCurrentLevel()
