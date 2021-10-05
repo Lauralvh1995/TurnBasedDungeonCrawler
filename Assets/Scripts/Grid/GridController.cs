@@ -13,7 +13,7 @@ namespace Assets.Scripts.Grid
         [SerializeField] private LayerMask groundMask;
         [SerializeField] private LayerMask entityMask;
 
-        [SerializeField] private WaterLevel level;
+        [SerializeField] private List<WaterLevel> waterLevels;
 
         [SerializeField]
         Grid<Tile> grid;
@@ -21,30 +21,8 @@ namespace Assets.Scripts.Grid
         private void Awake()
         {
             Instance = this;
-            grid = new Grid<Tile>(gridWidth, gridHeight, gridLength, transform.position, 1f);
-            for (int x = 0; x < grid.GetGridArray().GetLength(0); x++)
-            {
-                for (int y = 0; y < grid.GetGridArray().GetLength(1); y++)
-                {
-                    for (int z = 0; z < grid.GetGridArray().GetLength(2); z++)
-                    {
-                        grid.GetGridArray()[x, y, z] = new Tile(grid);
-                        grid.GetGridArray()[x, y, z].SetCoords(x, y, z);
-                        grid.GetGridArray()[x, y, z].SetWorldPosition(grid.GetWorldPosition(x, y, z));
-                        grid.GetGridArray()[x, y, z].CheckOccupation(grid.GetWorldPosition(x, y, z), groundMask, entityMask);
-
-                        if(y <= level.GetCurrentLevel())
-                        {
-                            Debug.Log(grid.GetGridArray()[x, y, z].ToString() + "should be flooded");
-                            grid.GetGridArray()[x, y, z].SetFlooded(true);
-                        }
-                        else
-                        {
-                            grid.GetGridArray()[x, y, z].SetFlooded(false);
-                        }
-                    }
-                }
-            }
+            //grid = new Grid<Tile>(gridWidth, gridHeight, gridLength, transform.position, 1f);
+            Regenerate();
         }
 
         public void Regenerate()
@@ -60,24 +38,23 @@ namespace Assets.Scripts.Grid
                         grid.GetGridArray()[x, y, z].SetCoords(x, y, z);
                         grid.GetGridArray()[x, y, z].SetWorldPosition(grid.GetWorldPosition(x, y, z));
                         grid.GetGridArray()[x, y, z].CheckOccupation(grid.GetWorldPosition(x, y, z), groundMask, entityMask);
-                        if(y <= level.GetCurrentLevel())
-                        {
-                            grid.GetGridArray()[x, y, z].SetFlooded(true);
-                        }
-                        else
-                        {
-                            grid.GetGridArray()[x, y, z].SetFlooded(false);
-                        }
                     }
                 }
             }
+            //check for all water levels
+            foreach (WaterLevel level in waterLevels)
+            {
+                ChangeWaterLevel(level.GetCurrentLevel(), level.GetLowerBound(), level.GetUpperBound());
+            }
         }
 
-        public void ChangeWaterLevel()
+        public void ChangeWaterLevel(int currentLevel, Vector3 lower, Vector3 upper)
         {
             foreach(Tile t in grid.GetGridArray())
             {
-                if(t.Y <= level.GetCurrentLevel())
+                if((t.GetWorldPosition().x >= lower.x && t.GetWorldPosition().x <= upper.x ) && (t.GetWorldPosition().z >= lower.z && t.GetWorldPosition().z <= upper.z))
+
+                if(t.Y <= currentLevel)
                 {
                     t.SetFlooded(true);
                     Debug.Log("Flooded " + t.ToString());
@@ -88,7 +65,6 @@ namespace Assets.Scripts.Grid
                 }
                 UpdatePassability(t.GetWorldPosition());
             }
-            //Regenerate();
         }
 
         public void UpdatePassability(Vector3 pos)
@@ -98,14 +74,14 @@ namespace Assets.Scripts.Grid
             {
                 tile.CheckOccupation(pos, groundMask, entityMask);
                 Debug.Log(tile.ToString());
-                if (tile.Y <= level.GetCurrentLevel())
+                /*if (tile.Y <= level.GetCurrentLevel())
                 {
                     tile.SetFlooded(true);
                 }
                 else
                 {
                     tile.SetFlooded(false);
-                }
+                }*/
                 //tile.GetNeighbours();
             }
         }
