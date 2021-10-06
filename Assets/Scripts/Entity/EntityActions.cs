@@ -17,84 +17,121 @@ public class EntityActions : MonoBehaviour
         entity = GetComponent<Entity>();
     }
 
+    public void CheckFloor()
+    {
+        if (!GridController.Instance.GetTileFromWorldPosition(transform.position).Floor)
+        {
+            lockedInput = true;
+            if (!entity.IsFlying())
+            {
+                StartCoroutine(FallDown());
+            }
+        }
+    }
+
+    public IEnumerator FallDown()
+    {
+        Vector3 from = transform.position;
+        Vector3 to = transform.position + Vector3.down;
+
+        for (float t = 0f; t <= 1; t += Time.deltaTime / turnSpeed)
+        {
+            transform.position = Vector3.Lerp(from, to, t);
+            yield return null;
+        }
+        transform.position = to;
+        GridController.Instance.UpdatePassability(to);
+        GridController.Instance.UpdatePassability(from);
+        entity.UpdateInteractables();
+
+        lockedInput = false;
+        CheckFloor();
+    }
+
     public void LockInput(bool state)
     {
         lockedInput = state;
     }
 
-    public void MoveForward() {
-        if (!lockedInput)
+    public void MoveForward()
+    {
+        if (!lockedInput && TurnManager.Instance.TurnState == requiredPhase)
         {
             lockedInput = true;
             StartCoroutine(Move(Vector3.forward, turnSpeed));
         }
     }
-    public void MoveBackward() {
-        if (!lockedInput)
+    public void MoveBackward()
+    {
+        if (!lockedInput && TurnManager.Instance.TurnState == requiredPhase)
         {
             lockedInput = true;
             StartCoroutine(Move(Vector3.back, turnSpeed));
         }
     }
-    public void TurnLeft() {
-        if (!lockedInput)
+    public void TurnLeft()
+    {
+        if (!lockedInput && TurnManager.Instance.TurnState == requiredPhase)
         {
             lockedInput = true;
             StartCoroutine(Rotate(Vector3.up * -90, turnSpeed));
         }
     }
-    public void TurnRight() {
-        if (!lockedInput)
+    public void TurnRight()
+    {
+        if (!lockedInput && TurnManager.Instance.TurnState == requiredPhase)
         {
             lockedInput = true;
             StartCoroutine(Rotate(Vector3.up * 90, turnSpeed));
         }
     }
-    public void StrafeLeft() {
-        if (!lockedInput)
+    public void StrafeLeft()
+    {
+        if (!lockedInput && TurnManager.Instance.TurnState == requiredPhase)
         {
             lockedInput = true;
             StartCoroutine(Move(Vector3.left, turnSpeed));
         }
     }
-    public void StrafeRight() {
-        if (!lockedInput)
+    public void StrafeRight()
+    {
+        if (!lockedInput && TurnManager.Instance.TurnState == requiredPhase)
         {
             lockedInput = true;
             StartCoroutine(Move(Vector3.right, turnSpeed));
         }
     }
-    public void Attack() 
+    public void Attack()
     {
-        if (!lockedInput)
+        if (!lockedInput && TurnManager.Instance.TurnState == requiredPhase)
         {
             if (!EventSystem.current.IsPointerOverGameObject() || entity is Enemy)
                 entity.ExecutePrimaryAttack();
-            TurnManager.Instance.PassTurn();
+            PassTurn();
         }
     }
     public void AlternateAttack()
     {
-        if (!lockedInput)
+        if (!lockedInput && TurnManager.Instance.TurnState == requiredPhase)
         {
             if (!EventSystem.current.IsPointerOverGameObject() || entity is Enemy)
                 entity.ExecuteSecondaryAttack();
-            TurnManager.Instance.PassTurn();
+            PassTurn();
         }
     }
-    public void Wait() 
+    public void Wait()
     {
-        if (!lockedInput)
+        if (!lockedInput && TurnManager.Instance.TurnState == requiredPhase)
         {
-            TurnManager.Instance.PassTurn();
+            PassTurn();
         }
     }
-    public void Interact() 
+    public void Interact()
     {
-        if (!lockedInput)
+        if (!lockedInput && TurnManager.Instance.TurnState == requiredPhase)
         {
             entity.ExecuteInteraction();
-            TurnManager.Instance.PassTurn();
+            PassTurn();
         }
     }
 
@@ -126,10 +163,17 @@ public class EntityActions : MonoBehaviour
             transform.position = to;
             GridController.Instance.UpdatePassability(to);
             GridController.Instance.UpdatePassability(from);
-            entity.UpdateInteractables();
-            TurnManager.Instance.PassTurn();
+            
+            PassTurn();
         }
         lockedInput = false;
+    }
+
+    void PassTurn()
+    {
+        CheckFloor();
+        entity.UpdateInteractables();
+        TurnManager.Instance.PassTurn();
     }
 }
 

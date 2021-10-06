@@ -7,6 +7,12 @@ using UnityEngine;
 public abstract class Entity : MonoBehaviour
 {
     [SerializeField] protected int health;
+    [SerializeField] protected EntityActions actions;
+
+    public void CheckFloor()
+    {
+        actions.CheckFloor();
+    }
     public void TakeDamage(int damage)
     {
         health -= damage;

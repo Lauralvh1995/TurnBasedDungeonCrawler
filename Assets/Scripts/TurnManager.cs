@@ -17,18 +17,8 @@ public class TurnManager : MonoBehaviour
     {
         Instance = this;
         TurnState = TurnState.Player;
-
         
     }
-    private void OnEnable()
-    {
-        foreach (Enemy e in enemies)
-        {
-            //onStartPlayerTurn.AddListener(/*find way to pass entity LockInput as true*/);
-            //onEnvironmentTurn.AddListener(/*find way to pass entity LockInput as false*/);
-        }
-    }
-
     public bool IsPlayerTurn()
     {
         return TurnState == TurnState.Player;
@@ -73,6 +63,7 @@ public class TurnManager : MonoBehaviour
         }
         foreach(Enemy e in enemies)
         {
+            e.CheckFloor();
             e.TakeAction();
         }
     }
