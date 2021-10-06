@@ -1,7 +1,9 @@
 ﻿using Assets.Scripts.Grid;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Player : Entity
 {
@@ -20,6 +22,9 @@ public class Player : Entity
     [SerializeField] LayerMask interactableMask;
 
     [SerializeField] private bool inMapUI;
+
+    [SerializeField] private SlottedMeleeAttackEvent slottedMelee;
+    [SerializeField] private SlottedRangedAttackEvent slottedRange;
 
     public override void ExecuteInteraction()
     {
@@ -109,4 +114,14 @@ public class Player : Entity
     {
         target = interactables[index];
     }
+}
+[Serializable]
+public class SlottedMeleeAttackEvent : UnityEvent<MeleeAttack>
+{
+
+}
+[Serializable]
+public class SlottedRangedAttackEvent : UnityEvent<RangeAttack>
+{
+
 }

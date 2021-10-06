@@ -12,6 +12,11 @@ public abstract class Attack : ScriptableObject
     public string GetAttackName() {
         return attackName;
     }
+
+    public Sprite GetSprite()
+    {
+        return iconSprite;
+    }
     
     public abstract void Execute(Transform origin);
 }

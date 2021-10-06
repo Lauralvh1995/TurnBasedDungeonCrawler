@@ -5837,6 +5837,34 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   inMapUI: 0
+  slottedMelee:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1475149715}
+        m_MethodName: SetAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  slottedRange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 492134601}
+        m_MethodName: SetAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!54 &307683476
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8294,6 +8322,7 @@ GameObject:
   - component: {fileID: 492134598}
   - component: {fileID: 492134600}
   - component: {fileID: 492134599}
+  - component: {fileID: 492134601}
   m_Layer: 5
   m_Name: RangedAttack
   m_TagString: Untagged
@@ -8358,6 +8387,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 492134597}
   m_CullTransparentMesh: 0
+--- !u!114 &492134601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492134597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7494aee82749e8644b53761c62071df2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iconImage: {fileID: 1134545267}
 --- !u!1001 &492620537
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17549,18 +17591,18 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   colorGradientTexture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
-  shallowColor: {r: 0.3673386, g: 0.6132076, b: 0.47111434, a: 0.5019608}
-  deepColor: {r: 0.10412235, g: 0.23392138, b: 0.33961517, a: 0.7607843}
+  shallowColor: {r: 0.36733797, g: 0.6132076, b: 0.47111434, a: 0.5019608}
+  deepColor: {r: 0.10412172, g: 0.23392075, b: 0.33961454, a: 0.7607843}
   colorDepth: 2.06
-  horizonColor: {r: 0, g: 0.22710723, b: 0.8, a: 1}
+  horizonColor: {r: 0, g: 0.2271066, b: 0.8, a: 1}
   horizonDistance: 20
   shoreFade: 0.714
   shoreColor: {r: 0.4800195, g: 0.6320754, b: 0.5268528, a: 0}
   shoreStrength: 0
   shoreBlend: 0.616
   shoreDepth: 0.23
-  waveColor: {r: 0.19405666, g: 0.462264, b: 0.33604476, a: 0.27058825}
-  underwaterColor: {r: 0.07101632, g: 0.26414347, b: 0.17217758, a: 0.372}
+  waveColor: {r: 0.19405606, g: 0.462264, b: 0.33604413, a: 0.27058825}
+  underwaterColor: {r: 0.07101586, g: 0.26414284, b: 0.17217699, a: 0.372}
   underwaterColorStrength: 0.372
   underwaterRefractionStrength: 0.114
   surfaceFoamTexture: {fileID: 2800000, guid: d3b0d77dfe711a04c8ff18ecc260aa66, type: 3}
@@ -17610,8 +17652,8 @@ MonoBehaviour:
   shoreFoamBreakupScale: 0
   lighting: 0
   lightingSmoothness: 0.128
-  lightingSpecularColor: {r: 0.3871045, g: 0.9433962, b: 0.7008577, a: 0}
-  lightingDiffuseColor: {r: 0, g: 0.008710834, b: 0.2452415, a: 0}
+  lightingSpecularColor: {r: 0.3871039, g: 0.9433962, b: 0.7008577, a: 0}
+  lightingDiffuseColor: {r: 0, g: 0.008710834, b: 0.24524087, a: 0}
   lightingHardness: 0.422
   normalsTexture: {fileID: 2800000, guid: f19bc2945cd1d724e92c1bcf2b70cab3, type: 3}
   normalsMovement: {x: 0.093, y: 0.54}
@@ -23066,18 +23108,18 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   colorGradientTexture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
-  shallowColor: {r: 0.36733857, g: 0.6132076, b: 0.47111434, a: 0.5019608}
-  deepColor: {r: 0.1041223, g: 0.23392135, b: 0.33961514, a: 0.7607843}
+  shallowColor: {r: 0.367338, g: 0.6132076, b: 0.47111434, a: 0.5019608}
+  deepColor: {r: 0.10412174, g: 0.23392078, b: 0.33961457, a: 0.7607843}
   colorDepth: 2.06
-  horizonColor: {r: 0, g: 0.2271072, b: 0.8, a: 1}
+  horizonColor: {r: 0, g: 0.22710663, b: 0.8, a: 1}
   horizonDistance: 20
   shoreFade: 0.714
   shoreColor: {r: 0.4800195, g: 0.6320754, b: 0.5268528, a: 0}
   shoreStrength: 0
   shoreBlend: 0.616
   shoreDepth: 0.23
-  waveColor: {r: 0.19405663, g: 0.462264, b: 0.33604473, a: 0.27058825}
-  underwaterColor: {r: 0.07101629, g: 0.26414344, b: 0.17217755, a: 0.372}
+  waveColor: {r: 0.1940561, g: 0.462264, b: 0.33604416, a: 0.27058825}
+  underwaterColor: {r: 0.07101589, g: 0.26414287, b: 0.17217702, a: 0.372}
   underwaterColorStrength: 0.372
   underwaterRefractionStrength: 0.114
   surfaceFoamTexture: {fileID: 2800000, guid: d3b0d77dfe711a04c8ff18ecc260aa66, type: 3}
@@ -23127,8 +23169,8 @@ MonoBehaviour:
   shoreFoamBreakupScale: 0
   lighting: 0
   lightingSmoothness: 0.128
-  lightingSpecularColor: {r: 0.38710448, g: 0.9433962, b: 0.7008577, a: 0}
-  lightingDiffuseColor: {r: 0, g: 0.008710834, b: 0.24524146, a: 0}
+  lightingSpecularColor: {r: 0.38710392, g: 0.9433962, b: 0.7008577, a: 0}
+  lightingDiffuseColor: {r: 0, g: 0.008710834, b: 0.2452409, a: 0}
   lightingHardness: 0.422
   normalsTexture: {fileID: 2800000, guid: f19bc2945cd1d724e92c1bcf2b70cab3, type: 3}
   normalsMovement: {x: 0.093, y: 0.54}
@@ -28548,6 +28590,7 @@ GameObject:
   - component: {fileID: 1475149712}
   - component: {fileID: 1475149714}
   - component: {fileID: 1475149713}
+  - component: {fileID: 1475149715}
   m_Layer: 5
   m_Name: MeleeAttack
   m_TagString: Untagged
@@ -28612,6 +28655,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1475149711}
   m_CullTransparentMesh: 0
+--- !u!114 &1475149715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475149711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7494aee82749e8644b53761c62071df2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iconImage: {fileID: 854305319}
 --- !u!1001 &1484968130
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34107,18 +34163,18 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   colorGradientTexture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
-  shallowColor: {r: 0.36733854, g: 0.6132076, b: 0.47111434, a: 0.5019608}
-  deepColor: {r: 0.10412227, g: 0.23392132, b: 0.3396151, a: 0.7607843}
+  shallowColor: {r: 0.36733803, g: 0.6132076, b: 0.47111434, a: 0.5019608}
+  deepColor: {r: 0.10412178, g: 0.23392081, b: 0.3396146, a: 0.7607843}
   colorDepth: 2.06
-  horizonColor: {r: 0, g: 0.22710717, b: 0.8, a: 1}
+  horizonColor: {r: 0, g: 0.22710666, b: 0.8, a: 1}
   horizonDistance: 20
   shoreFade: 0.714
   shoreColor: {r: 0.4800195, g: 0.6320754, b: 0.5268528, a: 0}
   shoreStrength: 0
   shoreBlend: 0.616
   shoreDepth: 0.23
-  waveColor: {r: 0.1940566, g: 0.462264, b: 0.3360447, a: 0.27058825}
-  underwaterColor: {r: 0.07101626, g: 0.2641434, b: 0.17217752, a: 0.372}
+  waveColor: {r: 0.19405612, g: 0.462264, b: 0.3360442, a: 0.27058825}
+  underwaterColor: {r: 0.0710159, g: 0.2641429, b: 0.17217705, a: 0.372}
   underwaterColorStrength: 0.372
   underwaterRefractionStrength: 0.114
   surfaceFoamTexture: {fileID: 2800000, guid: d3b0d77dfe711a04c8ff18ecc260aa66, type: 3}
@@ -34168,8 +34224,8 @@ MonoBehaviour:
   shoreFoamBreakupScale: 0
   lighting: 0
   lightingSmoothness: 0.128
-  lightingSpecularColor: {r: 0.38710445, g: 0.9433962, b: 0.7008577, a: 0}
-  lightingDiffuseColor: {r: 0, g: 0.008710834, b: 0.24524143, a: 0}
+  lightingSpecularColor: {r: 0.38710395, g: 0.9433962, b: 0.7008577, a: 0}
+  lightingDiffuseColor: {r: 0, g: 0.008710834, b: 0.24524093, a: 0}
   lightingHardness: 0.422
   normalsTexture: {fileID: 2800000, guid: f19bc2945cd1d724e92c1bcf2b70cab3, type: 3}
   normalsMovement: {x: 0.093, y: 0.54}
