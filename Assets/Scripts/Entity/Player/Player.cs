@@ -81,6 +81,30 @@ public class Player : Entity
         }
     }
 
+    public void AddMeleeAttack(MeleeAttack attack)
+    {
+        possibleMeleeAttacks.Add(attack);
+        SlotMeleeAttack(attack);
+    }
+
+    public void AddRangeAttack(RangeAttack attack)
+    {
+        possibleRangeAttacks.Add(attack);
+        SlotRangeAttack(attack);
+    }
+
+    public void SlotMeleeAttack(MeleeAttack attack)
+    {
+        primaryAttack = attack;
+        //invoke event to change UI
+    }
+
+    public void SlotRangeAttack(RangeAttack attack)
+    {
+        secondaryAttack = attack;
+        //invoke event to change UI
+    }
+
     public void ChangeTarget(int index)
     {
         target = interactables[index];

@@ -10,6 +10,7 @@ public class EntityActions : MonoBehaviour
     [SerializeField] private Entity entity;
     [SerializeField] private float turnSpeed = 0.1f;
     [SerializeField] bool lockedInput;
+    [SerializeField] TurnState requiredPhase;
 
     public void Awake()
     {
