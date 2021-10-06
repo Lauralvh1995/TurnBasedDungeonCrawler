@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Punch
   m_EditorClassIdentifier: 
   attackName: Punch
+  iconSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  property: {fileID: 0}
   damage: 1
   size: 1
   mode: 0
