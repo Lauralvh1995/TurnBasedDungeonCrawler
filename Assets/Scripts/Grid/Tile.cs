@@ -185,7 +185,7 @@ namespace Assets.Scripts.Grid
                 occupied = false;
             }
         }
-
+/*
 
         public void DrawOccupationGizmos(Vector3 pos)
         {
@@ -255,7 +255,7 @@ namespace Assets.Scripts.Grid
             //Gizmos.DrawCube(pos, new Vector3(0.3f, 0.3f, 0.3f));
 
             
-        }
+        }*/
         public override string ToString()
         {
             return "Tile: {" + X +","+ Y + "," + Z + "}";

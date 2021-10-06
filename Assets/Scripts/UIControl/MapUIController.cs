@@ -5,12 +5,12 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-public class MapUIController : MonoBehaviour, IPointerClickHandler
+public class MapUIController : MonoBehaviour
 {
     [SerializeField] private RectTransform bigMap;
     [SerializeField] public MapOpenedEvent mapOpened;
 
-    public void OnPointerClick(PointerEventData eventData)
+    public void Open()
     {
         bigMap.gameObject.SetActive(true);
         mapOpened?.Invoke(true);

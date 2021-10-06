@@ -152,7 +152,7 @@ namespace Assets.Scripts.Grid
                     {
                         //Debug.Log("Tile at " + x + "," + y + "," + z + grid.GetGridArray()[x, y, z].ToString());
                         
-                        grid?.GetGridArray()[x, y, z].DrawOccupationGizmos(grid.GetWorldPosition(x, y, z));
+                        //grid?.GetGridArray()[x, y, z].DrawOccupationGizmos(grid.GetWorldPosition(x, y, z));
                     }
                 }
             }

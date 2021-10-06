@@ -55,23 +55,23 @@ public class WaterLevel : MonoBehaviour
         return upperBound;
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.blue;
-        //main corners
-        Gizmos.DrawSphere(lowerBound, 0.5f);
-        Gizmos.DrawSphere(upperBound, 0.5f);
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.blue;
+    //    //main corners
+    //    Gizmos.DrawSphere(lowerBound, 0.5f);
+    //    Gizmos.DrawSphere(upperBound, 0.5f);
 
-        //lower corners
-        Gizmos.DrawSphere(new Vector3(lowerBound.x, lowerBound.y, upperBound.z), 0.5f);
-        Gizmos.DrawSphere(new Vector3(upperBound.x, lowerBound.y, lowerBound.z), 0.5f);
-        Gizmos.DrawSphere(new Vector3(upperBound.x, lowerBound.y, upperBound.z), 0.5f);
+    //    //lower corners
+    //    Gizmos.DrawSphere(new Vector3(lowerBound.x, lowerBound.y, upperBound.z), 0.5f);
+    //    Gizmos.DrawSphere(new Vector3(upperBound.x, lowerBound.y, lowerBound.z), 0.5f);
+    //    Gizmos.DrawSphere(new Vector3(upperBound.x, lowerBound.y, upperBound.z), 0.5f);
 
-        //upper corners
-        Gizmos.DrawSphere(new Vector3(lowerBound.x, upperBound.y, upperBound.z), 0.5f);
-        Gizmos.DrawSphere(new Vector3(upperBound.x, upperBound.y, lowerBound.z), 0.5f);
-        Gizmos.DrawSphere(new Vector3(lowerBound.x, upperBound.y, lowerBound.z), 0.5f);
-    }
+    //    //upper corners
+    //    Gizmos.DrawSphere(new Vector3(lowerBound.x, upperBound.y, upperBound.z), 0.5f);
+    //    Gizmos.DrawSphere(new Vector3(upperBound.x, upperBound.y, lowerBound.z), 0.5f);
+    //    Gizmos.DrawSphere(new Vector3(lowerBound.x, upperBound.y, lowerBound.z), 0.5f);
+    //}
 }
 
 

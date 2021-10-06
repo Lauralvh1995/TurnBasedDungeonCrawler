@@ -51,14 +51,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Active: 1
   settings:
-    strength: 1.36
+    strength: 1.3
     rgbSplit: 0.181
     shadowMask: 0.631
     texture: {fileID: 2800000, guid: f2c40b951cee11943a1f6d5ec1b42f2c, type: 3}
     scale: 3.07
     speed: 0.105
-    waterLevel: 1.37
-    depth: {x: 2.3771727, y: 10}
+    waterLevel: 1.24
+    depth: {x: 2.37, y: 3.7997355}
     fade: 1
     renderPassEvent: 500
     debug: 0
