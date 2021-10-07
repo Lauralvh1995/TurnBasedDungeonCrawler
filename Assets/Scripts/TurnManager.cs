@@ -11,6 +11,7 @@ public class TurnManager : MonoBehaviour
     public TurnState TurnState;
     public OnTurnEvent onStartPlayerTurn;
     public OnTurnEvent onStartEnvironmentTurn;
+    public OnTurnEvent onIceTick;
 
     public List<Enemy> enemies;
 
@@ -30,6 +31,7 @@ public class TurnManager : MonoBehaviour
         {
             case TurnState.Player:
                 TurnState = TurnState.Environment;
+                onIceTick.Invoke();
                 onStartEnvironmentTurn.Invoke();
                 break;
             case TurnState.Environment:

@@ -11,7 +11,6 @@ public class TutorialIceTile : TempTileObject
     private void Start()
     {
         listeners = FindObjectsOfType<Valve>();
-        TurnManager.Instance.onStartEnvironmentTurn.AddListener(OnTurnTick);
     }
 
     public override void OnTurnTick()

@@ -19,7 +19,7 @@ public class IceTile : TempTileObject
                 v.waterLevelChanged.AddListener(Die);
             }
         }
-        TurnManager.Instance.onStartEnvironmentTurn.AddListener(OnTurnTick);
+        TurnManager.Instance.onIceTick.AddListener(OnTurnTick);
     }
 
     public override void OnTurnTick()
@@ -48,7 +48,7 @@ public class IceTile : TempTileObject
                 v.waterLevelChanged.RemoveListener(Die);
             }
         }
-        TurnManager.Instance.onStartEnvironmentTurn.RemoveListener(OnTurnTick);
+        TurnManager.Instance.onIceTick.RemoveListener(OnTurnTick);
         Vector3 pos = transform.position;
         graphic.GetComponent<BoxCollider>().enabled = false;
         GridController.Instance.UpdatePassability(pos);
