@@ -66,7 +66,6 @@ namespace Assets.Scripts.Grid
                 UpdatePassability(t.GetWorldPosition());
             }
         }
-
         public void UpdatePassability(Vector3 pos)
         {
             Tile tile = GetTileFromWorldPosition(pos);

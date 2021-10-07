@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.Grid;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,7 +18,6 @@ public class TurnManager : MonoBehaviour
     {
         Instance = this;
         TurnState = TurnState.Player;
-        
     }
     public bool IsPlayerTurn()
     {

@@ -16,7 +16,6 @@ public class EntityActions : MonoBehaviour
     {
         entity = GetComponent<Entity>();
     }
-
     public void CheckFloor()
     {
         if (!GridController.Instance.GetTileFromWorldPosition(transform.position).Floor)

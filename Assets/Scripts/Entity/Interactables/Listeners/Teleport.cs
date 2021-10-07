@@ -13,8 +13,9 @@ public class Teleport : Listener
     }
     public override void Execute()
     {
-         bool check = false;
-        foreach(Condition c in conditions)
+        bool check = false;
+        
+        foreach (Condition c in conditions)
         {
             check = c.Check();
         }
@@ -23,8 +24,15 @@ public class Teleport : Listener
             Vector3 playerOldPos = player.transform.position;
             player.transform.position = transform.position + transform.rotation * localDestination;
             player.UpdateInteractables();
-            GridController.Instance.UpdatePassability(playerOldPos);
+            StartCoroutine(DelayPassabilityUpdate(0.1f, playerOldPos));
         }
+        
+    }
+
+    IEnumerator DelayPassabilityUpdate(float time, Vector3 oldPos)
+    {
+        yield return new WaitForSeconds(time);
+        GridController.Instance.UpdatePassability(oldPos);
     }
 
     //private void OnDrawGizmos()
