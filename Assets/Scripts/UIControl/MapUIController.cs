@@ -10,16 +10,21 @@ public class MapUIController : MonoBehaviour
     [SerializeField] private RectTransform bigMap;
     [SerializeField] public MapOpenedEvent mapOpened;
 
+    [SerializeField] private GameObject firstSelected;
+
     public void Open()
     {
         bigMap.gameObject.SetActive(true);
         mapOpened?.Invoke(true);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(firstSelected);
     }
 
     public void Close()
     {
         bigMap.gameObject.SetActive(false);
         mapOpened?.Invoke(false);
+        EventSystem.current.SetSelectedGameObject(null);
     }
 }
 

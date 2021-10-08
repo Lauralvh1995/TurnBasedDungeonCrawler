@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(EntityActions))]
@@ -20,6 +21,9 @@ public class PlayerActions : MonoBehaviour
     private InputAction alternateAttack;
     private InputAction wait;
     private InputAction interact;
+
+    [SerializeField] private UnityEvent pauseGame;
+    [SerializeField] private UnityEvent openMap;
 
     public void Awake()
     {
@@ -102,5 +106,16 @@ public class PlayerActions : MonoBehaviour
     {
         if (context.performed)
             actions.Interact();
+    }
+    public void Pause()
+    {
+        actions.LockInput(true);
+        pauseGame.Invoke();
+    }
+
+    public void OpenMenu()
+    {
+        actions.LockInput(true);
+        openMap.Invoke();
     }
 }
