@@ -103,16 +103,4 @@ public class PlayerActions : MonoBehaviour
         if (context.performed)
             actions.Interact();
     }
-
-    private void Update()
-    {
-        if (player.IsInMap())
-        {
-            playerInput.enabled = false;
-        }
-        else
-        {
-            playerInput.enabled = true;
-        }
-    }
 }

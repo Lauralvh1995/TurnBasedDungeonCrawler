@@ -23130,18 +23130,18 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   colorGradientTexture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
-  shallowColor: {r: 0.3673265, g: 0.6132076, b: 0.47111434, a: 0.5019608}
-  deepColor: {r: 0.1041104, g: 0.23390928, b: 0.33960307, a: 0.7607843}
+  shallowColor: {r: 0.36732584, g: 0.6132076, b: 0.47111434, a: 0.5019608}
+  deepColor: {r: 0.10410973, g: 0.23390862, b: 0.3396024, a: 0.7607843}
   colorDepth: 2.06
-  horizonColor: {r: 0, g: 0.22709513, b: 0.8, a: 1}
+  horizonColor: {r: 0, g: 0.22709447, b: 0.8, a: 1}
   horizonDistance: 20
   shoreFade: 0.714
   shoreColor: {r: 0.4800195, g: 0.6320754, b: 0.5268528, a: 0}
   shoreStrength: 0
   shoreBlend: 0.616
   shoreDepth: 0.23
-  waveColor: {r: 0.19404519, g: 0.462264, b: 0.33603266, a: 0.27058825}
-  underwaterColor: {r: 0.07100754, g: 0.26413137, b: 0.17216611, a: 0.372}
+  waveColor: {r: 0.19404456, g: 0.462264, b: 0.336032, a: 0.27058825}
+  underwaterColor: {r: 0.071007065, g: 0.26413068, b: 0.17216548, a: 0.372}
   underwaterColorStrength: 0.372
   underwaterRefractionStrength: 0.114
   surfaceFoamTexture: {fileID: 2800000, guid: d3b0d77dfe711a04c8ff18ecc260aa66, type: 3}
@@ -23191,8 +23191,8 @@ MonoBehaviour:
   shoreFoamBreakupScale: 0
   lighting: 0
   lightingSmoothness: 0.128
-  lightingSpecularColor: {r: 0.3870924, g: 0.9433962, b: 0.7008577, a: 0}
-  lightingDiffuseColor: {r: 0, g: 0.008710834, b: 0.2452294, a: 0}
+  lightingSpecularColor: {r: 0.38709176, g: 0.9433962, b: 0.7008577, a: 0}
+  lightingDiffuseColor: {r: 0, g: 0.008710834, b: 0.24522874, a: 0}
   lightingHardness: 0.422
   normalsTexture: {fileID: 2800000, guid: f19bc2945cd1d724e92c1bcf2b70cab3, type: 3}
   normalsMovement: {x: 0.093, y: 0.54}
@@ -29890,18 +29890,18 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   colorGradientTexture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
-  shallowColor: {r: 0.36732647, g: 0.6132076, b: 0.47111434, a: 0.5019608}
-  deepColor: {r: 0.10411037, g: 0.23390925, b: 0.33960304, a: 0.7607843}
+  shallowColor: {r: 0.3673258, g: 0.6132076, b: 0.47111434, a: 0.5019608}
+  deepColor: {r: 0.1041097, g: 0.23390856, b: 0.33960238, a: 0.7607843}
   colorDepth: 2.06
-  horizonColor: {r: 0, g: 0.2270951, b: 0.8, a: 1}
+  horizonColor: {r: 0, g: 0.22709444, b: 0.8, a: 1}
   horizonDistance: 20
   shoreFade: 0.714
   shoreColor: {r: 0.4800195, g: 0.6320754, b: 0.5268528, a: 0}
   shoreStrength: 0
   shoreBlend: 0.616
   shoreDepth: 0.23
-  waveColor: {r: 0.19404516, g: 0.462264, b: 0.33603263, a: 0.27058825}
-  underwaterColor: {r: 0.07100751, g: 0.26413134, b: 0.17216608, a: 0.372}
+  waveColor: {r: 0.19404453, g: 0.462264, b: 0.33603197, a: 0.27058825}
+  underwaterColor: {r: 0.07100705, g: 0.26413065, b: 0.17216545, a: 0.372}
   underwaterColorStrength: 0.372
   underwaterRefractionStrength: 0.114
   surfaceFoamTexture: {fileID: 2800000, guid: d3b0d77dfe711a04c8ff18ecc260aa66, type: 3}
@@ -29951,8 +29951,8 @@ MonoBehaviour:
   shoreFoamBreakupScale: 0
   lighting: 0
   lightingSmoothness: 0.128
-  lightingSpecularColor: {r: 0.38709238, g: 0.9433962, b: 0.7008577, a: 0}
-  lightingDiffuseColor: {r: 0, g: 0.008710834, b: 0.24522936, a: 0}
+  lightingSpecularColor: {r: 0.38709173, g: 0.9433962, b: 0.7008577, a: 0}
+  lightingDiffuseColor: {r: 0, g: 0.008710834, b: 0.24522871, a: 0}
   lightingHardness: 0.422
   normalsTexture: {fileID: 2800000, guid: f19bc2945cd1d724e92c1bcf2b70cab3, type: 3}
   normalsMovement: {x: 0.093, y: 0.54}
@@ -44520,18 +44520,18 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   colorGradientTexture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
-  shallowColor: {r: 0.36732644, g: 0.6132076, b: 0.47111434, a: 0.5019608}
-  deepColor: {r: 0.10411034, g: 0.23390922, b: 0.339603, a: 0.7607843}
+  shallowColor: {r: 0.36732578, g: 0.6132076, b: 0.47111434, a: 0.5019608}
+  deepColor: {r: 0.10410967, g: 0.23390853, b: 0.33960235, a: 0.7607843}
   colorDepth: 2.06
-  horizonColor: {r: 0, g: 0.22709507, b: 0.8, a: 1}
+  horizonColor: {r: 0, g: 0.22709441, b: 0.8, a: 1}
   horizonDistance: 20
   shoreFade: 0.714
   shoreColor: {r: 0.4800195, g: 0.6320754, b: 0.5268528, a: 0}
   shoreStrength: 0
   shoreBlend: 0.616
   shoreDepth: 0.23
-  waveColor: {r: 0.19404513, g: 0.462264, b: 0.3360326, a: 0.27058825}
-  underwaterColor: {r: 0.0710075, g: 0.2641313, b: 0.17216605, a: 0.372}
+  waveColor: {r: 0.1940445, g: 0.462264, b: 0.33603194, a: 0.27058825}
+  underwaterColor: {r: 0.071007036, g: 0.26413062, b: 0.17216542, a: 0.372}
   underwaterColorStrength: 0.372
   underwaterRefractionStrength: 0.114
   surfaceFoamTexture: {fileID: 2800000, guid: d3b0d77dfe711a04c8ff18ecc260aa66, type: 3}
@@ -44581,8 +44581,8 @@ MonoBehaviour:
   shoreFoamBreakupScale: 0
   lighting: 0
   lightingSmoothness: 0.128
-  lightingSpecularColor: {r: 0.38709235, g: 0.9433962, b: 0.7008577, a: 0}
-  lightingDiffuseColor: {r: 0, g: 0.008710834, b: 0.24522933, a: 0}
+  lightingSpecularColor: {r: 0.3870917, g: 0.9433962, b: 0.7008577, a: 0}
+  lightingDiffuseColor: {r: 0, g: 0.008710834, b: 0.24522865, a: 0}
   lightingHardness: 0.422
   normalsTexture: {fileID: 2800000, guid: f19bc2945cd1d724e92c1bcf2b70cab3, type: 3}
   normalsMovement: {x: 0.093, y: 0.54}
