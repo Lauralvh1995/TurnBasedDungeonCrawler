@@ -1340,9 +1340,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e21d2723e954c140bde5f80d6c92a13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controlView: {fileID: 0}
-  controlsCloseButton: {fileID: 0}
-  startGameButton: {fileID: 0}
+  controlView: {fileID: 1614617600}
+  controlsCloseButton: {fileID: 1504350277}
+  startGameButton: {fileID: 544322447}
 --- !u!1 &1922591126
 GameObject:
   m_ObjectHideFlags: 0
