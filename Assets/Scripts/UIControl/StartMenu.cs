@@ -36,6 +36,6 @@ public class StartMenu : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
-        UnityEditor.EditorApplication.ExitPlaymode();
+        //UnityEditor.EditorApplication.ExitPlaymode();
     }
 }
