@@ -1341,7 +1341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controlView: {fileID: 1614617600}
-  controlsCloseButton: {fileID: 1504350277}
+  controlsCloseButton: {fileID: 996572275}
   startGameButton: {fileID: 544322447}
 --- !u!1 &1922591126
 GameObject:
