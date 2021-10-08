@@ -8,6 +8,7 @@ public class PauseMenuController : MonoBehaviour
 {
     [SerializeField] private RectTransform pausePanel;
     [SerializeField] private RectTransform gameUI;
+    [SerializeField] private RectTransform bigMap;
 
     [SerializeField] private UnityEvent unpausedGame;
     [SerializeField] private GameObject firstSelected;
@@ -16,6 +17,7 @@ public class PauseMenuController : MonoBehaviour
     {
         pausePanel.gameObject.SetActive(true);
         gameUI.gameObject.SetActive(false);
+        bigMap.gameObject.SetActive(false);
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(firstSelected);
     }
