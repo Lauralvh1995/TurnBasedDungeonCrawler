@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class PauseMenuController : MonoBehaviour
 {
@@ -30,6 +31,6 @@ public class PauseMenuController : MonoBehaviour
     }
     public void ExitGame()
     {
-        //return to title screen
+        SceneManager.LoadScene("StartMenu");
     }
 }
