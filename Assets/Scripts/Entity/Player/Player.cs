@@ -101,13 +101,13 @@ public class Player : Entity
     public void SlotMeleeAttack(MeleeAttack attack)
     {
         primaryAttack = attack;
-        //invoke event to change UI
+        slottedMelee.Invoke(attack);
     }
 
     public void SlotRangeAttack(RangeAttack attack)
     {
         secondaryAttack = attack;
-        //invoke event to change UI
+        slottedRange.Invoke(attack);
     }
 
     public void ChangeTarget(int index)
