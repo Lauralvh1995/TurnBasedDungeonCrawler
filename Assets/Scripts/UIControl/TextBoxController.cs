@@ -12,7 +12,7 @@ public class TextBoxController : MonoBehaviour
     {
         textBox.gameObject.SetActive(true);
         StartCoroutine(TypeWriter(text));
-        Invoke("HideText", 5f);
+        Invoke("HideText", 2f);
     }
 
     IEnumerator TypeWriter(string text)
