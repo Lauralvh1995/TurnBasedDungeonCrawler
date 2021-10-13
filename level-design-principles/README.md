@@ -22,7 +22,7 @@ One thing that you shouldn’t forget is to show the player how to use the key t
 
 To showcase the design of the depths of Xoth VI, the player will be given a small section that has the three above points clearly designated. They will be given a goal to accomplish, like getting to the other side of a chasm, the means to cross that chasm, hidden in a smaller area they have to find, and a small playground to let the player familiarize themselves with the tool they are going to use.
 
-![Global level flow](<.gitbook/assets/image (1).png>)
+![Global level flow](<../.gitbook/assets/image (1).png>)
 
 The player is lead to an area with a fork in the road. Straight ahead leads to the Chasm. This is the point of anticipation. They can see their goal on the other side of the Chasm, but they don’t have the means to cross yet. They can go down a level and see some water that needs to be raised, and a sluice that can be opened from somewhere else.\
 When they go back and take a side route, they see an area with more water and floating crates. The water level can change by opening and closing valves on the side. The floating crates can form a path to the next goal: The Ice Beam. This Ice Beam can be seen from the entrance to this room. This creates another point of anticipation.\
