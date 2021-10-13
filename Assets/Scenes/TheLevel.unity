@@ -17,7 +17,7 @@ RenderSettings:
   m_Fog: 1
   m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.5
+  m_FogDensity: 0.25
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0, g: 0, b: 0, a: 1}
@@ -5242,7 +5242,7 @@ GameObject:
   - component: {fileID: 199945927}
   - component: {fileID: 199945926}
   m_Layer: 0
-  m_Name: GameEnd
+  m_Name: Game End
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5290,6 +5290,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   textToShow: Congratulations, you have completed this demo
+  timeToStay: 5
 --- !u!114 &199945927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6877,7 +6878,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  textToShow: This door is locked
+  textToShow: The door can't be opened from this side.
+  timeToStay: 2
 --- !u!1001 &256924625
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16200,6 +16202,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 199945925}
+  - {fileID: 1352413216}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -24870,18 +24873,18 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   colorGradientTexture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
-  shallowColor: {r: 0.36730734, g: 0.6132076, b: 0.47111434, a: 0.5019608}
-  deepColor: {r: 0.10409141, g: 0.23389012, b: 0.3395839, a: 0.7607843}
+  shallowColor: {r: 0.36730283, g: 0.6132076, b: 0.47111434, a: 0.5019608}
+  deepColor: {r: 0.10408699, g: 0.23388559, b: 0.33957937, a: 0.7607843}
   colorDepth: 2.06
-  horizonColor: {r: 0, g: 0.22707596, b: 0.8, a: 1}
+  horizonColor: {r: 0, g: 0.22707143, b: 0.8, a: 1}
   horizonDistance: 20
   shoreFade: 0.714
   shoreColor: {r: 0.4800195, g: 0.6320754, b: 0.5268528, a: 0}
   shoreStrength: 0
   shoreBlend: 0.616
   shoreDepth: 0.23
-  waveColor: {r: 0.19402704, g: 0.462264, b: 0.33601353, a: 0.27058825}
-  underwaterColor: {r: 0.070993654, g: 0.2641122, b: 0.17214796, a: 0.372}
+  waveColor: {r: 0.19402274, g: 0.462264, b: 0.336009, a: 0.27058825}
+  underwaterColor: {r: 0.07099036, g: 0.26410767, b: 0.17214367, a: 0.372}
   underwaterColorStrength: 0.372
   underwaterRefractionStrength: 0.114
   surfaceFoamTexture: {fileID: 2800000, guid: d3b0d77dfe711a04c8ff18ecc260aa66, type: 3}
@@ -24931,8 +24934,8 @@ MonoBehaviour:
   shoreFoamBreakupScale: 0
   lighting: 0
   lightingSmoothness: 0.128
-  lightingSpecularColor: {r: 0.38707328, g: 0.9433962, b: 0.7008577, a: 0}
-  lightingDiffuseColor: {r: 0, g: 0.008710834, b: 0.24521023, a: 0}
+  lightingSpecularColor: {r: 0.38706875, g: 0.9433962, b: 0.7008577, a: 0}
+  lightingDiffuseColor: {r: 0, g: 0.008710834, b: 0.2452057, a: 0}
   lightingHardness: 0.422
   normalsTexture: {fileID: 2800000, guid: f19bc2945cd1d724e92c1bcf2b70cab3, type: 3}
   normalsMovement: {x: 0.093, y: 0.54}
@@ -31870,7 +31873,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  textToShow: This door is locked
+  textToShow: The door can't be opened from this side.
+  timeToStay: 2
 --- !u!1 &1165024323
 GameObject:
   m_ObjectHideFlags: 0
@@ -32496,18 +32500,18 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   colorGradientTexture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
-  shallowColor: {r: 0.3673073, g: 0.6132076, b: 0.47111434, a: 0.5019608}
-  deepColor: {r: 0.10409138, g: 0.23389009, b: 0.33958387, a: 0.7607843}
+  shallowColor: {r: 0.3673028, g: 0.6132076, b: 0.47111434, a: 0.5019608}
+  deepColor: {r: 0.10408696, g: 0.23388556, b: 0.33957934, a: 0.7607843}
   colorDepth: 2.06
-  horizonColor: {r: 0, g: 0.22707593, b: 0.8, a: 1}
+  horizonColor: {r: 0, g: 0.2270714, b: 0.8, a: 1}
   horizonDistance: 20
   shoreFade: 0.714
   shoreColor: {r: 0.4800195, g: 0.6320754, b: 0.5268528, a: 0}
   shoreStrength: 0
   shoreBlend: 0.616
   shoreDepth: 0.23
-  waveColor: {r: 0.194027, g: 0.462264, b: 0.3360135, a: 0.27058825}
-  underwaterColor: {r: 0.070993625, g: 0.26411217, b: 0.17214793, a: 0.372}
+  waveColor: {r: 0.19402272, g: 0.462264, b: 0.33600897, a: 0.27058825}
+  underwaterColor: {r: 0.07099035, g: 0.26410764, b: 0.17214364, a: 0.372}
   underwaterColorStrength: 0.372
   underwaterRefractionStrength: 0.114
   surfaceFoamTexture: {fileID: 2800000, guid: d3b0d77dfe711a04c8ff18ecc260aa66, type: 3}
@@ -32557,8 +32561,8 @@ MonoBehaviour:
   shoreFoamBreakupScale: 0
   lighting: 0
   lightingSmoothness: 0.128
-  lightingSpecularColor: {r: 0.38707325, g: 0.9433962, b: 0.7008577, a: 0}
-  lightingDiffuseColor: {r: 0, g: 0.008710834, b: 0.2452102, a: 0}
+  lightingSpecularColor: {r: 0.38706872, g: 0.9433962, b: 0.7008577, a: 0}
+  lightingDiffuseColor: {r: 0, g: 0.008710834, b: 0.24520567, a: 0}
   lightingHardness: 0.422
   normalsTexture: {fileID: 2800000, guid: f19bc2945cd1d724e92c1bcf2b70cab3, type: 3}
   normalsMovement: {x: 0.093, y: 0.54}
@@ -37462,6 +37466,98 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1350014043}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1352413215
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1352413216}
+  - component: {fileID: 1352413219}
+  - component: {fileID: 1352413218}
+  - component: {fileID: 1352413217}
+  m_Layer: 0
+  m_Name: Game Start
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1352413216
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1352413215}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 581689890}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1352413217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1352413215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21e2cf68c5bd63a47b00fde95df65fa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  conditions: []
+  showTextEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2139885382}
+        m_MethodName: ShowText
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  textToShow: From your intel you've gathered that your goal should be straight ahead
+    of you.
+  timeToStay: 5
+--- !u!114 &1352413218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1352413215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9509fc9bb2684f419a2557a3367d94e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggered: 0
+  listeners:
+  - {fileID: 404043350}
+  - {fileID: 1352413217}
+--- !u!65 &1352413219
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1352413215}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1355206730
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48359,18 +48455,18 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   colorGradientTexture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
-  shallowColor: {r: 0.36730728, g: 0.6132076, b: 0.47111434, a: 0.5019608}
-  deepColor: {r: 0.10409135, g: 0.23389006, b: 0.33958384, a: 0.7607843}
+  shallowColor: {r: 0.36730275, g: 0.6132076, b: 0.47111434, a: 0.5019608}
+  deepColor: {r: 0.10408693, g: 0.23388553, b: 0.3395793, a: 0.7607843}
   colorDepth: 2.06
-  horizonColor: {r: 0, g: 0.2270759, b: 0.8, a: 1}
+  horizonColor: {r: 0, g: 0.22707137, b: 0.8, a: 1}
   horizonDistance: 20
   shoreFade: 0.714
   shoreColor: {r: 0.4800195, g: 0.6320754, b: 0.5268528, a: 0}
   shoreStrength: 0
   shoreBlend: 0.616
   shoreDepth: 0.23
-  waveColor: {r: 0.19402698, g: 0.462264, b: 0.33601347, a: 0.27058825}
-  underwaterColor: {r: 0.07099361, g: 0.26411214, b: 0.1721479, a: 0.372}
+  waveColor: {r: 0.19402269, g: 0.462264, b: 0.33600894, a: 0.27058825}
+  underwaterColor: {r: 0.07099033, g: 0.2641076, b: 0.17214361, a: 0.372}
   underwaterColorStrength: 0.372
   underwaterRefractionStrength: 0.114
   surfaceFoamTexture: {fileID: 2800000, guid: d3b0d77dfe711a04c8ff18ecc260aa66, type: 3}
@@ -48420,8 +48516,8 @@ MonoBehaviour:
   shoreFoamBreakupScale: 0
   lighting: 0
   lightingSmoothness: 0.128
-  lightingSpecularColor: {r: 0.38707322, g: 0.9433962, b: 0.7008577, a: 0}
-  lightingDiffuseColor: {r: 0, g: 0.008710834, b: 0.24521017, a: 0}
+  lightingSpecularColor: {r: 0.3870687, g: 0.9433962, b: 0.7008577, a: 0}
+  lightingDiffuseColor: {r: 0, g: 0.008710834, b: 0.24520564, a: 0}
   lightingHardness: 0.422
   normalsTexture: {fileID: 2800000, guid: f19bc2945cd1d724e92c1bcf2b70cab3, type: 3}
   normalsMovement: {x: 0.093, y: 0.54}
@@ -48884,6 +48980,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   textToShow: This door is locked
+  timeToStay: 0
 --- !u!1 &1787492813
 GameObject:
   m_ObjectHideFlags: 0
@@ -53635,6 +53732,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   textToShow: You have found an Ice Beam
+  timeToStay: 2
 --- !u!1 &2001860962
 GameObject:
   m_ObjectHideFlags: 0
