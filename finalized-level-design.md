@@ -4,7 +4,7 @@
 
 The level for the demo is a part of a water treatment plant on Xoth VI. The design above is an elaboration of the flow graph from the previous log.
 
-![Extended Level Graph, with key](<.gitbook/assets/afbeelding (9).png>)
+![Elaborate graph, with key](.gitbook/assets/ElaborateLevelGraph.png)
 
 The player enters from the bottom left. They receive a comment on how their goal should be straight ahead of them. This was done because quite a few players felt like they didn't have enough guidance at the start, leaving them to wander without direction. This sends them to the small channel. Here they can see the door to the goal on the other side. **Here is the first, and major, lock. **The player does not yet have the means to cross the channel.** **They have walked past another door at this point. That is their next goal.
 
