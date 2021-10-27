@@ -8,6 +8,7 @@
   * [Lock-And-Key](level-design-principles/lock-and-key.md)
   * [Experience, don't tell](level-design-principles/experience-dont-tell.md)
   * [Environmental Storytelling](level-design-principles/environmental-storytelling.md)
+  * [Taking Inspiration From Games](level-design-principles/taking-inspiration-from-games.md)
 * [Design](design/README.md)
   * [Gameplay](design/gameplay.md)
   * [Interactables](design/interactables.md)
