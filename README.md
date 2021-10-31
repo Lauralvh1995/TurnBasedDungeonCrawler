@@ -1,30 +1,17 @@
-# Inspiration
+# Professional Ambitions and Learning Goals
 
-Games for inspiration:  
-Wizardry
+During my internship, I discovered the world of Serious Gaming and Game-Based Learning. I realised that (video) games can be useful tools to teach new skills to people. I also learnt that the entire branch of video games, Edutainment, is woefully underdeveloped, leading to very school-sy, low fidelity, and -dare I say it- BORING games. If you give a child the choice between playing Apple Counter and Pokémon, they'll probably choose Pokémon. Because Pokémon is fun.
 
-Etrian Odyssey
+I want to change that.
 
-Legend of Grimrock II
+A good edutainment game should foremost be a fun game.
 
-Vaporum
 
-Pokémon Mystery Dungeon
 
-Metroid Prime
 
-Super Metroid
-
-![](.gitbook/assets/0.png)
-
-It all started with the idea: What if Metroid was a grid-based dungeon crawler?
-
-Metroid: Progression locked behind upgrades, platforming  
-Dungeon Crawlers: tactical combat, exploration, grid-based movement, Turn-based / real-time combat
-
-Things I want to learn: Level design, puzzle design, enemy design, UI design
 
 I want to improve my level design skills, so I can create maps that encourage exploration and puzzle-solving
 
 I want to show that gameplay elements of one genre can be applied to another
 
+I want to teach players without explaining in words
