@@ -25,6 +25,8 @@ public class Player : Entity
 
     [SerializeField] private SlottedMeleeAttackEvent slottedMelee;
     [SerializeField] private SlottedRangedAttackEvent slottedRange;
+    [SerializeField] private ChangedInteractableEvent changedInteractable;
+    [SerializeField] private ClearedInteractablesEvent clearedInteractables;
 
     public override void ExecuteInteraction()
     {
@@ -73,6 +75,7 @@ public class Player : Entity
     {
         target = null;
         interactables.Clear();
+        clearedInteractables.Invoke();
         RaycastHit[] hits = Physics.BoxCastAll(transform.position, Vector3.one * 0.25f, transform.forward, Quaternion.identity, 1f, interactableMask);
 
         if (hits.Length > 0) {
@@ -83,6 +86,7 @@ public class Player : Entity
         if (interactables.Count > 0)
         {
             ChangeTarget(0);
+            
         }
     }
 
@@ -113,6 +117,18 @@ public class Player : Entity
     public void ChangeTarget(int index)
     {
         target = interactables[index];
+        if(target is ItemPickup)
+        {
+            ItemPickup t = target as ItemPickup;
+            if (!t.alreadyTriggered)
+            {
+                changedInteractable.Invoke(Camera.main.WorldToScreenPoint(target.GetGraphicAnchor()));
+            }
+        }
+        else
+        {
+            changedInteractable.Invoke(Camera.main.WorldToScreenPoint(target.GetGraphicAnchor()));
+        }
     }
 }
 [Serializable]
@@ -122,6 +138,16 @@ public class SlottedMeleeAttackEvent : UnityEvent<MeleeAttack>
 }
 [Serializable]
 public class SlottedRangedAttackEvent : UnityEvent<RangeAttack>
+{
+
+}
+[Serializable]
+public class ChangedInteractableEvent : UnityEvent<Vector2>
+{
+
+}
+[Serializable]
+public class ClearedInteractablesEvent : UnityEvent
 {
 
 }

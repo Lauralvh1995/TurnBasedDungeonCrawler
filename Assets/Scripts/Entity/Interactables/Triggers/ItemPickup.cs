@@ -6,7 +6,7 @@ public class ItemPickup : Trigger
 {
     [SerializeField] private Attack contents;
     [SerializeField] private Player player;
-    [SerializeField] private bool alreadyTriggered;
+    [SerializeField] public bool alreadyTriggered;
     [SerializeField] private Transform itemGraphic;
     public override void Execute()
     {
@@ -31,6 +31,7 @@ public class ItemPickup : Trigger
             }
             itemGraphic.gameObject.SetActive(false);
             alreadyTriggered = true;
+            enabled = false;
         }
     }
     public override void Execute(Attack attack, Vector3 origin)
