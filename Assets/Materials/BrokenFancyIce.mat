@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BrokenFancyIce
+  m_Shader: {fileID: -6465566751694194690, guid: 6bc8af72c2fd5244daef8cf5ec517b16,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_A2214032:
+        m_Texture: {fileID: 2800000, guid: 9eb5f560b72ad194ca76aa0f577a3790, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_D40C5C7B:
+        m_Texture: {fileID: 2800000, guid: 73808aca347488f4cad88ec7240e3619, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Albedo:
+        m_Texture: {fileID: 2800000, guid: f3f97475598cd9247b7e5dd42dc2f431, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normal:
+        m_Texture: {fileID: 2800000, guid: f61dfd7bddc42634ead407b070680f49, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_5310B984: 0.5
+    - Vector1_814A63A9: -0.005
+    - Vector1_AC71F7FB: 1
+    - Vector1_D79820: 0.281
+    - Vector1_E20B93ED: 0.73
+    - _crackDensity: 7
+    m_Colors:
+    - Color_734AF034: {r: 0.2009167, g: 0.990566, b: 0.8614118, a: 0.74509805}
+    - Color_8FAEDE7: {r: 1.618134, g: 3.24901, b: 3.24901, a: 0.3686275}
+    - Color_DBA134B: {r: 0.4485582, g: 0.9056604, b: 0.9056604, a: 1}

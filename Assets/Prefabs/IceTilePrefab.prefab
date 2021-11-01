@@ -50,7 +50,7 @@ MonoBehaviour:
   listeners: []
   triggered: 0
   graphic: {fileID: 398246622538355653}
-  brokenMat: {fileID: 2100000, guid: 87e14f28f4d2c3344b7a769f035bcb19, type: 2}
+  brokenMat: {fileID: 2100000, guid: b41e574a6aa58964ca1c0d7562e35780, type: 2}
 --- !u!114 &398246622193548108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,7 +92,7 @@ Transform:
   m_GameObject: {fileID: 398246622538355658}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.4, z: 0}
-  m_LocalScale: {x: 1, y: 0.2, z: 1}
+  m_LocalScale: {x: 1, y: 0.001, z: 1}
   m_Children: []
   m_Father: {fileID: 398246622193548110}
   m_RootOrder: 0
@@ -123,7 +123,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1c0bcd0fa0768724c88fe130c9ec1504, type: 2}
+  - {fileID: 2100000, guid: 62543a25df596f74e80bc70b52fec2d3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

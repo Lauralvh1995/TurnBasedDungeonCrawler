@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: IceBeam
   m_EditorClassIdentifier: 
   attackName: Ice Beam
-  iconSprite: {fileID: 21300000, guid: 29a06834273cc42b4a3211e5aeca10b6, type: 3}
+  iconSprite: {fileID: 21300000, guid: 95d1b3a80271843408c327a71477a6c2, type: 3}
   property: {fileID: 11400000, guid: 111009c80c9919d4d852ee78de05ad71, type: 2}
   range: 3
   radius: 1
