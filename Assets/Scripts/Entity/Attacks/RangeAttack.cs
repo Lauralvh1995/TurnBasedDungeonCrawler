@@ -18,7 +18,10 @@ public class RangeAttack : Attack
         for (int i = 0; i < range + 1; i++)
         {
             RaycastHit raycastHit;
-            Physics.Raycast(new Ray(nextRayOrigin, origin.rotation * Vector3.forward), out raycastHit, 1f);
+            if(Physics.Raycast(new Ray(nextRayOrigin, origin.rotation * Vector3.forward), out raycastHit, 1f))
+            {
+                Debug.Log(raycastHit.collider.name);
+            }
             nextRayOrigin = origin.position + (origin.rotation * Vector3.forward * i);
             property?.ExecuteAttackProperty(nextRayOrigin);
             //if target found, add to targets

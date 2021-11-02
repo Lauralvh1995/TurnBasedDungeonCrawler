@@ -59,6 +59,7 @@ public class MeleeAttack : Attack
         {
             property?.ExecuteAttackProperty(origin.position);
             c.GetComponent<Trigger>()?.Execute(this, origin.position);
+            c.GetComponent<Entity>()?.TakeDamage(damage);
         }
     }
 }
