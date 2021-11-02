@@ -107,15 +107,35 @@ public class PlayerActions : MonoBehaviour
         if (context.performed)
             actions.Interact();
     }
-    public void Pause()
+    public void Pause(InputAction.CallbackContext context)
     {
-        actions.LockInput(true);
-        pauseGame.Invoke();
+        if (context.performed)
+        {
+            actions.LockInput(true);
+            pauseGame.Invoke();
+        }
     }
 
-    public void OpenMenu()
+    public void OpenMenu(InputAction.CallbackContext context)
     {
-        actions.LockInput(true);
-        openMap.Invoke();
+        if (context.performed)
+        {
+            actions.LockInput(true);
+            openMap.Invoke();
+        }
+    }
+    public void CycleTargetIndexUp(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            player.CycleTargetIndexUp();
+        }
+    }
+    public void CycleTargetIndexDown(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            player.CycleTargetIndexDown();
+        }
     }
 }

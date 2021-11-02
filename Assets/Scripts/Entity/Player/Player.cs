@@ -130,6 +130,25 @@ public class Player : Entity
             changedInteractable.Invoke(Camera.main.WorldToScreenPoint(target.GetGraphicAnchor()), target.GetInteractionName());
         }
     }
+
+    public void CycleTargetIndexUp()
+    {
+        currentTargetIndex++;
+        if(currentTargetIndex > interactables.Count)
+        {
+            currentTargetIndex = 0;
+        }
+        ChangeTarget(currentTargetIndex);
+    }
+    public void CycleTargetIndexDown()
+    {
+        currentTargetIndex--;
+        if (currentTargetIndex < 0)
+        {
+            currentTargetIndex = interactables.Count;
+        }
+        ChangeTarget(currentTargetIndex);
+    }
 }
 [Serializable]
 public class SlottedMeleeAttackEvent : UnityEvent<MeleeAttack>
