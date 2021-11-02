@@ -650,7 +650,7 @@
                 {
                     "name": "",
                     "id": "d605b1a8-c440-47ba-aed9-27ec5227eca6",
-                    "path": "<Mouse>/forwardButton",
+                    "path": "<Keyboard>/period",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard+Mouse",
@@ -694,7 +694,7 @@
                 {
                     "name": "",
                     "id": "f3837889-9ba6-4eb6-a251-716ad9b831f0",
-                    "path": "<Mouse>/backButton",
+                    "path": "<Keyboard>/comma",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard+Mouse",
