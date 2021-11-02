@@ -210,7 +210,7 @@
                 {
                     "name": "",
                     "id": "a87baf2b-856c-45c5-a2a8-18cb26dcc75c",
-                    "path": "<Mouse>/leftButton",
+                    "path": "<Keyboard>/j",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard+Mouse",
@@ -253,8 +253,19 @@
                 },
                 {
                     "name": "",
+                    "id": "0c875ba2-07b9-4888-8399-07c281afb277",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard+Mouse",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "41514745-9766-4e1d-ac06-44efa394fe68",
-                    "path": "<Mouse>/rightButton",
+                    "path": "<Keyboard>/k",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard+Mouse",
@@ -291,6 +302,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Switch",
+                    "action": "AlternateAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "aee4c07e-f7f0-4bbd-8750-fef5b90b72f3",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard+Mouse",
                     "action": "AlternateAttack",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -599,6 +621,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Switch",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c1139047-c0f3-4713-880b-de035c41cdf6",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard+Mouse",
                     "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
