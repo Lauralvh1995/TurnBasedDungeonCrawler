@@ -77,6 +77,8 @@ MonoBehaviour:
   requiredAttacks: []
   listeners:
   - {fileID: 1845317288710447663}
+  graphicAnchor: {fileID: 1845317288710447659}
+  interactionName: Valve
 --- !u!65 &1845317288710447662
 BoxCollider:
   m_ObjectHideFlags: 0

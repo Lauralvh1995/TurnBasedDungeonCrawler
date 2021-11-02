@@ -1219,6 +1219,8 @@ MonoBehaviour:
   requiredAttacks: []
   listeners:
   - {fileID: 4701986486526361593}
+  graphicAnchor: {fileID: 5963917149988221737}
+  interactionName: Go down?
 --- !u!1 &6046668918433269396
 GameObject:
   m_ObjectHideFlags: 0
@@ -2045,3 +2047,5 @@ MonoBehaviour:
   requiredAttacks: []
   listeners:
   - {fileID: 4124199354316992706}
+  graphicAnchor: {fileID: 8239397044734012244}
+  interactionName: Go up?

@@ -157,6 +157,8 @@ MonoBehaviour:
   requiredAttacks: []
   listeners:
   - {fileID: 2148449445285962445}
+  graphicAnchor: {fileID: 2148449445285962443}
+  interactionName: Door
 --- !u!1 &2148449445362760657
 GameObject:
   m_ObjectHideFlags: 0

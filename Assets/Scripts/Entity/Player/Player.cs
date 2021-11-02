@@ -122,12 +122,12 @@ public class Player : Entity
             ItemPickup t = target as ItemPickup;
             if (!t.alreadyTriggered)
             {
-                changedInteractable.Invoke(Camera.main.WorldToScreenPoint(target.GetGraphicAnchor()));
+                changedInteractable.Invoke(Camera.main.WorldToScreenPoint(target.GetGraphicAnchor()), target.GetInteractionName());
             }
         }
         else
         {
-            changedInteractable.Invoke(Camera.main.WorldToScreenPoint(target.GetGraphicAnchor()));
+            changedInteractable.Invoke(Camera.main.WorldToScreenPoint(target.GetGraphicAnchor()), target.GetInteractionName());
         }
     }
 }
@@ -142,7 +142,7 @@ public class SlottedRangedAttackEvent : UnityEvent<RangeAttack>
 
 }
 [Serializable]
-public class ChangedInteractableEvent : UnityEvent<Vector2>
+public class ChangedInteractableEvent : UnityEvent<Vector2, string>
 {
 
 }
