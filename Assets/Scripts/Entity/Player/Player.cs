@@ -134,7 +134,7 @@ public class Player : Entity
     public void CycleTargetIndexUp()
     {
         currentTargetIndex++;
-        if(currentTargetIndex > interactables.Count)
+        if(currentTargetIndex >= interactables.Count)
         {
             currentTargetIndex = 0;
         }
@@ -145,7 +145,7 @@ public class Player : Entity
         currentTargetIndex--;
         if (currentTargetIndex < 0)
         {
-            currentTargetIndex = interactables.Count;
+            currentTargetIndex = interactables.Count - 1;
         }
         ChangeTarget(currentTargetIndex);
     }
