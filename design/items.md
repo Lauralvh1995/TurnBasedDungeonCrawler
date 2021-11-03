@@ -1,6 +1,6 @@
 # Items
 
-A metroidvania character needs a bunch of items at their disposal. Actually, most items are weapons. Most weapons have a function beyond destroying enemies. The only items that aren't weapons are resource upgrades, or the Jetpack.
+A metroidvania character needs a bunch of items at their disposal. These items are the keys to the locks the world presents to you. Actually, most items are weapons. Most weapons have a function beyond destroying enemies. The only items that aren't weapons are resource upgrades, or the Jetpack.
 
 Health, Ammo and Fuel upgrades all increase your resources.
 
