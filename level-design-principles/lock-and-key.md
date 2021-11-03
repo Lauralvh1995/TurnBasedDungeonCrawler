@@ -6,8 +6,14 @@ When the player is confronted with a metaphorical lock, they will need to find t
 
 Boss Keys, a series by Game Maker's Toolkit, goes in-depth on the level designs of the The Legend of Zelda series, explaining how the dungeons are set up, and later expands to the Metroid series, Castlevania: Symphony of the Night, Hollow Knight and Dark Souls, as their level designs all share various aspects. I have taken this Lock-And-Key principle from them.
 
+![](<../.gitbook/assets/image (7).png>)
+
+For my design, I have taken the liberty of using a similar notation to the one GMTK uses in his videos. You can see it in the graph in the Complete Level chapter.
+
 ![Demonstrating Lock And Key: Bombs in Super Metroid](<../.gitbook/assets/LockAndKey-Bombs (1).gif>)
 
 Sources:
 
-Boss Keys: [https://www.youtube.com/playlist?list=PLc38fcMFcV\_ul4D6OChdWhsNsYY3NA5B2](https://www.youtube.com/playlist?list=PLc38fcMFcV\_ul4D6OChdWhsNsYY3NA5B2)
+1. Boss Keys: [https://www.youtube.com/playlist?list=PLc38fcMFcV\_ul4D6OChdWhsNsYY3NA5B2](https://www.youtube.com/playlist?list=PLc38fcMFcV\_ul4D6OChdWhsNsYY3NA5B2)
+2. Super Metroid gameplay GIF: mine
+

@@ -30,4 +30,4 @@ Xoth VI, as the name suggests, is the 6th planet circling around the star Xoth. 
 
 Vernaxx are a reptilian species. They can be compared to both crocodiles and snakes in part of their physiology. They also sport a colorful coat of feathers on parts of their bodies.
 
-![I like drawing, but character designs were not part of the learning goals.](<../.gitbook/assets/image (4).png>)
+![I like drawing, but character designs were not part of the learning goals.](<../.gitbook/assets/image (4) (1).png>)

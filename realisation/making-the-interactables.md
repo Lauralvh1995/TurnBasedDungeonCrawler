@@ -2,7 +2,7 @@
 
 Interactables are made from 2 or 3 distinct parts: a Trigger, a Listener and optionally a condition.
 
-![](<../.gitbook/assets/image (6).png>)
+![](<../.gitbook/assets/image (6) (1).png>)
 
 Triggers are the part the player actually interacts with. The Button is the simplest one. The switch can be turned on or off. The item pickup contains an item, or attack for now. A sensor is similar, but doesnt need to be interacted with via the interact button. Instead they work via Unity's built in physics/collision system.
 
