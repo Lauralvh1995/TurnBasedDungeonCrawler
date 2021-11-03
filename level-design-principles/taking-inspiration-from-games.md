@@ -2,7 +2,7 @@
 
 To understand the game genres I'm trying to combine, I first should play a few examples. For this I've played through Super Metroid (emulated on PC, with gamepad) and Etrian Odyssey (DS game played on 3DS).
 
-![Samus returns to Zebes with a vengeance! Also features the cutest weapon of mass destruction ever. Don't forget to save the animals!](<../.gitbook/assets/image (3).png>)
+![Samus returns to Zebes with a vengeance! Also features the cutest weapon of mass destruction ever. Don't forget to save the animals!](<../.gitbook/assets/image (3) (1).png>)
 
 Super Metroid is the third mainline installment in the Metroid series by Nintendo, from 1994. This is the game that defined the first half of the Metroidvania genre. The -vania half was added by Castlevania: Symphony of the Night, which added RPG elements into the mix.
 
