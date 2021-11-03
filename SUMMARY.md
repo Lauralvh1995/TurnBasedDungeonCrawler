@@ -2,6 +2,7 @@
 
 * [Professional Ambitions and Learning Goals](README.md)
   * [Inspiration](professional-ambitions-and-learning-goals/readme.md)
+  * [Reflection](professional-ambitions-and-learning-goals/reflection.md)
   * [Visiting SPIEL '21](professional-ambitions-and-learning-goals/visiting-spiel-21.md)
 * [Analysis](level-design-principles/README.md)
   * [Anticipation](level-design-principles/anticipation.md)
@@ -19,6 +20,5 @@
 * [Realisation](realisation/README.md)
   * [Complete Level](realisation/complete-level.md)
   * [Play-Testing at Night of the Nerds](realisation/play-testing-at-night-of-the-nerds.md)
-  * [Reflection](realisation/reflection.md)
   * [Future Plans](realisation/future-plans.md)
   * [Git Repository / Source Code](https://github.com/Lauralvh1995/TurnBasedDungeonCrawler)

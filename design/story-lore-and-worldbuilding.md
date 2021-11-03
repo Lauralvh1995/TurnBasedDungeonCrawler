@@ -14,6 +14,8 @@ You touch down on Xoth VI, after carefully scanning the planet for life forms. Y
 
 Then the treasure breaks out of the vault. A big monster chases you back to the surface. Data suggests that the monster was locked away for very good reasons. You strike a deal with the Pirates, and you venture deeper into the ruins to find out more about the monster, why it was created, and most importantly, how can it be stopped.
 
+This big monster is inspired by the Xenomorph from Alien and the SA-X from Metroid Fusion.
+
 
 
 How will you interact with the story and world in the game?
