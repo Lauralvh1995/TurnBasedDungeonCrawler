@@ -6,7 +6,7 @@ In _Lost Treasures of Xoth VI_ the player is a treasure hunter. They search for 
 
 Reading this blurb will leave you with some questions: What or where is Xoth VI? Who are the Vernaxx? And why did they abandon their home?
 
-I've created only a small part of the whole game as a demo. Here you will not really interact with the story of the game. It wouldn't make sense to drop the player right into the middle of it.
+I've created only a small part of the whole game as a demo. Here you will not really interact with the story of the game. It wouldn't make sense to drop the player right into the middle of it. But it's this story that ties the game elements together.
 
 The story for the full game would go as follows:&#x20;
 

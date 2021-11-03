@@ -10,6 +10,12 @@ Say, you want to communicate to the player and old and powerful ruler once lived
 
 The interesting part is where you can use this kind of communication to inform the player about what they should do. I remember a _Dungeons and Dragons_ game I wrote, where the players could only damage a boss if they checked the boss according to chess rules. To communicate which class corresponds to which chess piece, I arranged miniatures in the correct configurations. In-game, those miniatures represented statues. The boss was on a raised platform, conveniently 8x8 squares in size. The players accomplished their goal through sheer coincidence, in the end. They only noticed what was up after the fact.
 
+_Super Metroid_ has a nice example of a non-verbal tutorial. In one of the lower parts of Brinstar, you may accidentally find yourself in a pit with no way up. Luckily, Samus encounters one of the few friendly kinds of wildlife. The Etecoons show you how to wall-jump. You might not even have thought of that. They do not show you any button prompts however. Look closely at their animations, and you can figure it out. They even celebrate with you once you reach the top!
+
+![](../.gitbook/assets/WallJumpTutorial.gif)
+
+And if all else fails, you might have taught yourself to bomb jump.
+
 This example highlights a risk to all environmental storytelling: It's open to interpretation. And players can (wilfully) ignore it.
 
 Source: [https://www.gamedeveloper.com/design/environmental-storytelling](https://www.gamedeveloper.com/design/environmental-storytelling)
