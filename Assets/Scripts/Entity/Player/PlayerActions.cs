@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.UI;
 
 [RequireComponent(typeof(EntityActions))]
 public class PlayerActions : MonoBehaviour
@@ -14,7 +13,6 @@ public class PlayerActions : MonoBehaviour
 
     [SerializeField] private MapCameraController mapCameraController;
     [SerializeField] private PauseMenuController pauseMenuController;
-    [SerializeField] private InputSystemUIInputModule UIInput;
 
     [SerializeField] private UnityEvent pauseGame;
     [SerializeField] private UnityEvent openMap;
@@ -164,7 +162,6 @@ public class PlayerActions : MonoBehaviour
     {
         if (context.performed)
         {
-            UIInput.enabled = true;
             pauseGame.Invoke();
             SwitchInput("UI");
         }
@@ -173,7 +170,6 @@ public class PlayerActions : MonoBehaviour
     {
         if (context.performed)
         {
-            UIInput.enabled = false;
             pauseMenuController.Unpause();
         }
     }
