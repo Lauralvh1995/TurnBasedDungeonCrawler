@@ -627,6 +627,17 @@
                 },
                 {
                     "name": "",
+                    "id": "db860f47-cd63-4428-8cd0-ccefcc6f0aa9",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard+Mouse",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "f6a7eb40-22dc-4668-8c8b-3499c1b933f0",
                     "path": "<XInputController>/select",
                     "interactions": "",
@@ -2165,6 +2176,28 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Xbox",
+                    "action": "Exit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8ddba541-5c06-406e-a7d0-5d3d85ec4f8c",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard+Mouse",
+                    "action": "Exit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "faa26636-9cb8-4780-a5d2-3003718ee9a2",
+                    "path": "<Keyboard>/backspace",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard+Mouse",
                     "action": "Exit",
                     "isComposite": false,
                     "isPartOfComposite": false
