@@ -30,8 +30,8 @@ public class PauseMenuController : MonoBehaviour
     {
         pausePanel.gameObject.SetActive(false);
         gameUI.gameObject.SetActive(true);
-        unpausedGame.Invoke();
         EventSystem.current.SetSelectedGameObject(null);
+        unpausedGame.Invoke();
     }
 
     public void ShowControls()
