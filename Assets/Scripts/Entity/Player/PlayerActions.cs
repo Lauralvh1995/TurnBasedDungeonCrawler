@@ -12,6 +12,7 @@ public class PlayerActions : MonoBehaviour
     private EntityActions actions;
 
     [SerializeField] private MapCameraController mapCameraController;
+    [SerializeField] private PauseMenuController pauseMenuController;
 
     [SerializeField] private UnityEvent pauseGame;
     [SerializeField] private UnityEvent openMap;
@@ -24,13 +25,10 @@ public class PlayerActions : MonoBehaviour
         actions = GetComponent<EntityActions>();
     }
 
-    public void SwitchToPlayerInput()
+    public void SwitchInput(string mapName)
     {
-        playerInput.SwitchCurrentActionMap("Player");
-    }
-    public void SwitchToMapInput()
-    {
-        playerInput.SwitchCurrentActionMap("Map");
+        playerInput.SwitchCurrentActionMap(mapName);
+        Debug.Log(playerInput.currentActionMap);
     }
 
     public void MoveForward(InputAction.CallbackContext context)
@@ -87,7 +85,8 @@ public class PlayerActions : MonoBehaviour
     {
         if (context.performed)
         {
-            actions.LockInput(true);
+            //actions.LockInput(true);
+            SwitchInput("UI");
             pauseGame.Invoke();
         }
     }
@@ -97,7 +96,7 @@ public class PlayerActions : MonoBehaviour
         if (context.performed)
         {
             //actions.LockInput(true);
-            SwitchToMapInput();
+            SwitchInput("Map");
             openMap.Invoke();
         }
     }
@@ -129,7 +128,7 @@ public class PlayerActions : MonoBehaviour
         if (context.performed)
         {
             closeMap.Invoke();
-            SwitchToPlayerInput();
+            SwitchInput("Player");
         }
     }
     public void ZoomIn(InputAction.CallbackContext context)
@@ -165,6 +164,14 @@ public class PlayerActions : MonoBehaviour
         if (context.performed)
         {
             mapCameraController.ResetMap();
+        }
+    }
+    public void Resume(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            pauseMenuController.Unpause();
+            SwitchInput("Player");
         }
     }
 }
