@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -15,16 +16,15 @@ public class PauseMenuController : MonoBehaviour
     [SerializeField] private RectTransform controlView;
 
     [SerializeField] private UnityEvent unpausedGame;
-    [SerializeField] private GameObject firstSelected;
-    [SerializeField] private GameObject controlViewSelected;
+    [SerializeField] private UnityEngine.UI.Button firstSelected;
+    [SerializeField] private UnityEngine.UI.Button controlViewSelected;
 
     public void Pause()
     {
         pausePanel.gameObject.SetActive(true);
         gameUI.gameObject.SetActive(false);
         bigMap.gameObject.SetActive(false);
-        EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(firstSelected);
+        firstSelected.Select();
     }
     public void Unpause()
     {
@@ -37,14 +37,12 @@ public class PauseMenuController : MonoBehaviour
     public void ShowControls()
     {
         controlView.gameObject.SetActive(true);
-        EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(controlViewSelected);
+        controlViewSelected.Select();
     }
     public void HideControls()
     {
         controlView.gameObject.SetActive(false);
-        EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(firstSelected);
+        firstSelected.Select();
     }
 
     public void ExitGame()

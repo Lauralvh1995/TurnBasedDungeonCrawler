@@ -8,13 +8,12 @@ public class StartMenu : MonoBehaviour
 {
     [SerializeField] private RectTransform controlView;
 
-    [SerializeField] private GameObject controlsCloseButton;
-    [SerializeField] private GameObject startGameButton;
+    [SerializeField] private UnityEngine.UI.Button controlsCloseButton;
+    [SerializeField] private UnityEngine.UI.Button startGameButton;
 
     private void Start()
     {
-        EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(startGameButton);
+        startGameButton.Select();
     }
     public void StartGame()
     {
@@ -22,14 +21,12 @@ public class StartMenu : MonoBehaviour
     }
     public void ShowControls()
     {
-        EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(controlsCloseButton);
+        controlsCloseButton.Select();
         controlView.gameObject.SetActive(true);
     }
     public void CloseControls()
     {
-        EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(startGameButton);
+        startGameButton.Select();
         controlView.gameObject.SetActive(false);
 
     }
