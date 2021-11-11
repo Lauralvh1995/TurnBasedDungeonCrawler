@@ -1523,7 +1523,7 @@
                 {
                     "name": "2D Vector",
                     "id": "cfe86b14-12bc-4bd9-a0c3-17fa4993a0dd",
-                    "path": "2DVector",
+                    "path": "2DVector(mode=1)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -1578,7 +1578,7 @@
                 {
                     "name": "2D Vector",
                     "id": "74bd4087-121e-46ad-9043-5ab5dca3a806",
-                    "path": "2DVector",
+                    "path": "2DVector(mode=1)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -1633,7 +1633,7 @@
                 {
                     "name": "2D Vector",
                     "id": "c9b2207b-4e41-43a3-94ff-74cafbc560b5",
-                    "path": "2DVector",
+                    "path": "2DVector(mode=1)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -1688,7 +1688,7 @@
                 {
                     "name": "2D Vector",
                     "id": "b65ce888-17f4-4e8d-acfe-83ab2c027bcf",
-                    "path": "2DVector",
+                    "path": "2DVector(mode=1)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -1743,7 +1743,7 @@
                 {
                     "name": "2D Vector",
                     "id": "6e0d21f1-65bb-4796-b71b-fcc91050015f",
-                    "path": "2DVector",
+                    "path": "2DVector(mode=1)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -1798,7 +1798,7 @@
                 {
                     "name": "2D Vector",
                     "id": "913236b3-b9f0-4abb-bf8a-1dc736dbc31d",
-                    "path": "2DVector",
+                    "path": "2DVector(mode=1)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -1853,7 +1853,7 @@
                 {
                     "name": "2D Vector",
                     "id": "c0afb48e-b8aa-45ac-8f6a-c078f1e386e3",
-                    "path": "2DVector",
+                    "path": "2DVector(mode=1)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -1908,7 +1908,7 @@
                 {
                     "name": "2D Vector",
                     "id": "f3ec7f3e-7499-4a53-8cdb-31c440c868e9",
-                    "path": "2DVector",
+                    "path": "2DVector(mode=1)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -2094,28 +2094,6 @@
                 },
                 {
                     "name": "",
-                    "id": "d743205f-2f5c-4913-b12b-f2791a24faf7",
-                    "path": "<Keyboard>/backspace",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard+Mouse",
-                    "action": "Exit",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "74c90b66-574d-413a-a9e4-72a44743ca80",
-                    "path": "<Keyboard>/escape",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard+Mouse",
-                    "action": "Exit",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "52dacd2b-33cf-406b-8a64-345e84428248",
                     "path": "<DualShockGamepad>/buttonEast",
                     "interactions": "",
@@ -2154,6 +2132,39 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard+Mouse",
+                    "action": "Exit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1a7c42dd-f1f4-4c09-a05d-3a506fa6fc15",
+                    "path": "<DualShockGamepad>/touchpadButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PS4",
+                    "action": "Exit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7b9be081-028b-4fed-a4a9-45d7419d5f1c",
+                    "path": "<SwitchProControllerHID>/select",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Switch",
+                    "action": "Exit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3c648466-29a4-4168-be80-f5ef37e30dce",
+                    "path": "<XInputController>/select",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Xbox",
                     "action": "Exit",
                     "isComposite": false,
                     "isPartOfComposite": false

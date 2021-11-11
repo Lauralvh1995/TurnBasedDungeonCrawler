@@ -27,6 +27,7 @@ public class PlayerActions : MonoBehaviour
 
     public void SwitchInput(string mapName)
     {
+        playerInput.actions.Disable();
         playerInput.SwitchCurrentActionMap(mapName);
         Debug.Log(playerInput.currentActionMap);
     }
@@ -109,8 +110,7 @@ public class PlayerActions : MonoBehaviour
     {
         if (context.performed)
         {
-            Vector2 direction = context.ReadValue<Vector2>().normalized;
-            Debug.Log(direction);
+            Vector2 direction = context.ReadValue<Vector2>();            
             mapCameraController.MoveMap(new Vector3(direction.x, 0f, direction.y));
         }
     }
