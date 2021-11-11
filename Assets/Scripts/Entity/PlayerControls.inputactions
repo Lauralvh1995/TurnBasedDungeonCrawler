@@ -583,17 +583,6 @@
                 },
                 {
                     "name": "",
-                    "id": "4dca1b33-2ba3-4a0a-bf66-58d88c24d3dc",
-                    "path": "<Keyboard>/escape",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard+Mouse",
-                    "action": "Pause",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "05ebecd8-3a42-4b3b-ab28-663376d28e67",
                     "path": "<XInputController>/start",
                     "interactions": "",
@@ -1304,6 +1293,17 @@
                 },
                 {
                     "name": "",
+                    "id": "4e78f63d-7aec-42b7-b22a-a4562c8cc2bd",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard+Mouse",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "e9d281c6-f16e-4f2d-84f3-ea1bfc0182b8",
                     "path": "<Mouse>/scroll",
                     "interactions": "",
@@ -1392,28 +1392,6 @@
                 },
                 {
                     "name": "",
-                    "id": "e453190a-6085-4803-951b-3119e498d34a",
-                    "path": "<Keyboard>/escape",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard+Mouse",
-                    "action": "Cancel",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "500af0a5-982d-41e3-a877-b35f3b464583",
-                    "path": "<Keyboard>/backspace",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard+Mouse",
-                    "action": "Cancel",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "38b22e67-d6cd-43e9-8f22-16f55a6d6ea2",
                     "path": "<DualShockGamepad>/buttonEast",
                     "interactions": "",
@@ -1449,6 +1427,28 @@
                     "name": "",
                     "id": "f79f3ac2-be03-4dee-8427-2eb36e94045d",
                     "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard+Mouse",
+                    "action": "Cancel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b2dc2c9f-7a7d-41f4-85db-7d6c6387c01f",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard+Mouse",
+                    "action": "Cancel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "93882e0b-f60c-45a7-8d82-50a2c10c0ded",
+                    "path": "<Keyboard>/backspace",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard+Mouse",

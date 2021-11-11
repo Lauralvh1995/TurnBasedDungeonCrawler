@@ -84,14 +84,7 @@ public class PlayerActions : MonoBehaviour
     }
     
 
-    public void OpenMap(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            openMap.Invoke();
-            SwitchInput("Map");
-        }
-    }
+    
     public void CycleTargetIndexUp(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -104,6 +97,14 @@ public class PlayerActions : MonoBehaviour
         if (context.performed)
         {
             player.CycleTargetIndexDown();
+        }
+    }
+    public void OpenMap(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            openMap.Invoke();
+            SwitchInput("Map");
         }
     }
     public void MoveMap(InputAction.CallbackContext context)
