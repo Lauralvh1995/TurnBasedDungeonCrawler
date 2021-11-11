@@ -11,51 +11,27 @@ public class PlayerActions : MonoBehaviour
     private PlayerInput playerInput;
     private EntityActions actions;
 
-    private InputAction moveForward;
-    private InputAction moveBackward;
-    private InputAction turnLeft;
-    private InputAction turnRight;
-    private InputAction strafeLeft;
-    private InputAction strafeRight;
-    private InputAction attack;
-    private InputAction alternateAttack;
-    private InputAction wait;
-    private InputAction interact;
+    [SerializeField] private MapCameraController mapCameraController;
 
     [SerializeField] private UnityEvent pauseGame;
     [SerializeField] private UnityEvent openMap;
+    [SerializeField] private UnityEvent closeMap;
 
     public void Awake()
     {
         player = GetComponent<Player>();
         playerInput = GetComponent<PlayerInput>();
         actions = GetComponent<EntityActions>();
-
-        moveForward = playerInput.actions["MoveForward"];
-        moveBackward = playerInput.actions["MoveBackward"];
-        turnLeft = playerInput.actions["TurnLeft"];
-        turnRight = playerInput.actions["TurnRight"];
-        strafeLeft = playerInput.actions["StrafeLeft"];
-        strafeRight = playerInput.actions["StrafeRight"];
-        attack = playerInput.actions["Attack"];
-        alternateAttack = playerInput.actions["AlternateAttack"];
-        wait = playerInput.actions["Wait"];
-        interact = playerInput.actions["Interact"];
     }
 
-    //private void OnEnable()
-    //{
-    //    moveForward.performed += _ => actions.MoveForward();
-    //    moveBackward.performed += _ => actions.MoveBackward();
-    //    turnLeft.performed += _ => actions.TurnLeft();
-    //    turnRight.performed += _ => actions.TurnRight();
-    //    strafeLeft.performed += _ => actions.StrafeLeft();
-    //    strafeRight.performed += _ => actions.StrafeRight();
-    //    attack.performed += _ => actions.Attack();
-    //    alternateAttack.performed += _ => actions.AlternateAttack();
-    //    wait.performed += _ => actions.Wait();
-    //    interact.performed += _ => actions.Interact();
-    //}
+    public void SwitchToPlayerInput()
+    {
+        playerInput.SwitchCurrentActionMap("Player");
+    }
+    public void SwitchToMapInput()
+    {
+        playerInput.SwitchCurrentActionMap("Map");
+    }
 
     public void MoveForward(InputAction.CallbackContext context)
     {
@@ -116,11 +92,12 @@ public class PlayerActions : MonoBehaviour
         }
     }
 
-    public void OpenMenu(InputAction.CallbackContext context)
+    public void OpenMap(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            actions.LockInput(true);
+            //actions.LockInput(true);
+            SwitchToMapInput();
             openMap.Invoke();
         }
     }
@@ -136,6 +113,58 @@ public class PlayerActions : MonoBehaviour
         if (context.performed)
         {
             player.CycleTargetIndexDown();
+        }
+    }
+    public void MoveMap(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Vector2 direction = context.ReadValue<Vector2>().normalized;
+            Debug.Log(direction);
+            mapCameraController.MoveMap(new Vector3(direction.x, 0f, direction.y));
+        }
+    }
+    public void ExitMap(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            closeMap.Invoke();
+            SwitchToPlayerInput();
+        }
+    }
+    public void ZoomIn(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            mapCameraController.ZoomIn();
+        }
+    }
+    public void ZoomOut(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            mapCameraController.ZoomOut();
+        }
+    }
+    public void GoUpLevel(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            mapCameraController.GoUpLevel();
+        }
+    }
+    public void GoDownLevel(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            mapCameraController.GoDownLevel();
+        }
+    }
+    public void ResetMap(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            mapCameraController.ResetMap();
         }
     }
 }

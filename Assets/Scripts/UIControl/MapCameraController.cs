@@ -35,21 +35,9 @@ public class MapCameraController : MonoBehaviour
         transform.position += Vector3.down;
     }
 
-    public void GoLeft()
+    public void MoveMap(Vector3 direction)
     {
-        transform.position += Vector3.left;
-    }
-    public void GoRight()
-    {
-        transform.position += Vector3.right;
-    }
-    public void GoUp()
-    {
-        transform.position += Vector3.forward;
-    }
-    public void GoDown()
-    {
-        transform.position += Vector3.back;
+        transform.position += direction;
     }
 
     public void ZoomIn()
