@@ -81,23 +81,14 @@ public class PlayerActions : MonoBehaviour
         if (context.performed)
             actions.Interact();
     }
-    public void Pause(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            //actions.LockInput(true);
-            SwitchInput("UI");
-            pauseGame.Invoke();
-        }
-    }
+    
 
     public void OpenMap(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            //actions.LockInput(true);
-            SwitchInput("Map");
             openMap.Invoke();
+            SwitchInput("Map");
         }
     }
     public void CycleTargetIndexUp(InputAction.CallbackContext context)
@@ -166,12 +157,19 @@ public class PlayerActions : MonoBehaviour
             mapCameraController.ResetMap();
         }
     }
-    public void Resume(InputAction.CallbackContext context)
+    public void Pause(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            pauseGame.Invoke();
+            SwitchInput("UI");
+        }
+    }
+    public void Unpause(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
             pauseMenuController.Unpause();
-            SwitchInput("Player");
         }
     }
 }

@@ -1444,6 +1444,17 @@
                     "action": "Cancel",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f79f3ac2-be03-4dee-8427-2eb36e94045d",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard+Mouse",
+                    "action": "Cancel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -2132,6 +2143,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Xbox",
+                    "action": "Exit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7264c866-aef3-44d1-a47d-f5a5050aafc5",
+                    "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard+Mouse",
                     "action": "Exit",
                     "isComposite": false,
                     "isPartOfComposite": false
