@@ -7,43 +7,57 @@ using UnityEngine.Events;
 
 public class WaterLevel : MonoBehaviour
 {
-    [SerializeField] private int currentLevel;
     [SerializeField] Transform waterLevelVisual;
+    [SerializeField] Vector3 baseLevel;
+    [SerializeField] Vector3 upperLevel;
 
     [SerializeField] private float waterChangeSpeed = 0.3f;
+    [SerializeField] ChangingWaterLevelEvent changingWaterLevelEvent;
     [SerializeField] ChangedWaterLevelEvent changedWaterLevel;
 
+    bool changingLevel;
+
+    private void Awake()
+    {
+        baseLevel = transform.position;
+        upperLevel = baseLevel + Vector3.up;
+    }
     public void ChangeLevel(bool state)
     {
-        if (state)
+        if (!changingLevel)
         {
-            currentLevel++;
-            StartCoroutine(ChangeWaterLevel(Vector3.up));
-        }
-        else
-        {
-            currentLevel--;
-            StartCoroutine(ChangeWaterLevel(Vector3.down));
+            if (state)
+            {
+                changingLevel = true;
+                StartCoroutine(ChangeWaterLevel(upperLevel));
+            }
+            else
+            {
+                changingLevel = true;
+                StartCoroutine(ChangeWaterLevel(baseLevel));
+            }
         }
     }
 
-    IEnumerator ChangeWaterLevel(Vector3 dir)
+    IEnumerator ChangeWaterLevel(Vector3 destination)
     {
+        changingWaterLevelEvent.Invoke();
         Vector3 from = waterLevelVisual.position;
-        Vector3 to = waterLevelVisual.position + dir;
         
         for (float t = 0f; t <= 1; t += Time.deltaTime / waterChangeSpeed)
         {
-            waterLevelVisual.position = Vector3.Lerp(from, to, t);
+            waterLevelVisual.position = Vector3.Lerp(from, destination, t);
             yield return null;
         }
+        waterLevelVisual.position = destination;
+        changingLevel = false;
         changedWaterLevel.Invoke();
     }
+}
+[Serializable]
+public class ChangingWaterLevelEvent : UnityEvent
+{
 
-    public int GetCurrentLevel()
-    {
-        return currentLevel;
-    }
 }
 [Serializable]
 public class ChangedWaterLevelEvent : UnityEvent
