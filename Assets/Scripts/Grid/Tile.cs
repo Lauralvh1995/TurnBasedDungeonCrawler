@@ -14,7 +14,6 @@ namespace Assets.Scripts.Grid
         private Vector3 worldPos;
 
         [SerializeField] private bool occupied;
-        [SerializeField] private bool isFlooded;
 
         [SerializeField] private bool leftWall;
         [SerializeField] private bool rightWall;
@@ -103,16 +102,6 @@ namespace Assets.Scripts.Grid
                 //Debug.Log(z);
             }
         }
-
-        public void SetFlooded(bool status)
-        {
-            isFlooded = status;
-        }
-        public bool GetFlooded()
-        {
-            return isFlooded;
-        }
-
         public void CheckOccupation(Vector3 pos, LayerMask groundMask, LayerMask entityMask)
         {
             if(Physics.CheckSphere(pos + Vector3.left*0.45f, 0.2f, groundMask))

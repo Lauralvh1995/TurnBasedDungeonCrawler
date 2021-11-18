@@ -12,5 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f035a76342203ec4f9dfb2f7e8a19956, type: 3}
   m_Name: Ice Beam Property
   m_EditorClassIdentifier: 
+  water:
+    serializedVersion: 2
+    m_Bits: 16
+  ground:
+    serializedVersion: 2
+    m_Bits: 256
   iceTilePrefab: {fileID: 398246622193548110, guid: 621844aaefd492140a19cd0bb2251e67,
     type: 3}

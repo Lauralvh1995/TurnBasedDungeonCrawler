@@ -41,30 +41,6 @@ namespace Assets.Scripts.Grid
                     }
                 }
             }
-            //check for all water levels
-            foreach (WaterLevel level in waterLevels)
-            {
-                ChangeWaterLevel(level.GetCurrentLevel(), level.GetLowerBound(), level.GetUpperBound());
-            }
-        }
-
-        public void ChangeWaterLevel(int currentLevel, Vector3 lower, Vector3 upper)
-        {
-            foreach(Tile t in grid.GetGridArray())
-            {
-                if((t.GetWorldPosition().x >= lower.x && t.GetWorldPosition().x <= upper.x ) && (t.GetWorldPosition().z >= lower.z && t.GetWorldPosition().z <= upper.z))
-
-                if(t.Y <= currentLevel)
-                {
-                    t.SetFlooded(true);
-                    Debug.Log("Flooded " + t.ToString());
-                }
-                else
-                {
-                    t.SetFlooded(false);
-                }
-                UpdatePassability(t.GetWorldPosition());
-            }
         }
         public void UpdatePassability(Vector3 pos)
         {
@@ -73,15 +49,6 @@ namespace Assets.Scripts.Grid
             {
                 tile.CheckOccupation(pos, groundMask, entityMask);
                 Debug.Log(tile.ToString());
-                /*if (tile.Y <= level.GetCurrentLevel())
-                {
-                    tile.SetFlooded(true);
-                }
-                else
-                {
-                    tile.SetFlooded(false);
-                }*/
-                //tile.GetNeighbours();
             }
         }
 
