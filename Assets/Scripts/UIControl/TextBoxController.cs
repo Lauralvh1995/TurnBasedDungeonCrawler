@@ -7,12 +7,21 @@ public class TextBoxController : MonoBehaviour
 {
     [SerializeField] RectTransform textBox;
     [SerializeField] TextMeshProUGUI uiText;
-
+    IEnumerator typeWriter;
     public void ShowText(string text, float time)
     {
-        textBox.gameObject.SetActive(true);
+        if (typeWriter != null)
+        {
+            HideText();
+            StopCoroutine(typeWriter);
+            typeWriter = null;
+        }
+
+        typeWriter = TypeWriter(text);
+
         uiText.text = "";
-        StartCoroutine(TypeWriter(text));
+        textBox.gameObject.SetActive(true);
+        StartCoroutine(typeWriter);
         Invoke("HideText", time);
     }
 

@@ -11,6 +11,7 @@ public class WaterLevel : MonoBehaviour
     [SerializeField] Transform waterLevelVisual;
 
     [SerializeField] private float waterChangeSpeed = 0.3f;
+    [SerializeField] ChangedWaterLevelEvent changedWaterLevel;
 
     public void ChangeLevel(bool state)
     {
@@ -36,12 +37,18 @@ public class WaterLevel : MonoBehaviour
             waterLevelVisual.position = Vector3.Lerp(from, to, t);
             yield return null;
         }
+        changedWaterLevel.Invoke();
     }
 
     public int GetCurrentLevel()
     {
         return currentLevel;
     }
+}
+[Serializable]
+public class ChangedWaterLevelEvent : UnityEvent
+{
+
 }
 
 
