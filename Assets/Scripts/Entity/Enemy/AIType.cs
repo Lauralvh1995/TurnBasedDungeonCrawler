@@ -12,13 +12,6 @@ namespace Assets.Scripts.Entity
         [SerializeField] AIAction secondaryAttackAction;
         [SerializeField] AIAction chaseAction;
         [SerializeField] AIAction otherAction;
-        //ideas: list of possible actions
-        //condition -> action
-        // is player in range of primary attack -> do primary attack
-        // is player in range of secondary attack -> do secondary attack
-        // is player in range of chaseRange -> move towards it
-        // none of the above met -> do other action action
-
         public AIAction GetAIAction(ActionType actionType)
         {
             switch (actionType)
@@ -34,7 +27,6 @@ namespace Assets.Scripts.Entity
             }
         }
     }
-
     public enum ActionType
     {
         PrimaryAttack,
