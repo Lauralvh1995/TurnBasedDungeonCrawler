@@ -2,9 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public abstract class Listener : MonoBehaviour
+namespace Assets.Scripts.Entity
 {
-    [SerializeField] protected List<Condition> conditions;
-    public abstract void Execute();
+    public abstract class Listener : MonoBehaviour
+    {
+        [SerializeField] protected List<Condition> conditions;
+        public abstract void Execute();
+    }
 }

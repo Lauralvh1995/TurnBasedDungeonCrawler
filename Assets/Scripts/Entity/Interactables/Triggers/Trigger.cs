@@ -1,29 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-[RequireComponent(typeof(BoxCollider))]
-public abstract class Trigger : MonoBehaviour, ICanInteract
+namespace Assets.Scripts.Entity
 {
-    [SerializeField] protected List<Attack> requiredAttacks;
-    [SerializeField] protected List<Listener> listeners;
-    [SerializeField] protected GameObject graphicAnchor;
-    [SerializeField] protected string interactionName;
-    public virtual void Execute()
+    [RequireComponent(typeof(BoxCollider))]
+    public abstract class Trigger : MonoBehaviour, ICanInteract
     {
-        Debug.Log("Triggered at " + transform.position);
-        foreach (Listener l in listeners)
+        [SerializeField] protected List<Attack> requiredAttacks;
+        [SerializeField] protected List<Listener> listeners;
+        [SerializeField] protected GameObject graphicAnchor;
+        [SerializeField] protected string interactionName;
+        public virtual void Execute()
         {
-            l.Execute();
+            Debug.Log("Triggered at " + transform.position);
+            foreach (Listener l in listeners)
+            {
+                l.Execute();
+            }
         }
+        public Vector3 GetGraphicAnchor()
+        {
+            return graphicAnchor.transform.position;
+        }
+        public string GetInteractionName()
+        {
+            return interactionName;
+        }
+        public abstract void Execute(Attack attack, Vector3 origin);
     }
-    public Vector3 GetGraphicAnchor()
-    {
-        return graphicAnchor.transform.position;
-    }
-    public string GetInteractionName()
-    {
-        return interactionName;
-    }
-    public abstract void Execute(Attack attack, Vector3 origin);
 }

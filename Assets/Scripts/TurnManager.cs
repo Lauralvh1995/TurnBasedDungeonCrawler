@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Grid;
+﻿using Assets.Scripts.Entity;
+using Assets.Scripts.Grid;
 using System;
 using System.Collections;
 using System.Collections.Generic;

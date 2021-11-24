@@ -3,16 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-
-public class Valve : Listener
+namespace Assets.Scripts.Entity
 {
-    [SerializeField] private bool on;
-    [SerializeField] public WaterLevelEvent waterLevelChanged;
-
-    public override void Execute()
+    public class Valve : Listener
     {
-        on = !on;
-        waterLevelChanged.Invoke(on);
+        [SerializeField] private bool on;
+        [SerializeField] public WaterLevelEvent waterLevelChanged;
+
+        public override void Execute()
+        {
+            on = !on;
+            waterLevelChanged.Invoke(on);
+        }
     }
 }
 [Serializable]

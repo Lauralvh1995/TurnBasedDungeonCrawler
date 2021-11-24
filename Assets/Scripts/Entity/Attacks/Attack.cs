@@ -3,20 +3,23 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public abstract class Attack : ScriptableObject
+namespace Assets.Scripts.Entity
 {
-    [SerializeField] protected string attackName;
-    [SerializeField] protected Sprite iconSprite;
-    [SerializeField] protected AttackProperty property;
-    public string GetAttackName() {
-        return attackName;
-    }
-
-    public Sprite GetSprite()
+    public abstract class Attack : ScriptableObject
     {
-        return iconSprite;
+        [SerializeField] protected string attackName;
+        [SerializeField] protected Sprite iconSprite;
+        [SerializeField] protected AttackProperty property;
+        public string GetAttackName()
+        {
+            return attackName;
+        }
+
+        public Sprite GetSprite()
+        {
+            return iconSprite;
+        }
+
+        public abstract void Execute(Transform origin);
     }
-    
-    public abstract void Execute(Transform origin);
 }

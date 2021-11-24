@@ -1,8 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public abstract class Condition : MonoBehaviour
+namespace Assets.Scripts.Entity
 {
-    public abstract bool Check();
+    public abstract class Condition : MonoBehaviour
+    {
+        public abstract bool Check();
+    }
 }

@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Button : Trigger
+namespace Assets.Scripts.Entity
 {
-    public override void Execute(Attack attack, Vector3 origin)
+    public class Button : Trigger
     {
-        //remote logic here
-        //throw new System.NotImplementedException();
+        public override void Execute(Attack attack, Vector3 origin)
+        {
+            //remote logic here
+            //throw new System.NotImplementedException();
+        }
     }
 }

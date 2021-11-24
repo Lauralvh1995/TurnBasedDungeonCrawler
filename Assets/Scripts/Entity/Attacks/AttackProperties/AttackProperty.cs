@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class AttackProperty : ScriptableObject
+namespace Assets.Scripts.Entity
 {
-    public abstract void ExecuteAttackProperty(Vector3 location);
+    public abstract class AttackProperty : ScriptableObject
+    {
+        public abstract void ExecuteAttackProperty(Vector3 location);
+    }
 }

@@ -1,17 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Lock : Condition
+namespace Assets.Scripts.Entity
 {
-    [SerializeField] private bool locked;
-    public override bool Check()
+    public class Lock : Condition
     {
-        return !locked;
-    }
+        [SerializeField] private bool locked;
+        public override bool Check()
+        {
+            return !locked;
+        }
 
-    public void Unlock()
-    {
-        locked = false;
+        public void Unlock()
+        {
+            locked = false;
+        }
     }
 }

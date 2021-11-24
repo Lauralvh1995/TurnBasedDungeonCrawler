@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName ="New AI Type", menuName ="AI Type")]
-public class AIType : ScriptableObject
+namespace Assets.Scripts.Entity
 {
-   
+    [CreateAssetMenu(fileName = "New AI Type", menuName = "AI Type")]
+    public class AIType : ScriptableObject
+    {
+
+    }
 }

@@ -1,16 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class PlayerPosition : Condition
+namespace Assets.Scripts.Entity
 {
-    [SerializeField] Player player;
-    private void Awake()
+    public class PlayerPosition : Condition
     {
-        player = FindObjectOfType<Player>();
-    }
-    public override bool Check()
-    {
-        return Vector3.Distance(transform.position, player.transform.position) < 0.1f;
+        [SerializeField] Player player;
+        private void Awake()
+        {
+            player = FindObjectOfType<Player>();
+        }
+        public override bool Check()
+        {
+            return Vector3.Distance(transform.position, player.transform.position) < 0.1f;
+        }
     }
 }

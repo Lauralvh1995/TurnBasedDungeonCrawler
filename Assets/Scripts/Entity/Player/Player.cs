@@ -1,153 +1,156 @@
-﻿using Assets.Scripts.Grid;
+﻿using Assets.Scripts.Entity;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-
-public class Player : Entity
+namespace Assets.Scripts.Entity
 {
-    [SerializeField] private int maxHealth;
-    [SerializeField] private bool flying;
-    [SerializeField] private bool heavy;
+    public class Player : Entity
+    {
+        [SerializeField] private int maxHealth;
+        [SerializeField] private bool flying;
+        [SerializeField] private bool heavy;
 
-    [SerializeField] MeleeAttack primaryAttack;
-    [SerializeField] RangeAttack secondaryAttack;
-    [SerializeField] List<MeleeAttack> possibleMeleeAttacks;
-    [SerializeField] List<RangeAttack> possibleRangeAttacks;
+        [SerializeField] MeleeAttack primaryAttack;
+        [SerializeField] RangeAttack secondaryAttack;
+        [SerializeField] List<MeleeAttack> possibleMeleeAttacks;
+        [SerializeField] List<RangeAttack> possibleRangeAttacks;
 
-    [SerializeField] Trigger target;
-    [SerializeField] private int currentTargetIndex = 0;
-    [SerializeField] List<Trigger> interactables;
-    [SerializeField] LayerMask interactableMask;
+        [SerializeField] Trigger target;
+        [SerializeField] private int currentTargetIndex = 0;
+        [SerializeField] List<Trigger> interactables;
+        [SerializeField] LayerMask interactableMask;
 
-    [SerializeField] private bool inMapUI;
+        [SerializeField] private bool inMapUI;
 
-    [SerializeField] private SlottedMeleeAttackEvent slottedMelee;
-    [SerializeField] private SlottedRangedAttackEvent slottedRange;
-    [SerializeField] private ChangedInteractableEvent changedInteractable;
-    [SerializeField] private ClearedInteractablesEvent clearedInteractables;
+        [SerializeField] private SlottedMeleeAttackEvent slottedMelee;
+        [SerializeField] private SlottedRangedAttackEvent slottedRange;
+        [SerializeField] private ChangedInteractableEvent changedInteractable;
+        [SerializeField] private ClearedInteractablesEvent clearedInteractables;
 
-    public override void ExecuteInteraction()
-    {
-        target?.Execute();
-    }
-    public override void ExecutePrimaryAttack()
-    {
-        primaryAttack?.Execute(transform);
-    }
-    public override void ExecuteSecondaryAttack()
-    {
-        secondaryAttack?.Execute(transform);
-    }
-    public override bool IsFlying()
-    {
-        return flying;
-    }
-    public override bool IsHeavy()
-    {
-        return heavy;
-    }
-    public void SetInMap(bool status)
-    {
-        inMapUI = status;
-    }
-    public bool IsInMap()
-    {
-        return inMapUI;
-    }
-    public override void SetFlying(bool value)
-    {
-        flying = value;
-    }
-    public override void Die()
-    {
-        base.Die();
-        //Debug.Log("You died :(");
-    }
-
-    protected override string GetName()
-    {
-        return "You";
-    }
-
-    public override void UpdateInteractables()
-    {
-        target = null;
-        interactables.Clear();
-        clearedInteractables.Invoke();
-        RaycastHit[] hits = Physics.BoxCastAll(transform.position, Vector3.one * 0.25f, transform.forward, Quaternion.identity, 1f, interactableMask);
-
-        if (hits.Length > 0) {
-            foreach (RaycastHit hit in hits)
-            {
-                interactables.Add(hit.collider.GetComponent<Trigger>());
-            } }
-        if (interactables.Count > 0)
+        public override void ExecuteInteraction()
         {
-            ChangeTarget(0);
-            
+            target?.Execute();
         }
-    }
-
-    public void AddMeleeAttack(MeleeAttack attack)
-    {
-        possibleMeleeAttacks.Add(attack);
-        SlotMeleeAttack(attack);
-    }
-
-    public void AddRangeAttack(RangeAttack attack)
-    {
-        possibleRangeAttacks.Add(attack);
-        SlotRangeAttack(attack);
-    }
-
-    public void SlotMeleeAttack(MeleeAttack attack)
-    {
-        primaryAttack = attack;
-        slottedMelee.Invoke(attack);
-    }
-
-    public void SlotRangeAttack(RangeAttack attack)
-    {
-        secondaryAttack = attack;
-        slottedRange.Invoke(attack);
-    }
-
-    public void ChangeTarget(int index)
-    {
-        target = interactables[index];
-        if(target is ItemPickup)
+        public override void ExecutePrimaryAttack()
         {
-            ItemPickup t = target as ItemPickup;
-            if (!t.alreadyTriggered)
+            primaryAttack?.Execute(transform);
+        }
+        public override void ExecuteSecondaryAttack()
+        {
+            secondaryAttack?.Execute(transform);
+        }
+        public override bool IsFlying()
+        {
+            return flying;
+        }
+        public override bool IsHeavy()
+        {
+            return heavy;
+        }
+        public void SetInMap(bool status)
+        {
+            inMapUI = status;
+        }
+        public bool IsInMap()
+        {
+            return inMapUI;
+        }
+        public override void SetFlying(bool value)
+        {
+            flying = value;
+        }
+        public override void Die()
+        {
+            base.Die();
+            //Debug.Log("You died :(");
+        }
+
+        protected override string GetName()
+        {
+            return "You";
+        }
+
+        public override void UpdateInteractables()
+        {
+            target = null;
+            interactables.Clear();
+            clearedInteractables.Invoke();
+            RaycastHit[] hits = Physics.BoxCastAll(transform.position, Vector3.one * 0.25f, transform.forward, Quaternion.identity, 1f, interactableMask);
+
+            if (hits.Length > 0)
+            {
+                foreach (RaycastHit hit in hits)
+                {
+                    interactables.Add(hit.collider.GetComponent<Trigger>());
+                }
+            }
+            if (interactables.Count > 0)
+            {
+                ChangeTarget(0);
+
+            }
+        }
+
+        public void AddMeleeAttack(MeleeAttack attack)
+        {
+            possibleMeleeAttacks.Add(attack);
+            SlotMeleeAttack(attack);
+        }
+
+        public void AddRangeAttack(RangeAttack attack)
+        {
+            possibleRangeAttacks.Add(attack);
+            SlotRangeAttack(attack);
+        }
+
+        public void SlotMeleeAttack(MeleeAttack attack)
+        {
+            primaryAttack = attack;
+            slottedMelee.Invoke(attack);
+        }
+
+        public void SlotRangeAttack(RangeAttack attack)
+        {
+            secondaryAttack = attack;
+            slottedRange.Invoke(attack);
+        }
+
+        public void ChangeTarget(int index)
+        {
+            target = interactables[index];
+            if (target is ItemPickup)
+            {
+                ItemPickup t = target as ItemPickup;
+                if (!t.alreadyTriggered)
+                {
+                    changedInteractable.Invoke(Camera.main.WorldToScreenPoint(target.GetGraphicAnchor()), target.GetInteractionName());
+                }
+            }
+            else
             {
                 changedInteractable.Invoke(Camera.main.WorldToScreenPoint(target.GetGraphicAnchor()), target.GetInteractionName());
             }
         }
-        else
-        {
-            changedInteractable.Invoke(Camera.main.WorldToScreenPoint(target.GetGraphicAnchor()), target.GetInteractionName());
-        }
-    }
 
-    public void CycleTargetIndexUp()
-    {
-        currentTargetIndex++;
-        if(currentTargetIndex >= interactables.Count)
+        public void CycleTargetIndexUp()
         {
-            currentTargetIndex = 0;
+            currentTargetIndex++;
+            if (currentTargetIndex >= interactables.Count)
+            {
+                currentTargetIndex = 0;
+            }
+            ChangeTarget(currentTargetIndex);
         }
-        ChangeTarget(currentTargetIndex);
-    }
-    public void CycleTargetIndexDown()
-    {
-        currentTargetIndex--;
-        if (currentTargetIndex < 0)
+        public void CycleTargetIndexDown()
         {
-            currentTargetIndex = interactables.Count - 1;
+            currentTargetIndex--;
+            if (currentTargetIndex < 0)
+            {
+                currentTargetIndex = interactables.Count - 1;
+            }
+            ChangeTarget(currentTargetIndex);
         }
-        ChangeTarget(currentTargetIndex);
     }
 }
 [Serializable]

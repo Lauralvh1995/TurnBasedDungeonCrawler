@@ -1,19 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Switch : Trigger
+namespace Assets.Scripts.Entity
 {
-    [SerializeField] private bool on;
-    public override void Execute()
+    public class Switch : Trigger
     {
-        on = !on;
-        base.Execute();
-    }
+        [SerializeField] private bool on;
+        public override void Execute()
+        {
+            on = !on;
+            base.Execute();
+        }
 
-    public override void Execute(Attack attack, Vector3 origin)
-    {
-        //Think about remotely triggerable lever logic and stuff.
-        //throw new System.NotImplementedException();
+        public override void Execute(Attack attack, Vector3 origin)
+        {
+            //Think about remotely triggerable lever logic and stuff.
+            //throw new System.NotImplementedException();
+        }
     }
 }

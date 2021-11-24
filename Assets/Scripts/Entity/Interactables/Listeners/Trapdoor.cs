@@ -2,30 +2,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Trapdoor : Listener
+namespace Assets.Scripts.Entity
 {
-    [SerializeField] private bool on;
-    [SerializeField] private Transform fill;
-
-    public void ChangeState(bool state)
+    public class Trapdoor : Listener
     {
-        on = state;
-        fill.gameObject.SetActive(on);
-        Debug.Log("Trapdoor at " + transform.position + " updating");
-        GridController.Instance.UpdatePassability(transform.position);
-    }
+        [SerializeField] private bool on;
+        [SerializeField] private Transform fill;
 
-    public override void Execute()
-    {
-        bool check = false;
-        foreach (Condition c in conditions)
+        public void ChangeState(bool state)
         {
-            check = c.Check();
+            on = state;
+            fill.gameObject.SetActive(on);
+            Debug.Log("Trapdoor at " + transform.position + " updating");
+            GridController.Instance.UpdatePassability(transform.position);
         }
-        if (check)
+
+        public override void Execute()
         {
-            ChangeState(!on);
+            bool check = false;
+            foreach (Condition c in conditions)
+            {
+                check = c.Check();
+            }
+            if (check)
+            {
+                ChangeState(!on);
+            }
         }
     }
 }

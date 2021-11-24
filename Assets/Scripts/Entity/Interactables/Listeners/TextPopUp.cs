@@ -3,18 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-
-public class TextPopUp : Listener
+namespace Assets.Scripts.Entity
 {
-    [SerializeField] private ShowTextEvent showTextEvent;
-    [SerializeField] private string textToShow;
-    [SerializeField] private float timeToStay;
-    public override void Execute()
+    public class TextPopUp : Listener
     {
-        showTextEvent.Invoke(textToShow, timeToStay);
+        [SerializeField] private ShowTextEvent showTextEvent;
+        [SerializeField] private string textToShow;
+        [SerializeField] private float timeToStay;
+        public override void Execute()
+        {
+            showTextEvent.Invoke(textToShow, timeToStay);
+        }
     }
 }
-
 [Serializable]
 public class ShowTextEvent : UnityEvent<string, float>
 {

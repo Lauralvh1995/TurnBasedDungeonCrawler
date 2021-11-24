@@ -1,13 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public interface ICanInteract
+namespace Assets.Scripts.Entity
 {
-    void Execute();
-}
+    public interface ICanInteract
+    {
+        void Execute();
+    }
 
-public interface ICanInteractInHierarchy
-{
+    public interface ICanInteractInHierarchy
+    {
 
+    }
 }

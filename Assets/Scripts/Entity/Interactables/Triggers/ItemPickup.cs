@@ -1,41 +1,43 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class ItemPickup : Trigger
+namespace Assets.Scripts.Entity
 {
-    [SerializeField] private Attack contents;
-    [SerializeField] private Player player;
-    [SerializeField] public bool alreadyTriggered;
-    [SerializeField] private Transform itemGraphic;
-    public override void Execute()
+    public class ItemPickup : Trigger
     {
-        //add attack to player's list(s)
-        //slot it in
-        if (!alreadyTriggered)
+        [SerializeField] private Attack contents;
+        [SerializeField] private Player player;
+        [SerializeField] public bool alreadyTriggered;
+        [SerializeField] private Transform itemGraphic;
+        public override void Execute()
         {
-            if (contents is MeleeAttack)
+            //add attack to player's list(s)
+            //slot it in
+            if (!alreadyTriggered)
             {
-                MeleeAttack a = contents as MeleeAttack;
-                player.AddMeleeAttack(a);
-            }
+                if (contents is MeleeAttack)
+                {
+                    MeleeAttack a = contents as MeleeAttack;
+                    player.AddMeleeAttack(a);
+                }
 
-            if (contents is RangeAttack)
-            {
-                RangeAttack b = contents as RangeAttack;
-                player.AddRangeAttack(b);
+                if (contents is RangeAttack)
+                {
+                    RangeAttack b = contents as RangeAttack;
+                    player.AddRangeAttack(b);
+                }
+                foreach (Listener l in listeners)
+                {
+                    l.Execute();
+                }
+                itemGraphic.gameObject.SetActive(false);
+                alreadyTriggered = true;
+                enabled = false;
             }
-            foreach(Listener l in listeners)
-            {
-                l.Execute();
-            }
-            itemGraphic.gameObject.SetActive(false);
-            alreadyTriggered = true;
-            enabled = false;
         }
-    }
-    public override void Execute(Attack attack, Vector3 origin)
-    {
-        //throw new System.NotImplementedException();
+        public override void Execute(Attack attack, Vector3 origin)
+        {
+            //throw new System.NotImplementedException();
+        }
     }
 }
