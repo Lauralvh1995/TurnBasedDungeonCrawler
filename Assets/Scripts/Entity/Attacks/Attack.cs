@@ -10,9 +10,15 @@ namespace Assets.Scripts.Entity
         [SerializeField] protected string attackName;
         [SerializeField] protected Sprite iconSprite;
         [SerializeField] protected AttackProperty property;
+        [SerializeField, Range(1, 8)] protected int range;
         public string GetAttackName()
         {
             return attackName;
+        }
+
+        public int GetAttackRange()
+        {
+            return range;
         }
 
         public Sprite GetSprite()

@@ -9,24 +9,49 @@ namespace Assets.Scripts.Entity
     {
         [SerializeField] EnemyStats enemyType;
         [SerializeField] bool hadTurn = false;
+        [SerializeField] Player player;
 
         private void Awake()
         {
             health = enemyType.GetMaxHP();
+            player = FindObjectOfType<Player>();
+        }
+        public void StartNewTurn()
+        {
+            hadTurn = false;
         }
         public void TakeAction()
         {
-            Attack primaryAttack = enemyType.GetPrimaryAttack();
-            Attack secondaryAttack = enemyType.GetSecondaryAttack();
-
-            
-            //TODO: write action logic
-            //condition -> action
-            // is player in range of primary attack -> do primary attack
-            // is player in range of secondary attack -> do secondary attack
-            // is player in range of chaseRange -> move towards it
-            // none of the above met -> do other action action
-            
+            if (hadTurn)
+            {
+                return;
+            }
+            AIAction toExecute = enemyType.GetActionFromAI(transform.position, player.transform.position);
+            //Debug.Log(toExecute.name);
+            switch (toExecute.name)
+            {
+                case "PrimaryAttack":
+                    FaceTarget();
+                    actions.Attack();
+                    break;
+                case "SecondaryAttack":
+                    FaceTarget();
+                    actions.AlternateAttack();
+                    break;
+                case "MoveTowardsPlayer":
+                    //do pathfinding logic and then correct move
+                    break;
+                case "MoveAwayFromPlayer":
+                    //Check direction where player is, then do a move away
+                    break;
+                case "MoveRandomly":
+                    //choose a random direction then move there
+                    break;
+                default:
+                    actions.Wait();
+                    break;
+            }
+            hadTurn = true;
         }
 
         public bool TookTurn()
@@ -51,11 +76,11 @@ namespace Assets.Scripts.Entity
 
         public override bool IsFlying()
         {
-            return enemyType.GetFlying();
+            return enemyType.IsFlying();
         }
         public override bool IsHeavy()
         {
-            return enemyType.GetHeavy();
+            return enemyType.IsHeavy();
         }
 
         public override void SetFlying(bool value)

@@ -21,6 +21,14 @@ public class TurnManager : MonoBehaviour
         Instance = this;
         TurnState = TurnState.Player;
     }
+    private void Start()
+    {
+        Enemy[] enemyArray = FindObjectsOfType<Enemy>();
+        foreach(Enemy e in enemyArray)
+        {
+            enemies.Add(e);
+        }
+    }
     public bool IsPlayerTurn()
     {
         return TurnState == TurnState.Player;
@@ -32,6 +40,10 @@ public class TurnManager : MonoBehaviour
         {
             case TurnState.Player:
                 TurnState = TurnState.Environment;
+                foreach(Enemy e in enemies)
+                {
+                    e.StartNewTurn();
+                }
                 onIceTick.Invoke();
                 onStartEnvironmentTurn.Invoke();
                 break;
@@ -69,6 +81,7 @@ public class TurnManager : MonoBehaviour
             e.CheckFloor();
             e.TakeAction();
         }
+        PassTurn();
     }
 }
 

@@ -7,7 +7,6 @@ namespace Assets.Scripts.Entity
     [CreateAssetMenu(fileName = "New Ranged Attack", menuName = "Ranged Attack")]
     public class RangeAttack : Attack
     {
-        [SerializeField, Range(2, 8)] private int range;
         [SerializeField, Range(1, 3)] private int radius;
         [SerializeField, Range(1, 5)] private int damage;
         [SerializeField] private bool piercing;

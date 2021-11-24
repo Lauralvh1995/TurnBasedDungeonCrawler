@@ -9,12 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0e2aa6f40af7704ebbc6a433995a3a9, type: 3}
-  m_Name: Power Glove
+  m_Script: {fileID: 11500000, guid: b4e52a28ff91d154386c104e10c6e2a0, type: 3}
+  m_Name: MoveAwayFromPlayer
   m_EditorClassIdentifier: 
-  attackName: Power Glove
-  iconSprite: {fileID: 0}
-  property: {fileID: 11400000, guid: 1cc6414b60921ed498b16fc8f9acb61e, type: 2}
-  range: 1
-  damage: 1
-  mode: 0

@@ -13,6 +13,7 @@ namespace Assets.Scripts.Entity
         [SerializeField] private int maxHP;
         [SerializeField] private bool flying;
         [SerializeField] private bool heavy;
+        [SerializeField] private bool stationary = false;
 
         [SerializeField] private int chaseRange;
 
@@ -29,7 +30,7 @@ namespace Assets.Scripts.Entity
         {
             return maxHP != 0 ? maxHP : 10;
         }
-        public bool GetFlying()
+        public bool IsFlying()
         {
             return flying;
         }
@@ -38,9 +39,13 @@ namespace Assets.Scripts.Entity
         {
             flying = value;
         }
-        public bool GetHeavy()
+        public bool IsHeavy()
         {
             return heavy;
+        }
+        public bool IsStationary()
+        {
+            return stationary;
         }
         public Attack GetPrimaryAttack()
         {
@@ -54,9 +59,24 @@ namespace Assets.Scripts.Entity
         {
             return chaseRange;
         }
-        public AIAction GetActionFromAI(ActionType type)
+        public AIAction GetActionFromAI(Vector3 ownPos, Vector3 targetPos)
         {
-            return aiType.GetAIAction(type);
+            if (Vector3.Distance(ownPos, targetPos) <= primaryAttack?.GetAttackRange())
+            {
+                return aiType.GetAIAction(ActionType.PrimaryAttack);
+            }
+            else if (Vector3.Distance(ownPos, targetPos) <= secondaryAttack?.GetAttackRange())
+            {
+                return aiType.GetAIAction(ActionType.SecondaryAttack);
+            }
+            else if (Vector3.Distance(ownPos, targetPos) <= chaseRange)
+            {
+                return aiType.GetAIAction(ActionType.Chase);
+            }
+            else
+            {
+                return aiType.GetAIAction(ActionType.Other);
+            }
         }
 
     }

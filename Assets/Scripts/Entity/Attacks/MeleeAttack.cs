@@ -9,7 +9,6 @@ namespace Assets.Scripts.Entity
     public class MeleeAttack : Attack
     {
         [SerializeField, Range(1, 5)] private int damage;
-        [SerializeField, Range(1, 3)] private int size;
         [SerializeField] private TargetingMode mode;
         public override void Execute(Transform origin)
         {
@@ -20,7 +19,7 @@ namespace Assets.Scripts.Entity
             switch (mode)
             {
                 case TargetingMode.Front:
-                    for (int i = 0; i < size; i++)
+                    for (int i = 0; i < range + 1; i++)
                     {
                         RaycastHit raycastHit;
                         Physics.Raycast(new Ray(nextRayOrigin, origin.rotation * Vector3.forward), out raycastHit, 1f);
@@ -36,10 +35,10 @@ namespace Assets.Scripts.Entity
                     //TODO: draw perpendicular line in front of you of a given size
                     break;
                 case TargetingMode.Area:
-                    Collider[] colliders = Physics.OverlapSphere(nextRayOrigin, size);
+                    Collider[] colliders = Physics.OverlapSphere(nextRayOrigin, range);
                     foreach (Collider c in colliders)
                     {
-                        if (Mathf.RoundToInt(Vector3.Distance(c.transform.position, nextRayOrigin)) > size)
+                        if (Mathf.RoundToInt(Vector3.Distance(c.transform.position, nextRayOrigin)) > range)
                         {
                             if (c.transform.position.y == nextRayOrigin.y && c.transform.position != origin.position)
                                 hits.Add(c);
