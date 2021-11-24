@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace Assets.Scripts.Entity
 {
-    public class State : MonoBehaviour
+    public abstract class State : MonoBehaviour
     {
-        private EnemyBrain brain;
+        protected EnemyBrain brain;
         public EnemyBrain Brain => brain;
 
-        private EntityActions actions;
+        protected EntityActions actions;
         public EntityActions Actions => actions;
-
-        
 
         private void Start()
         {
@@ -25,10 +23,7 @@ namespace Assets.Scripts.Entity
             gameObject.SetActive(true);
         }
 
-        public void ExecuteState()
-        {
-            //do stuffs
-        }
+        public abstract void ExecuteState();
 
         public void ExitState()
         {

@@ -2,19 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[RequireComponent(typeof(State))]
-public class Wandering : MonoBehaviour
+public class Wandering : State
 {
-    private State state;
-    private EntityActions actions;
 
     [SerializeField] private State OnNoticePlayer;
 
-    private void Awake()
-    {
-        state = GetComponent<State>();
-    }
-    public void Execute()
+    public override void ExecuteState()
     {
         //make random move
     }

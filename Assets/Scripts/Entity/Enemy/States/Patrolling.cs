@@ -3,11 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(State))]
-public class Patrolling : MonoBehaviour
+public class Patrolling : State
 {
-    private State state;
-    private EntityActions actions;
 
     [SerializeField] private State OnNoticePlayer;
 
@@ -16,12 +13,7 @@ public class Patrolling : MonoBehaviour
     [SerializeField] Color waypointColor = Color.cyan;
     [SerializeField] float gizmoSize = 0.1f;
 
-    private void Awake()
-    {
-        state = GetComponent<State>();
-        
-    }
-    public void Execute()
+    public override void ExecuteState()
     {
         //make move towards next waypoint
         //if reached, set next waypoint

@@ -35,7 +35,7 @@ namespace Assets.Scripts.Entity
             {
                 return;
             }
-            //Do something TODO: hook up to brain
+            brain.Execute();
             hadTurn = true;
         }
 
