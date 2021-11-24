@@ -12,6 +12,13 @@ public class Chasing : State
     [SerializeField] float gizmoSize = 0.1f;
     [SerializeField] private Vector3 target;
     [SerializeField, Range(1,20)] private int maxDistance;
+
+    private EnemyStats stats;
+    private void Awake()
+    {
+        stats = GetComponentInParent<Enemy>().GetEnemyStats();
+    }
+
     public override void ExecuteState()
     {
         //target = player position
