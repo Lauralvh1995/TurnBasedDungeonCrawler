@@ -5,17 +5,26 @@ using UnityEngine;
 
 namespace Assets.Scripts.Entity
 {
+    [RequireComponent(typeof(EnemyBrain), typeof(EntityActions))]
     public class Enemy : Entity
     {
-        [SerializeField] EnemyStats enemyType;
+        [SerializeField] EnemyStats enemyStats;
         [SerializeField] bool hadTurn = false;
         [SerializeField] Player player;
+        [SerializeField] EnemyBrain brain;
 
         private void Awake()
         {
-            health = enemyType.GetMaxHP();
+            health = enemyStats.GetMaxHP();
+            brain = GetComponent<EnemyBrain>();
             player = FindObjectOfType<Player>();
         }
+
+        public EnemyStats GetEnemyStats()
+        {
+            return enemyStats;
+        }
+
         public void StartNewTurn()
         {
             hadTurn = false;
@@ -26,31 +35,7 @@ namespace Assets.Scripts.Entity
             {
                 return;
             }
-            AIAction toExecute = enemyType.GetActionFromAI(transform.position, player.transform.position);
-            //Debug.Log(toExecute.name);
-            switch (toExecute.name)
-            {
-                case "PrimaryAttack":
-                    FaceTarget();
-                    actions.Attack();
-                    break;
-                case "SecondaryAttack":
-                    FaceTarget();
-                    actions.AlternateAttack();
-                    break;
-                case "MoveTowardsPlayer":
-                    //do pathfinding logic and then correct move
-                    break;
-                case "MoveAwayFromPlayer":
-                    //Check direction where player is, then do a move away
-                    break;
-                case "MoveRandomly":
-                    //choose a random direction then move there
-                    break;
-                default:
-                    actions.Wait();
-                    break;
-            }
+            //Do something TODO: hook up to brain
             hadTurn = true;
         }
 
@@ -66,26 +51,26 @@ namespace Assets.Scripts.Entity
 
         public override void ExecutePrimaryAttack()
         {
-            enemyType.GetPrimaryAttack().Execute(transform);
+            enemyStats.GetPrimaryAttack().Execute(transform);
         }
 
         public override void ExecuteSecondaryAttack()
         {
-            enemyType.GetSecondaryAttack().Execute(transform);
+            enemyStats.GetSecondaryAttack().Execute(transform);
         }
 
         public override bool IsFlying()
         {
-            return enemyType.IsFlying();
+            return enemyStats.IsFlying();
         }
         public override bool IsHeavy()
         {
-            return enemyType.IsHeavy();
+            return enemyStats.IsHeavy();
         }
 
         public override void SetFlying(bool value)
         {
-            enemyType.SetFlying(value);
+            enemyStats.SetFlying(value);
         }
         public void FaceTarget()
         {
@@ -105,7 +90,7 @@ namespace Assets.Scripts.Entity
 
         protected override string GetName()
         {
-            return enemyType.GetName();
+            return enemyStats.GetName();
         }
 
         public override void UpdateInteractables()

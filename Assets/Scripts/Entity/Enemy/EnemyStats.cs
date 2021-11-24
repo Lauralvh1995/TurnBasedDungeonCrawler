@@ -59,25 +59,5 @@ namespace Assets.Scripts.Entity
         {
             return chaseRange;
         }
-        public AIAction GetActionFromAI(Vector3 ownPos, Vector3 targetPos)
-        {
-            if (Vector3.Distance(ownPos, targetPos) <= primaryAttack?.GetAttackRange())
-            {
-                return aiType.GetAIAction(ActionType.PrimaryAttack);
-            }
-            else if (Vector3.Distance(ownPos, targetPos) <= secondaryAttack?.GetAttackRange())
-            {
-                return aiType.GetAIAction(ActionType.SecondaryAttack);
-            }
-            else if (Vector3.Distance(ownPos, targetPos) <= chaseRange)
-            {
-                return aiType.GetAIAction(ActionType.Chase);
-            }
-            else
-            {
-                return aiType.GetAIAction(ActionType.Other);
-            }
-        }
-
     }
 }
