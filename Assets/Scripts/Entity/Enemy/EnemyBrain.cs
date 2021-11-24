@@ -10,7 +10,9 @@ namespace Assets.Scripts.Entity
 
         public List<State> States;
 
-        private EntityActions actions;
+        [SerializeField] private EntityActions actions;
+
+        //public Pathfinder pathfinder;
 
         private void Start()
         {

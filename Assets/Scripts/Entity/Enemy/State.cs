@@ -11,13 +11,18 @@ namespace Assets.Scripts.Entity
         private EntityActions actions;
         public EntityActions Actions => actions;
 
-        //public Pathfinder pathfinder;
+        
+
+        private void Start()
+        {
+            gameObject.SetActive(false);
+        }
 
         public void EnterState(EnemyBrain brain, EntityActions actions)
         {
             this.brain = brain;
             this.actions = actions;
-            //do logic
+            gameObject.SetActive(true);
         }
 
         public void ExecuteState()
@@ -27,7 +32,7 @@ namespace Assets.Scripts.Entity
 
         public void ExitState()
         {
-            //do stuffs
+            gameObject.SetActive(false);
         }
     }
 }
