@@ -7,7 +7,7 @@ namespace Assets.Scripts.Entity
 {
     public class Enemy : Entity
     {
-        [SerializeField] EntityStats enemyType;
+        [SerializeField] EnemyStats enemyType;
         [SerializeField] bool hadTurn = false;
 
         private void Awake()
@@ -16,7 +16,17 @@ namespace Assets.Scripts.Entity
         }
         public void TakeAction()
         {
+            Attack primaryAttack = enemyType.GetPrimaryAttack();
+            Attack secondaryAttack = enemyType.GetSecondaryAttack();
+
+            
             //TODO: write action logic
+            //condition -> action
+            // is player in range of primary attack -> do primary attack
+            // is player in range of secondary attack -> do secondary attack
+            // is player in range of chaseRange -> move towards it
+            // none of the above met -> do other action action
+            
         }
 
         public bool TookTurn()
@@ -51,6 +61,10 @@ namespace Assets.Scripts.Entity
         public override void SetFlying(bool value)
         {
             enemyType.SetFlying(value);
+        }
+        public void FaceTarget()
+        {
+            //TODO: write logic to turn around until this is facing the player
         }
         public override void Die()
         {

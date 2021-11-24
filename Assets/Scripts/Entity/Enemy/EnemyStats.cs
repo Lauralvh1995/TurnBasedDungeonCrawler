@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,12 +7,14 @@ using UnityEngine;
 namespace Assets.Scripts.Entity
 {
     [CreateAssetMenu(fileName = "New Entity", menuName = "Entity")]
-    public class EntityStats : ScriptableObject
+    public class EnemyStats : ScriptableObject
     {
         [SerializeField] private string enemyName;
         [SerializeField] private int maxHP;
         [SerializeField] private bool flying;
         [SerializeField] private bool heavy;
+
+        [SerializeField] private int chaseRange;
 
         [SerializeField] Attack primaryAttack;
         [SerializeField] Attack secondaryAttack;
@@ -47,5 +50,14 @@ namespace Assets.Scripts.Entity
         {
             return secondaryAttack;
         }
+        public int GetChaseRange()
+        {
+            return chaseRange;
+        }
+        public AIAction GetActionFromAI(ActionType type)
+        {
+            return aiType.GetAIAction(type);
+        }
+
     }
 }

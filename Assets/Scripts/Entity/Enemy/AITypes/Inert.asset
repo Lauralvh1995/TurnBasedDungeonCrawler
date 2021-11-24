@@ -12,3 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3989edf4bfe91d40b4c4ed1bff7e519, type: 3}
   m_Name: Inert
   m_EditorClassIdentifier: 
+  primaryAttackAction: {fileID: 11400000, guid: 918bb110ee5276d4dbf03f10617799bb,
+    type: 2}
+  secondaryAttackAction: {fileID: 11400000, guid: 918bb110ee5276d4dbf03f10617799bb,
+    type: 2}
+  chaseAction: {fileID: 11400000, guid: 918bb110ee5276d4dbf03f10617799bb, type: 2}
+  otherAction: {fileID: 11400000, guid: 918bb110ee5276d4dbf03f10617799bb, type: 2}
