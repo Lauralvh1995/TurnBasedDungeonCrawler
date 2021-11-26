@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Retreating : State
 {
-    [SerializeField] private Vector3 leashPoint;
+    [SerializeField] private Transform leashPoint;
     [SerializeField] float gizmoSize = 0.1f;
 
     public override void ExecuteState()
@@ -18,6 +18,6 @@ public class Retreating : State
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawCube(leashPoint, Vector3.one * gizmoSize);
+        Gizmos.DrawCube(leashPoint.position, Vector3.one * gizmoSize);
     }
 }
