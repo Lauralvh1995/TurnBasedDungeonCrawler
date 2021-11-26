@@ -11,6 +11,12 @@ namespace Assets.Scripts.Entity
         protected EntityActions actions;
         public EntityActions Actions => actions;
 
+        protected StateTransition[] transitions;
+        private void Awake()
+        {
+            transitions = GetComponentsInChildren<StateTransition>();
+        }
+
         private void Start()
         {
             gameObject.SetActive(false);

@@ -8138,7 +8138,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 964082991}
   m_Father: {fileID: 548352750}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -30912,18 +30913,18 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   colorGradientTexture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
-  shallowColor: {r: 0.3672076, g: 0.6132076, b: 0.47111434, a: 0.5019608}
-  deepColor: {r: 0.10399405, g: 0.23379037, b: 0.33948416, a: 0.7607843}
+  shallowColor: {r: 0.36720553, g: 0.6132076, b: 0.47111434, a: 0.5019608}
+  deepColor: {r: 0.10399201, g: 0.23378831, b: 0.3394821, a: 0.7607843}
   colorDepth: 2.06
-  horizonColor: {r: 0, g: 0.22697622, b: 0.8, a: 1}
+  horizonColor: {r: 0, g: 0.22697416, b: 0.8, a: 1}
   horizonDistance: 20
   shoreFade: 0.714
   shoreColor: {r: 0.4800195, g: 0.6320754, b: 0.5268528, a: 0}
   shoreStrength: 0
   shoreBlend: 0.616
   shoreDepth: 0.23
-  waveColor: {r: 0.19393247, g: 0.462264, b: 0.33591375, a: 0.27058825}
-  underwaterColor: {r: 0.07092137, g: 0.26401246, b: 0.1720534, a: 0.372}
+  waveColor: {r: 0.19393054, g: 0.462264, b: 0.33591172, a: 0.27058825}
+  underwaterColor: {r: 0.07091988, g: 0.2640104, b: 0.17205146, a: 0.372}
   underwaterColorStrength: 0.372
   underwaterRefractionStrength: 0.114
   surfaceFoamTexture: {fileID: 2800000, guid: d3b0d77dfe711a04c8ff18ecc260aa66, type: 3}
@@ -30973,8 +30974,8 @@ MonoBehaviour:
   shoreFoamBreakupScale: 0
   lighting: 0
   lightingSmoothness: 0.128
-  lightingSpecularColor: {r: 0.3869735, g: 0.9433962, b: 0.7008577, a: 0}
-  lightingDiffuseColor: {r: 0, g: 0.008710834, b: 0.24511048, a: 0}
+  lightingSpecularColor: {r: 0.38697147, g: 0.9433962, b: 0.7008577, a: 0}
+  lightingDiffuseColor: {r: 0, g: 0.008710834, b: 0.24510843, a: 0}
   lightingHardness: 0.422
   normalsTexture: {fileID: 2800000, guid: f19bc2945cd1d724e92c1bcf2b70cab3, type: 3}
   normalsMovement: {x: 0.093, y: 0.54}
@@ -33196,6 +33197,50 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 957885122}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &964082990
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 964082991}
+  - component: {fileID: 964082992}
+  m_Layer: 9
+  m_Name: ChaseIfNoticed
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &964082991
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964082990}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 254410025}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &964082992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964082990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18998fbcedd017d46bdbc2cfd41cd9e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transitionTo: {fileID: 1150765935}
 --- !u!1001 &965660500
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38775,7 +38820,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1678150710}
+  - {fileID: 2007041312}
   m_Father: {fileID: 548352750}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -46853,18 +46900,18 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   colorGradientTexture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
-  shallowColor: {r: 0.36720762, g: 0.6132076, b: 0.47111434, a: 0.5019608}
-  deepColor: {r: 0.10399408, g: 0.2337904, b: 0.33948418, a: 0.7607843}
+  shallowColor: {r: 0.36720547, g: 0.6132076, b: 0.47111434, a: 0.5019608}
+  deepColor: {r: 0.10399193, g: 0.23378825, b: 0.33948204, a: 0.7607843}
   colorDepth: 2.06
-  horizonColor: {r: 0, g: 0.22697625, b: 0.8, a: 1}
+  horizonColor: {r: 0, g: 0.2269741, b: 0.8, a: 1}
   horizonDistance: 20
   shoreFade: 0.714
   shoreColor: {r: 0.4800195, g: 0.6320754, b: 0.5268528, a: 0}
   shoreStrength: 0
   shoreBlend: 0.616
   shoreDepth: 0.23
-  waveColor: {r: 0.1939325, g: 0.462264, b: 0.33591378, a: 0.27058825}
-  underwaterColor: {r: 0.0709214, g: 0.2640125, b: 0.17205343, a: 0.372}
+  waveColor: {r: 0.19393048, g: 0.462264, b: 0.33591166, a: 0.27058825}
+  underwaterColor: {r: 0.07091985, g: 0.26401034, b: 0.1720514, a: 0.372}
   underwaterColorStrength: 0.372
   underwaterRefractionStrength: 0.114
   surfaceFoamTexture: {fileID: 2800000, guid: d3b0d77dfe711a04c8ff18ecc260aa66, type: 3}
@@ -46914,8 +46961,8 @@ MonoBehaviour:
   shoreFoamBreakupScale: 0
   lighting: 0
   lightingSmoothness: 0.128
-  lightingSpecularColor: {r: 0.38697353, g: 0.9433962, b: 0.7008577, a: 0}
-  lightingDiffuseColor: {r: 0, g: 0.008710834, b: 0.24511051, a: 0}
+  lightingSpecularColor: {r: 0.38697138, g: 0.9433962, b: 0.7008577, a: 0}
+  lightingDiffuseColor: {r: 0, g: 0.008710834, b: 0.24510837, a: 0}
   lightingHardness: 0.422
   normalsTexture: {fileID: 2800000, guid: f19bc2945cd1d724e92c1bcf2b70cab3, type: 3}
   normalsMovement: {x: 0.093, y: 0.54}
@@ -56676,6 +56723,50 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0, y: 1}
+--- !u!1 &1678150709
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1678150710}
+  - component: {fileID: 1678150711}
+  m_Layer: 9
+  m_Name: ReturnToIdle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1678150710
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678150709}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1150765934}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1678150711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678150709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18998fbcedd017d46bdbc2cfd41cd9e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transitionTo: {fileID: 254410026}
 --- !u!1001 &1683450556
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58896,18 +58987,18 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   colorGradientTexture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
-  shallowColor: {r: 0.36720753, g: 0.6132076, b: 0.47111434, a: 0.5019608}
-  deepColor: {r: 0.103993975, g: 0.23379031, b: 0.3394841, a: 0.7607843}
+  shallowColor: {r: 0.3672055, g: 0.6132076, b: 0.47111434, a: 0.5019608}
+  deepColor: {r: 0.10399196, g: 0.23378828, b: 0.33948207, a: 0.7607843}
   colorDepth: 2.06
-  horizonColor: {r: 0, g: 0.22697616, b: 0.8, a: 1}
+  horizonColor: {r: 0, g: 0.22697413, b: 0.8, a: 1}
   horizonDistance: 20
   shoreFade: 0.714
   shoreColor: {r: 0.4800195, g: 0.6320754, b: 0.5268528, a: 0}
   shoreStrength: 0
   shoreBlend: 0.616
   shoreDepth: 0.23
-  waveColor: {r: 0.19393241, g: 0.462264, b: 0.3359137, a: 0.27058825}
-  underwaterColor: {r: 0.07092131, g: 0.2640124, b: 0.17205334, a: 0.372}
+  waveColor: {r: 0.1939305, g: 0.462264, b: 0.3359117, a: 0.27058825}
+  underwaterColor: {r: 0.070919864, g: 0.26401037, b: 0.17205143, a: 0.372}
   underwaterColorStrength: 0.372
   underwaterRefractionStrength: 0.114
   surfaceFoamTexture: {fileID: 2800000, guid: d3b0d77dfe711a04c8ff18ecc260aa66, type: 3}
@@ -58957,8 +59048,8 @@ MonoBehaviour:
   shoreFoamBreakupScale: 0
   lighting: 0
   lightingSmoothness: 0.128
-  lightingSpecularColor: {r: 0.38697344, g: 0.9433962, b: 0.7008577, a: 0}
-  lightingDiffuseColor: {r: 0, g: 0.008710834, b: 0.24511042, a: 0}
+  lightingSpecularColor: {r: 0.38697144, g: 0.9433962, b: 0.7008577, a: 0}
+  lightingDiffuseColor: {r: 0, g: 0.008710834, b: 0.2451084, a: 0}
   lightingHardness: 0.422
   normalsTexture: {fileID: 2800000, guid: f19bc2945cd1d724e92c1bcf2b70cab3, type: 3}
   normalsMovement: {x: 0.093, y: 0.54}
@@ -65324,6 +65415,50 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &2007041311
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2007041312}
+  - component: {fileID: 2007041313}
+  m_Layer: 9
+  m_Name: StartAttacking
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2007041312
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007041311}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1150765934}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2007041313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007041311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18998fbcedd017d46bdbc2cfd41cd9e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transitionTo: {fileID: 1802554453}
 --- !u!1 &2007710160 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8670191563407768717, guid: 2bd47893f9c4738479006974338ff8ce,
