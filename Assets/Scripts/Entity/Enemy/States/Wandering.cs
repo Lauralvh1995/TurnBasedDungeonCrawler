@@ -10,5 +10,6 @@ public class Wandering : State
     public override void ExecuteState()
     {
         //make random move
+        CheckTransitions();
     }
 }

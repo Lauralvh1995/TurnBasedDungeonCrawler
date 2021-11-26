@@ -22,6 +22,14 @@ namespace Assets.Scripts.Entity
             gameObject.SetActive(false);
         }
 
+        public void CheckTransitions()
+        {
+            foreach(StateTransition t in transitions)
+            {
+                t.TransitionIfConditionsMet();
+            }
+        }
+
         public void EnterState(EnemyBrain brain, EntityActions actions)
         {
             this.brain = brain;

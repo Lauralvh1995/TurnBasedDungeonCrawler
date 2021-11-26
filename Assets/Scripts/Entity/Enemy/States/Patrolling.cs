@@ -21,6 +21,7 @@ public class Patrolling : State
         {
             currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Count;
         }
+        CheckTransitions();
     }
 
     private void OnDrawGizmosSelected()

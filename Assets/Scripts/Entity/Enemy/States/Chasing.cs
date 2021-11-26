@@ -5,12 +5,7 @@ using UnityEngine;
 
 public class Chasing : State
 {
-    [SerializeField] private State OnPlayerWithinReach;
-    [SerializeField] private State OnLeashPointReached;
-
-    [SerializeField] private Vector3 leashPoint;
-    [SerializeField] float gizmoSize = 0.1f;
-    [SerializeField] private Vector3 target;
+    [SerializeField] private Transform target;
     [SerializeField, Range(1,20)] private int maxDistance;
 
     private EnemyStats stats;
@@ -22,15 +17,11 @@ public class Chasing : State
     public override void ExecuteState()
     {
         //target = player position
+        //move towards player
 
-        //if player is more than maxDistance moves away
-        //target = leashPoint
-        //make move towards target (usually player)
+        CheckTransitions();
+        //if Player is within attack range -> change to attacking
+        //if Player is out of chase range -> change to retreating
     }
 
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawCube(leashPoint, Vector3.one * gizmoSize);
-    }
 }

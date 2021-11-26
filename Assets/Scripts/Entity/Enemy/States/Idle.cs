@@ -12,5 +12,6 @@ public class Idle : State
     {
         //do nothing special, just wait
         actions.Wait();
+        CheckTransitions();
     }
 }

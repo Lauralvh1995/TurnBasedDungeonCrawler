@@ -15,5 +15,6 @@ public class Attacking : State
         //check if either primary or secondary attack can hit
         //face the correct way
         //execute that one
+        CheckTransitions();
     }
 }
