@@ -27,3 +27,7 @@
   * [Gameplay Video](realisation/gameplay-video.md)
   * [Play-Testing at Night of the Nerds](realisation/play-testing-at-night-of-the-nerds.md)
   * [Git Repository / Source Code](https://github.com/Lauralvh1995/TurnBasedDungeonCrawler)
+* [Group Project - Growth Moves](group-project-growth-moves/README.md)
+  * [Usage of the Accelerometer](group-project-growth-moves/usage-of-the-accelerometer.md)
+  * [Setting up Math Problems](group-project-growth-moves/setting-up-math-problems.md)
+  * [Selecting Multiplication Tables](group-project-growth-moves/selecting-multiplication-tables.md)
