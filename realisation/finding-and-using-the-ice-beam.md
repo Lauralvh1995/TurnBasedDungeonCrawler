@@ -16,7 +16,7 @@ Here the player is informed that water can be frozen to create a bridge. There i
 
 The player can walk across, where they will learn that Ice will break under weight, closing the path behind them. Should the player step back, they can still reach the other side via the ladder. However, there is still no way back.
 
-![Alas, poor Vernaxx- wait, we already did that joke.](<../.gitbook/assets/image (6).png>)
+![Alas, poor Vernaxx- wait, we already did that joke.](<../.gitbook/assets/image (6) (1).png>)
 
 The dead person of interest has something with them: The Ice Beam. This is the key the player is supposed to find. A keen player can have figured out that the dead NPC has used this item to get to the position, and fire it across the water to create a new bridge.
 

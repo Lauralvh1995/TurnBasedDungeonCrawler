@@ -70,7 +70,7 @@ public class TurnManager : MonoBehaviour
 }
 ```
 
-![](<../.gitbook/assets/image (5).png>)
+![](<../.gitbook/assets/image (5) (1).png>)
 
 The game communicates between parts via the EventSystem.&#x20;
 
