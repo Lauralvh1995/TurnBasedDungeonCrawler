@@ -41,6 +41,7 @@ namespace Assets.Scripts.Grid
                     }
                 }
             }
+            Debug.Log("Grid Regenerated");
         }
         public void UpdatePassability(Vector3 pos)
         {

@@ -41,7 +41,7 @@ namespace Assets.Scripts.Entity
                 Current.ExitState();
             }
             Current = state;
-            Current.EnterState(this, actions);
+            Current.EnterState(this);
         }
 
         public void Attack(Vector3 target)
@@ -67,6 +67,11 @@ namespace Assets.Scripts.Entity
         public Player GetPlayer()
         {
             return player;
+        }
+
+        public bool IsFlying()
+        {
+            return enemy.IsFlying();
         }
     }
 }

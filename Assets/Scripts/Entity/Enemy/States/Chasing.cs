@@ -13,12 +13,12 @@ public class Chasing : State
     PathFinding pathfinder;
     [SerializeField] List<Tile> currentPath;
     Tile currentTile;
-    public override void EnterState(EnemyBrain brain, EntityActions actions)
+    public override void EnterState(EnemyBrain brain)
     {
-        base.EnterState(brain, actions);
+        base.EnterState(brain);
         pathfinder = PathFinding.Instance;
         currentTile = pathfinder.GetTile(transform.position);
-        currentPath = pathfinder.FindPath(currentTile, pathfinder.GetTile(brain.GetPlayer().transform.position), brain.GetComponent<Enemy>().IsFlying());
+        currentPath = pathfinder.FindPath(currentTile, pathfinder.GetTile(brain.GetPlayer().transform.position), brain.IsFlying());
     }
 
     public override void ExecuteState()
@@ -50,7 +50,7 @@ public class Chasing : State
             if (!isTargetStillOnPath)
             {
                 Debug.Log("Target was not on path, recalculating");
-                currentPath = pathfinder.FindPath(currentTile, GridController.Instance.GetTileFromWorldPosition(target), brain.GetComponent<Enemy>().IsFlying());
+                currentPath = pathfinder.FindPath(currentTile, GridController.Instance.GetTileFromWorldPosition(target), brain.IsFlying());
             }
         }
         brain.Move(currentTile.GetWorldPosition());

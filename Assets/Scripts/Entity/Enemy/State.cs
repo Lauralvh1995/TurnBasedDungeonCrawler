@@ -8,9 +8,6 @@ namespace Assets.Scripts.Entity
         protected EnemyBrain brain;
         public EnemyBrain Brain => brain;
 
-        protected EntityActions actions;
-        public EntityActions Actions => actions;
-
         protected StateTransition[] transitions;
         private void Awake()
         {
@@ -30,10 +27,9 @@ namespace Assets.Scripts.Entity
             }
         }
 
-        public virtual void EnterState(EnemyBrain brain, EntityActions actions)
+        public virtual void EnterState(EnemyBrain brain)
         {
             this.brain = brain;
-            this.actions = actions;
             gameObject.SetActive(true);
         }
 

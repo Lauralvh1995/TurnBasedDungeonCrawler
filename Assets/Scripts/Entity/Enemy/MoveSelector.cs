@@ -8,24 +8,15 @@ using UnityEngine.Events;
 
 namespace Assets.Scripts.Entity
 {
-    [RequireComponent(typeof(EntityActions), typeof(EnemyBrain))]
+    [RequireComponent(typeof(EntityActions))]
     public class MoveSelector : MonoBehaviour
     {
-
-        EnemyBrain brain;
         EntityActions entityActions;
-
-
         [SerializeField]List<SequenceMove> moveSequence;
-
-        bool flying;
-        bool waiting;
 
         private void Awake()
         {
-            brain = GetComponent<EnemyBrain>();
             entityActions = GetComponent<EntityActions>();
-            flying = brain.GetComponent<Enemy>().IsFlying();
         }
         public void Attack(Vector3 target)
         {
@@ -115,11 +106,11 @@ namespace Assets.Scripts.Entity
             {
                 Vector3 fwdperp = Vector3.Cross(transform.right, (target - transform.position).normalized);
                 float fwddir = Vector3.Dot(fwdperp, transform.up);
-                if (dir > 0.0f)
+                if (fwddir > 0.0f)
                 {
                     return Direction.BACK;
                 }
-                else if (dir < 0.0f)
+                else if (fwddir < 0.0f)
                 {
                     return Direction.FORWARD;
                 }
