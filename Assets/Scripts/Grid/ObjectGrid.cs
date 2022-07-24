@@ -15,6 +15,10 @@ namespace Assets.Scripts.Grid
         private Vector3 origin;
         private Tile[,,] gridArray;
 
+        public int Width { get => width; set => width = value; }
+        public int Length { get => length; set => length = value; }
+        public int Height { get => height; set => height = value; }
+
         public ObjectGrid(int width, int length, int height, Vector3 origin, float cellSize)
         {
             this.width = width;
@@ -55,16 +59,6 @@ namespace Assets.Scripts.Grid
         public int GetWidth()
         {
             return width;
-        }
-
-        public int GetHeight()
-        {
-            return height;
-        }
-
-        public int GetLength()
-        {
-            return length;
         }
     }
 }

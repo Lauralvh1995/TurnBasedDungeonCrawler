@@ -28,36 +28,13 @@ namespace Assets.Scripts.Grid
         [SerializeField] private bool floor;
         [SerializeField] private bool ceiling;
 
-        HashSet<Tile> neighbours;
-
         Color passableColor = new Color(0f, 0.5f, 0f, 0.5f);
         Color impassableColor = new Color(0.5f, 0f, 0f, 0.5f);
         Color occupiedColor = new Color(0.5f, 0f, 0.5f, 0.5f);
         Color inoccupiedColor = new Color(0f, 0.5f, 0.5f, 0.5f);
 
-
-        void AddNeighbour(Tile t)
-        {
-            if(t != null)
-                neighbours.Add(t);
-        }
-        void RemoveNeighbour(Tile t)
-        {
-            if (neighbours.Contains(t))
-                neighbours.Remove(t);
-        }
-        public HashSet<Tile> GetNeighbours()
-        {
-            foreach(Tile t in neighbours)
-            {
-                Debug.Log(t.ToString());
-            }
-            return neighbours;
-        }
-
         public Tile(ObjectGrid<Tile> grid)
         {
-            neighbours = new HashSet<Tile>();
             tileGrid = grid;
         }
 
@@ -117,78 +94,12 @@ namespace Assets.Scripts.Grid
         }
         public void CheckOccupation(Vector3 pos, LayerMask groundMask, LayerMask entityMask)
         {
-            if(Physics.CheckSphere(pos + Vector3.left*0.45f, 0.2f, groundMask))
-            {
-                leftWall = true;
-                RemoveNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.left));
-            }
-            else
-            {
-                leftWall = false;
-                Tile neighbour = tileGrid.GetFromWorldPosition(pos + Vector3.left);
-                if(neighbour!= null)
-                    AddNeighbour(neighbour);
-            }
-            if (Physics.CheckSphere(pos + Vector3.right * 0.45f, 0.2f, groundMask))
-            {
-                rightWall = true;
-                RemoveNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.right));
-            }
-            else
-            {
-                rightWall = false;
-                Tile neighbour = tileGrid.GetFromWorldPosition(pos + Vector3.right);
-                if (neighbour != null)
-                    AddNeighbour(neighbour);
-            }
-            if (Physics.CheckSphere(pos + Vector3.forward * 0.45f, 0.2f, groundMask))
-            {
-                frontWall = true;
-                RemoveNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.forward));
-            }
-            else
-            {
-                frontWall = true;
-                Tile neighbour = tileGrid.GetFromWorldPosition(pos + Vector3.forward);
-                if (neighbour != null)
-                    AddNeighbour(neighbour);
-            }
-            if (Physics.CheckSphere(pos + Vector3.back * 0.45f, 0.2f, groundMask))
-            {
-                backWall = true;
-                RemoveNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.back));
-            }
-            else
-            {
-                backWall = false;
-                Tile neighbour = tileGrid.GetFromWorldPosition(pos + Vector3.back);
-                if (neighbour != null)
-                    AddNeighbour(neighbour);
-            }
-            if (Physics.CheckSphere(pos + Vector3.up * 0.45f, 0.2f, groundMask))
-            {
-                ceiling = true;
-                RemoveNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.up));
-            }
-            else
-            {
-                ceiling = false;
-                Tile neighbour = tileGrid.GetFromWorldPosition(pos + Vector3.up);
-                if (neighbour != null)
-                    AddNeighbour(neighbour);
-            }
-            if (Physics.CheckSphere(pos + Vector3.down * 0.45f, 0.2f, groundMask))
-            {
-                floor = true;
-                RemoveNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.down));
-            }
-            else
-            {
-                floor = false;
-                Tile neighbour = tileGrid.GetFromWorldPosition(pos + Vector3.down);
-                if (neighbour != null)
-                    AddNeighbour(neighbour);
-            }
+            leftWall = Physics.CheckSphere(pos - Vector3.right * 0.45f, 0.2f, groundMask);
+            rightWall = Physics.CheckSphere(pos + Vector3.right * 0.45f, 0.2f, groundMask);
+            frontWall = Physics.CheckSphere(pos + Vector3.forward * 0.45f, 0.2f, groundMask);
+            backWall = Physics.CheckSphere(pos - Vector3.forward * 0.45f, 0.2f, groundMask);
+            ceiling = Physics.CheckSphere(pos + Vector3.up * 0.45f, 0.2f, groundMask);
+            floor = Physics.CheckSphere(pos - Vector3.up * 0.45f, 0.2f, groundMask);
 
             if (Physics.CheckSphere(pos, 0.3f, entityMask))
             {
@@ -268,11 +179,20 @@ namespace Assets.Scripts.Grid
             }
             Gizmos.DrawCube(pos, new Vector3(0.3f, 0.3f, 0.3f));
 
-            
+
         }
         public override string ToString()
         {
-            return "Tile: {" + X +","+ Y + "," + Z + "}";
+            return "Tile: {" + X + "," + Y + "," + Z + "}";
+        }
+        public override bool Equals(object obj)
+        {
+            Tile other = obj as Tile;
+            return X == other.X && Y == other.Y && Z == other.Z;
+        }
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }

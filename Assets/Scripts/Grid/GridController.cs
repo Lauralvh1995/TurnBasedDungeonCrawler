@@ -18,6 +18,10 @@ namespace Assets.Scripts.Grid
         [SerializeField]
         ObjectGrid<Tile> grid;
 
+        public int Width { get => gridWidth; private set => gridWidth = value; }
+        public int Length { get => gridLength; private set => gridLength = value; }
+        public int Height { get => gridHeight; private set => gridHeight = value; }
+
         private void Awake()
         {
             Instance = this;
@@ -124,7 +128,7 @@ namespace Assets.Scripts.Grid
                     {
                         //Debug.Log("Tile at " + x + "," + y + "," + z + grid.GetGridArray()[x, y, z].ToString());
                         
-                        grid?.GetGridArray()[x, y, z].DrawOccupationGizmos(grid.GetWorldPosition(x, y, z));
+                        //grid?.GetGridArray()[x, y, z].DrawOccupationGizmos(grid.GetWorldPosition(x, y, z));
                     }
                 }
             }
