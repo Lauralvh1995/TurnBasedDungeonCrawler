@@ -55,6 +55,24 @@ namespace Assets.Scripts.Entity
             lockedInput = state;
         }
 
+        public void MoveUp()
+        {
+            if (!lockedInput && TurnManager.Instance.TurnState == requiredPhase)
+            {
+                lockedInput = true;
+                StartCoroutine(Move(Vector3.up, turnSpeed));
+            }
+        }
+
+        public void MoveDown()
+        {
+            if (!lockedInput && TurnManager.Instance.TurnState == requiredPhase)
+            {
+                lockedInput = true;
+                StartCoroutine(Move(Vector3.down, turnSpeed));
+            }
+        }
+
         public void MoveForward()
         {
             if (!lockedInput && TurnManager.Instance.TurnState == requiredPhase)

@@ -12,9 +12,12 @@ public class Attacking : State
     }
     public override void ExecuteState()
     {
+        Vector3 target = brain.GetPlayer().transform.position;
         //check if either primary or secondary attack can hit
         //face the correct way
         //execute that one
+        //brain.Attack(target);
+        //brain.AlternateAttack(target);
         CheckTransitions();
     }
 }

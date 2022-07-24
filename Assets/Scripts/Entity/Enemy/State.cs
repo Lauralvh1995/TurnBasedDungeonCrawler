@@ -30,7 +30,7 @@ namespace Assets.Scripts.Entity
             }
         }
 
-        public void EnterState(EnemyBrain brain, EntityActions actions)
+        public virtual void EnterState(EnemyBrain brain, EntityActions actions)
         {
             this.brain = brain;
             this.actions = actions;

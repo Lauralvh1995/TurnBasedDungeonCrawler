@@ -7,10 +7,16 @@ using UnityEngine;
 
 namespace Assets.Scripts.Grid
 {
+    [Serializable]
     public class Tile
     {
-        private readonly Grid<Tile> tileGrid;
+        private readonly ObjectGrid<Tile> tileGrid;
         private int x, y, z;
+        private int gcost;
+        private int hcost;
+        private int fcost;
+        private int hazardRating;
+        private Tile cameFrom;
         private Vector3 worldPos;
 
         [SerializeField] private bool occupied;
@@ -32,7 +38,8 @@ namespace Assets.Scripts.Grid
 
         void AddNeighbour(Tile t)
         {
-            neighbours.Add(t);
+            if(t != null)
+                neighbours.Add(t);
         }
         void RemoveNeighbour(Tile t)
         {
@@ -48,7 +55,7 @@ namespace Assets.Scripts.Grid
             return neighbours;
         }
 
-        public Tile(Grid<Tile> grid)
+        public Tile(ObjectGrid<Tile> grid)
         {
             neighbours = new HashSet<Tile>();
             tileGrid = grid;
@@ -78,6 +85,12 @@ namespace Assets.Scripts.Grid
         public bool Floor { get => floor; set => floor = value; }
         public bool Ceiling { get => ceiling; set => ceiling = value; }
         public bool Occupied { get => occupied; set => occupied = value; }
+
+        public int GCost { get => gcost; set => gcost = value; }
+        public int FCost { get => fcost; set => fcost = value; }
+        public int HCost { get => hcost; set => hcost = value; }
+        public int HazardRating { get => hazardRating; set => hazardRating = value; }
+        public Tile CameFrom { get => cameFrom; set => cameFrom = value; }
         public int X
         {
             get => x; set
@@ -112,7 +125,9 @@ namespace Assets.Scripts.Grid
             else
             {
                 leftWall = false;
-                AddNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.left));
+                Tile neighbour = tileGrid.GetFromWorldPosition(pos + Vector3.left);
+                if(neighbour!= null)
+                    AddNeighbour(neighbour);
             }
             if (Physics.CheckSphere(pos + Vector3.right * 0.45f, 0.2f, groundMask))
             {
@@ -122,7 +137,9 @@ namespace Assets.Scripts.Grid
             else
             {
                 rightWall = false;
-                AddNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.right));
+                Tile neighbour = tileGrid.GetFromWorldPosition(pos + Vector3.right);
+                if (neighbour != null)
+                    AddNeighbour(neighbour);
             }
             if (Physics.CheckSphere(pos + Vector3.forward * 0.45f, 0.2f, groundMask))
             {
@@ -132,7 +149,9 @@ namespace Assets.Scripts.Grid
             else
             {
                 frontWall = true;
-                AddNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.forward));
+                Tile neighbour = tileGrid.GetFromWorldPosition(pos + Vector3.forward);
+                if (neighbour != null)
+                    AddNeighbour(neighbour);
             }
             if (Physics.CheckSphere(pos + Vector3.back * 0.45f, 0.2f, groundMask))
             {
@@ -142,7 +161,9 @@ namespace Assets.Scripts.Grid
             else
             {
                 backWall = false;
-                AddNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.back));
+                Tile neighbour = tileGrid.GetFromWorldPosition(pos + Vector3.back);
+                if (neighbour != null)
+                    AddNeighbour(neighbour);
             }
             if (Physics.CheckSphere(pos + Vector3.up * 0.45f, 0.2f, groundMask))
             {
@@ -152,7 +173,9 @@ namespace Assets.Scripts.Grid
             else
             {
                 ceiling = false;
-                AddNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.up));
+                Tile neighbour = tileGrid.GetFromWorldPosition(pos + Vector3.up);
+                if (neighbour != null)
+                    AddNeighbour(neighbour);
             }
             if (Physics.CheckSphere(pos + Vector3.down * 0.45f, 0.2f, groundMask))
             {
@@ -162,7 +185,9 @@ namespace Assets.Scripts.Grid
             else
             {
                 floor = false;
-                AddNeighbour(tileGrid.GetFromWorldPosition(pos + Vector3.down));
+                Tile neighbour = tileGrid.GetFromWorldPosition(pos + Vector3.down);
+                if (neighbour != null)
+                    AddNeighbour(neighbour);
             }
 
             if (Physics.CheckSphere(pos, 0.3f, entityMask))
@@ -174,7 +199,7 @@ namespace Assets.Scripts.Grid
                 occupied = false;
             }
         }
-/*
+
 
         public void DrawOccupationGizmos(Vector3 pos)
         {
@@ -241,10 +266,10 @@ namespace Assets.Scripts.Grid
             {
                 Gizmos.color = inoccupiedColor;
             }
-            //Gizmos.DrawCube(pos, new Vector3(0.3f, 0.3f, 0.3f));
+            Gizmos.DrawCube(pos, new Vector3(0.3f, 0.3f, 0.3f));
 
             
-        }*/
+        }
         public override string ToString()
         {
             return "Tile: {" + X +","+ Y + "," + Z + "}";

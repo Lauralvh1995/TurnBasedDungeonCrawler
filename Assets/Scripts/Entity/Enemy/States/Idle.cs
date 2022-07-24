@@ -11,7 +11,7 @@ public class Idle : State
     public override void ExecuteState()
     {
         //do nothing special, just wait
-        actions.Wait();
+        brain.Wait();
         CheckTransitions();
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Assets.Scripts.Grid
 {
     [Serializable]
-    public class Grid<Tile>
+    public class ObjectGrid<Tile>
     {
         private int width;
         private int length;
@@ -15,7 +15,7 @@ namespace Assets.Scripts.Grid
         private Vector3 origin;
         private Tile[,,] gridArray;
 
-        public Grid(int width, int length, int height, Vector3 origin, float cellSize)
+        public ObjectGrid(int width, int length, int height, Vector3 origin, float cellSize)
         {
             this.width = width;
             this.length = length;
@@ -50,6 +50,21 @@ namespace Assets.Scripts.Grid
             {
                 return default;
             }
+        }
+
+        public int GetWidth()
+        {
+            return width;
+        }
+
+        public int GetHeight()
+        {
+            return height;
+        }
+
+        public int GetLength()
+        {
+            return length;
         }
     }
 }

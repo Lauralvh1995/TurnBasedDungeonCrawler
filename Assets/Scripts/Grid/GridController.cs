@@ -16,7 +16,7 @@ namespace Assets.Scripts.Grid
         [SerializeField] private List<WaterLevel> waterLevels;
 
         [SerializeField]
-        Grid<Tile> grid;
+        ObjectGrid<Tile> grid;
 
         private void Awake()
         {
@@ -27,7 +27,7 @@ namespace Assets.Scripts.Grid
 
         public void Regenerate()
         {
-            grid = new Grid<Tile>(gridWidth, gridHeight, gridLength, transform.position, 1f);
+            grid = new ObjectGrid<Tile>(gridWidth, gridHeight, gridLength, transform.position, 1f);
             for (int x = 0; x < grid.GetGridArray().GetLength(0); x++)
             {
                 for (int y = 0; y < grid.GetGridArray().GetLength(1); y++)
@@ -103,6 +103,11 @@ namespace Assets.Scripts.Grid
             }
         }
 
+        public ObjectGrid<Tile> GetGrid()
+        {
+            return grid;
+        }
+
         private void OnDrawGizmos()
         {
             if(grid == null)
@@ -118,7 +123,7 @@ namespace Assets.Scripts.Grid
                     {
                         //Debug.Log("Tile at " + x + "," + y + "," + z + grid.GetGridArray()[x, y, z].ToString());
                         
-                        //grid?.GetGridArray()[x, y, z].DrawOccupationGizmos(grid.GetWorldPosition(x, y, z));
+                        grid?.GetGridArray()[x, y, z].DrawOccupationGizmos(grid.GetWorldPosition(x, y, z));
                     }
                 }
             }

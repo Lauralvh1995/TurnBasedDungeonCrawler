@@ -8,6 +8,6 @@ public class SawPlayer : StateChangeCondition
     public override bool ConditionMet()
     {
         //do something with a fov cone thing
-        return true;
+        return false;
     }
 }
