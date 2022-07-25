@@ -21,13 +21,19 @@ namespace Assets.Scripts.Entity
         }
         public void CheckFloor()
         {
-            if (!GridController.Instance.GetTileFromWorldPosition(transform.position).Floor)
+            Tile fallingOn = GridController.Instance.GetTileFromWorldPosition(transform.position);
+            if (!fallingOn.Floor)
             {
-                lockedInput = true;
                 if (!entity.IsFlying())
                 {
-                    StartCoroutine(FallDown());
+                    lockedInput = true;
+                    StartCoroutine("FallDown");
                 }
+            }
+            else
+            {
+                StopCoroutine("FallDown");
+                transform.position = fallingOn.GetWorldPosition();
             }
         }
 

@@ -44,8 +44,8 @@ public class TurnManager : MonoBehaviour
                 {
                     e.StartNewTurn();
                 }
-                onIceTick.Invoke();
                 onStartEnvironmentTurn.Invoke();
+                onIceTick.Invoke();
                 break;
             case TurnState.Environment:
                 //check if all enemies passed their turn, then 

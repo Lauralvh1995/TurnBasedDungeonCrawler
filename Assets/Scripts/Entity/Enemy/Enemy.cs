@@ -81,6 +81,7 @@ namespace Assets.Scripts.Entity
             base.Die();
             Vector3 pos = transform.position;
             GetComponent<BoxCollider>().enabled = false;
+            brain.enabled = false;
             GridController.Instance.UpdatePassability(pos);
             //remove all listeners from the turn manager
             //TurnManager.Instance.onStartPlayerTurn.RemoveListener(/*everything belonging to me*/);

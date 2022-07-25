@@ -73,5 +73,13 @@ namespace Assets.Scripts.Entity
         {
             return enemy.IsFlying();
         }
+
+        private void OnDisable()
+        {
+            foreach(State state in States)
+            {
+                state.enabled = false;
+            }
+        }
     }
 }
