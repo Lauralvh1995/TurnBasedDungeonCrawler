@@ -38,7 +38,7 @@ namespace Assets.Scripts.Grid
                 {
                     for (int z = 0; z < grid.GetGridArray().GetLength(2); z++)
                     {
-                        grid.GetGridArray()[x, y, z] = new Tile(grid);
+                        grid.GetGridArray()[x, y, z] = new Tile();
                         grid.GetGridArray()[x, y, z].SetCoords(x, y, z);
                         grid.GetGridArray()[x, y, z].SetWorldPosition(grid.GetWorldPosition(x, y, z));
                         grid.GetGridArray()[x, y, z].CheckOccupation(grid.GetWorldPosition(x, y, z), groundMask, entityMask);

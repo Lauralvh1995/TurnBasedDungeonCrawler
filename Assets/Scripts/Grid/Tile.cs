@@ -10,7 +10,6 @@ namespace Assets.Scripts.Grid
     [Serializable]
     public class Tile
     {
-        private readonly ObjectGrid<Tile> tileGrid;
         private int x, y, z;
         private int gcost;
         private int hcost;
@@ -32,11 +31,6 @@ namespace Assets.Scripts.Grid
         Color impassableColor = new Color(0.5f, 0f, 0f, 0.5f);
         Color occupiedColor = new Color(0.5f, 0f, 0.5f, 0.5f);
         Color inoccupiedColor = new Color(0f, 0.5f, 0.5f, 0.5f);
-
-        public Tile(ObjectGrid<Tile> grid)
-        {
-            tileGrid = grid;
-        }
 
         public void SetCoords(int x, int y, int z)
         {

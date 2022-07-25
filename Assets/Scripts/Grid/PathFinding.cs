@@ -40,6 +40,7 @@ namespace Assets.Scripts.Entity
                 path.Prepend(current.CameFrom);
                 current = current.CameFrom;
             }
+
             return path;
         }
         public List<Tile> FindPath(Tile start, Tile goal, bool flying)
@@ -84,20 +85,6 @@ namespace Assets.Scripts.Entity
                 }
                 openSet.Remove(current);
                 closedSet.Add(current);
-
-                //debug visualisation
-                foreach(Tile t in openSet)
-                {
-                    Debug.DrawLine(t.GetWorldPosition(), (t.GetWorldPosition() + (Vector3.up * 0.5f)), Color.green, 500f);
-                }
-                foreach (Tile t in closedSet)
-                {
-                    Debug.DrawLine(t.GetWorldPosition(), (t.GetWorldPosition() + (Vector3.up * 0.5f)), Color.green, 500f);
-                }
-
-                Debug.DrawLine(current.GetWorldPosition(), (current.GetWorldPosition() + (Vector3.up * 0.5f)), Color.cyan, 500f);
-                
-
                 //add all neighbours to openSet
                 foreach (Tile t in GetNeighbours(current))
                 {

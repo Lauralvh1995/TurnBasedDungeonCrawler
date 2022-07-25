@@ -77,8 +77,11 @@ namespace Assets.Scripts.Entity
                     moveSequence.Add(new SequenceMove("Turn Right", entityActions.TurnRight));
                     moveSequence.Add(new SequenceMove("Turn Right", entityActions.TurnRight));
                     break;
+                case Direction.NONE:
+                    moveSequence.Add(new SequenceMove("Idle", entityActions.Wait));
+                    return;
             }
-            moveSequence.Add(new SequenceMove("Alternate Attack", entityActions.MoveForward));
+            moveSequence.Add(new SequenceMove("Move", entityActions.MoveForward));
             //movement logic
             if(gameObject.activeSelf)
                 StartCoroutine("ExecuteMoveSequence");
@@ -91,31 +94,30 @@ namespace Assets.Scripts.Entity
 
         private Direction CheckDirection(Vector3 target)
         {
-            Vector3 perp = Vector3.Cross(transform.forward, (target - transform.position).normalized);
-            float dir = Vector3.Dot(perp, transform.up);
-
-            if (dir > 0.0f)
+            Debug.DrawLine(transform.position, transform.position+transform.forward, Color.magenta, 1f);
+            //checking in which direction the target is, from the unit.
+            int dir = Mathf.RoundToInt(Vector3.Dot(transform.forward, (target - transform.position).normalized));
+            if(dir > 0)
+                return Direction.FORWARD;
+            if (dir < 0)
+                return Direction.BACK;
+            if(dir == 0)
             {
-                return Direction.RIGHT;
-            }
-            else if (dir < 0.0f)
-            {
-                return Direction.LEFT;
-            }
-            else
-            {
-                Vector3 fwdperp = Vector3.Cross(transform.right, (target - transform.position).normalized);
-                float fwddir = Vector3.Dot(fwdperp, transform.up);
-                if (fwddir > 0.0f)
+                dir = Mathf.RoundToInt(Vector3.Dot(transform.right, (target - transform.position).normalized));
+                if(dir > 0)
+                    return Direction.RIGHT;
+                if (dir < 0)
+                    return Direction.LEFT;
+                if(dir == 0)
                 {
-                    return Direction.BACK;
-                }
-                else if (fwddir < 0.0f)
-                {
-                    return Direction.FORWARD;
+                    dir = Mathf.RoundToInt(Vector3.Dot(transform.up, (target - transform.position).normalized));
+                    if (dir > 0)
+                        return Direction.UP;
+                    if (dir < 0)
+                        return Direction.DOWN;
                 }
             }
-            return Direction.FORWARD;
+            return Direction.NONE;
         }
 
         private IEnumerator ExecuteMoveSequence()
@@ -136,7 +138,8 @@ namespace Assets.Scripts.Entity
         FORWARD,
         BACK,
         UP,
-        DOWN
+        DOWN,
+        NONE
     }
 
     [Serializable]

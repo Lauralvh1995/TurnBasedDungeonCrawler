@@ -27,6 +27,11 @@ public class Patrolling : State
 
     public override void ExecuteState()
     {
+        if (Vector3.Distance(transform.position, waypoints[currentWaypointIndex]) < 0.1f)
+        {
+            currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Count;
+            currentPath = pathfinder.FindPath(currentTile, pathfinder.GetTile(waypoints[currentWaypointIndex]), brain.IsFlying());
+        }
         string nodes = "";
         foreach (Tile t in currentPath)
         {
@@ -57,10 +62,7 @@ public class Patrolling : State
             }
         }
         brain.Move(currentTile.GetWorldPosition());
-        if(Vector3.Distance(transform.position, waypoints[currentWaypointIndex]) > 0.1f)
-        {
-            currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Count;
-        }
+        
         CheckTransitions();
     }
 
