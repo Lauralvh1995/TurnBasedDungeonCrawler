@@ -27,7 +27,8 @@ namespace Assets.Scripts.Entity
 
         public void Execute()
         {
-            Current.ExecuteState();
+            if(gameObject.activeSelf)
+                Current.ExecuteState();
         }
 
         public void SetState(State state)

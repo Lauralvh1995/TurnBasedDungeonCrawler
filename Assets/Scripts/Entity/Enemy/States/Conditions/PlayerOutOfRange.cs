@@ -1,20 +1,21 @@
 ﻿using Assets.Scripts.Entity;
+using Assets.Scripts.Grid;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerOutOfRange : StateChangeCondition
 {
-    [SerializeField] private int pathLength;
+    [SerializeField] private List<Tile> path;
     [SerializeField] private int chaseRange;
     private void Start()
     {
-        pathLength = GetComponentInParent<Chasing>().GetCurrentPathLength();
+        path = GetComponentInParent<Chasing>().GetCurrentPath();
         chaseRange = GetComponentInParent<Enemy>().GetEnemyStats().GetChaseRange();
     }
     public override bool ConditionMet()
     {
-        pathLength = GetComponentInParent<Chasing>().GetCurrentPathLength();
-        return pathLength > chaseRange;
+        path = GetComponentInParent<Chasing>()?.GetCurrentPath();
+        return path.Count > chaseRange;
     }
 }

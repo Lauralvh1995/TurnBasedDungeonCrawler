@@ -130,7 +130,7 @@ namespace Assets.Scripts.Entity
                     }
                 }
             }
-            //could not find a path, return empty path
+            //could not find a path, return null
             //TODO: add proper handling for not finding a path
             Debug.LogWarning("Could not find path!");
             return new List<Tile>();

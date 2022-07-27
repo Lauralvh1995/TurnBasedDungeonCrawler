@@ -28,12 +28,6 @@ public class Wandering : State
 
     public override void ExecuteState()
     {
-        string nodes = "";
-        foreach (Tile t in currentPath)
-        {
-            nodes += t.ToString() + ";";
-        }
-        Debug.Log("Current path: " + nodes);
         //make random move
         Vector3 target = MakeRandomMove();
         if (currentPath.Count > 0)

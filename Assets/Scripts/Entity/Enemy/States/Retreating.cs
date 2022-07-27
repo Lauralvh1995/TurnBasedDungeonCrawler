@@ -26,12 +26,6 @@ public class Retreating : State
     }
     public override void ExecuteState()
     {
-        string nodes = "";
-        foreach (Tile t in currentPath)
-        {
-            nodes += t.ToString() + ";";
-        }
-        Debug.Log("Current path: " + nodes);
         //make move towards leash point
         Vector3 target = leashPoint.position;
         if (currentPath.Count > 0)

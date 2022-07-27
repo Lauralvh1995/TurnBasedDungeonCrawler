@@ -35,38 +35,32 @@ public class Patrolling : State
             currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Count;
             pathfinder.RequestFindPath(currentTile, pathfinder.GetTile(waypoints[currentWaypointIndex]), brain.IsFlying(), SetPath);
         }
-        string nodes = "";
-        foreach (Tile t in currentPath)
-        {
-            nodes += t.ToString() + ";";
-        }
-        Debug.Log("Current path: " + nodes);
         Vector3 target = waypoints[currentWaypointIndex];
         Debug.Log("Im moving towards " + waypoints[currentWaypointIndex]);
-        if (currentPath.Count > 0)
-        {
-            currentTile = currentPath[0];
-            currentPath.Remove(currentTile);
-            //check next tile
-            bool isTargetStillOnPath = false;
-            //check if player is still on the path
-            foreach (Tile t in currentPath)
+            if (currentPath.Count > 0)
             {
-                if (Vector3.Distance(t.GetWorldPosition(), target) < 0.01f)
+                currentTile = currentPath[0];
+                currentPath.Remove(currentTile);
+                //check next tile
+                bool isTargetStillOnPath = false;
+                //check if player is still on the path
+                foreach (Tile t in currentPath)
                 {
-                    isTargetStillOnPath = true;
+                    if (Vector3.Distance(t.GetWorldPosition(), target) < 0.01f)
+                    {
+                        isTargetStillOnPath = true;
+                    }
+                }
+                //if not recalculate path
+                if (!isTargetStillOnPath)
+                {
+                    Debug.Log("Target was not on path, recalculating");
+                    pathfinder.RequestFindPath(currentTile, GridController.Instance.GetTileFromWorldPosition(target), brain.IsFlying(), SetPath);
                 }
             }
-            //if not recalculate path
-            if (!isTargetStillOnPath)
-            {
-                Debug.Log("Target was not on path, recalculating");
-                pathfinder.RequestFindPath(currentTile, GridController.Instance.GetTileFromWorldPosition(target), brain.IsFlying(), SetPath);
-            }
-        }
-        brain.Move(currentTile.GetWorldPosition());
-        
-        CheckTransitions();
+            brain.Move(currentTile.GetWorldPosition());
+
+            CheckTransitions();
     }
 
     private void OnDrawGizmosSelected()

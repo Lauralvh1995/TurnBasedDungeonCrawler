@@ -82,10 +82,11 @@ namespace Assets.Scripts.Entity
             Vector3 pos = transform.position;
             GetComponent<BoxCollider>().enabled = false;
             brain.enabled = false;
-            GridController.Instance.UpdatePassability(pos);
+
             //remove all listeners from the turn manager
-            //TurnManager.Instance.onStartPlayerTurn.RemoveListener(/*everything belonging to me*/);
+            TurnManager.Instance.onStartPlayerTurn.RemoveListener(TakeAction);
             gameObject.SetActive(false);
+            GridController.Instance.UpdatePassability(pos);
             //Debug.Log(enemyType.GetName() + " died");
         }
 

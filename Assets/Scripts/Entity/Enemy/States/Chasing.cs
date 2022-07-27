@@ -29,14 +29,7 @@ public class Chasing : State
 
     public override void ExecuteState()
     {
-        string nodes = "";
-        foreach(Tile t in currentPath)
-        {
-            nodes += t.ToString() + ";";
-        }
-        Debug.Log("Current path: " + nodes);
         Vector3 target = player.position;
-        //target = player position
         //move towards player
         if (currentPath.Count > 0)
         {
@@ -59,14 +52,21 @@ public class Chasing : State
                 pathfinder.RequestFindPath(currentTile, GridController.Instance.GetTileFromWorldPosition(target), brain.IsFlying(), SetPath);
             }
         }
-        brain.Move(currentTile.GetWorldPosition());
-        CheckTransitions();
+        if (currentPath == null)
+        {
+            CheckTransitions();
+        }
+        else
+        {
+            brain.Move(currentTile.GetWorldPosition());
+            CheckTransitions();
+        }
         //if Player is within attack range -> change to attacking
         //if Player is out of chase range -> change to retreating
     }
 
-    public int GetCurrentPathLength()
+    public List<Tile> GetCurrentPath()
     {
-        return currentPath.Count;
+        return currentPath;
     }
 }
