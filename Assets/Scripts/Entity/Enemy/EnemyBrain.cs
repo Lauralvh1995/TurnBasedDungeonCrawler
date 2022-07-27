@@ -15,15 +15,11 @@ namespace Assets.Scripts.Entity
         public State DefaultState;
 
         public List<State> States;
-
-        [SerializeField] private EntityActions actions;
-
         //public Pathfinder pathfinder;
 
         private void Start()
         {
             player = FindObjectOfType<Player>();
-            actions = GetComponent<EntityActions>();
             selector = GetComponent<MoveSelector>();
             enemy = GetComponent<Enemy>();
             SetState(DefaultState);
@@ -67,6 +63,11 @@ namespace Assets.Scripts.Entity
         public Player GetPlayer()
         {
             return player;
+        }
+
+        public EnemyStats GetEnemyStats()
+        {
+            return enemy.GetEnemyStats();
         }
 
         public bool IsFlying()

@@ -34,6 +34,12 @@ namespace Assets.Scripts.Grid
         {
             return gridArray;
         }
+
+        public Tile[,,] GetClonedArray()
+        {
+            Tile[,,] clonedArray = (Tile[,,])gridArray.Clone();
+            return clonedArray;
+        }
         public Vector3 GetWorldPosition(int x, int y, int z)
         {
             return new Vector3(x, y, z)*cellSize + origin;

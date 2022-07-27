@@ -8,7 +8,7 @@ public class StateTransition : MonoBehaviour
     
     public State transitionTo;
 
-    private StateChangeCondition[] conditions;
+    [SerializeField] private StateChangeCondition[] conditions;
     private EnemyBrain brain;
     private void Awake()
     {
@@ -28,7 +28,10 @@ public class StateTransition : MonoBehaviour
         bool pass = false;
         foreach(StateChangeCondition condition in conditions)
         {
-            pass &= condition.ConditionMet();
+            if (condition.ConditionMet())
+                pass = true;
+            else
+                pass = false;
         }
         if (pass)
         {

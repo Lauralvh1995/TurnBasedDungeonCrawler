@@ -8,17 +8,23 @@ public class Chasing : State
 {
     [SerializeField, Range(1,20)] private int maxDistance;
 
-    private EnemyStats stats;
+    [SerializeField] private Transform player;
 
-    PathFinding pathfinder;
+    PathFinderMaster pathfinder;
     [SerializeField] List<Tile> currentPath;
     Tile currentTile;
     public override void EnterState(EnemyBrain brain)
     {
         base.EnterState(brain);
-        pathfinder = PathFinding.Instance;
+        pathfinder = PathFinderMaster.GetInstance();
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         currentTile = pathfinder.GetTile(transform.position);
-        currentPath = pathfinder.FindPath(currentTile, pathfinder.GetTile(brain.GetPlayer().transform.position), brain.IsFlying());
+        pathfinder.RequestFindPath(currentTile, pathfinder.GetTile(player.position), brain.IsFlying(), SetPath);
+    }
+
+    public void SetPath(List<Tile> path)
+    {
+        currentPath = path;
     }
 
     public override void ExecuteState()
@@ -29,7 +35,7 @@ public class Chasing : State
             nodes += t.ToString() + ";";
         }
         Debug.Log("Current path: " + nodes);
-        Vector3 target = brain.GetPlayer().transform.position;
+        Vector3 target = player.position;
         //target = player position
         //move towards player
         if (currentPath.Count > 0)
@@ -50,7 +56,7 @@ public class Chasing : State
             if (!isTargetStillOnPath)
             {
                 Debug.Log("Target was not on path, recalculating");
-                currentPath = pathfinder.FindPath(currentTile, GridController.Instance.GetTileFromWorldPosition(target), brain.IsFlying());
+                pathfinder.RequestFindPath(currentTile, GridController.Instance.GetTileFromWorldPosition(target), brain.IsFlying(), SetPath);
             }
         }
         brain.Move(currentTile.GetWorldPosition());
@@ -59,4 +65,8 @@ public class Chasing : State
         //if Player is out of chase range -> change to retreating
     }
 
+    public int GetCurrentPathLength()
+    {
+        return currentPath.Count;
+    }
 }

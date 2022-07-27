@@ -10,18 +10,39 @@ using System.Collections;
 
 namespace Assets.Scripts.Entity
 {
-    public class PathFinding : MonoBehaviour
+    public class PathFinder
     {
-        public static PathFinding Instance { get; private set; }
         GridController grid;
 
-        List<Tile> openSet;
-        HashSet<Tile> closedSet;
+        public Tile startPosition;
+        public Tile endPosition;
+        public bool flying;
 
-        private void Awake()
+        public volatile bool jobDone = false;
+        PathFinderMaster.PathfindingJobComplete completeCallback;
+        List<Tile> foundPath;
+        public PathFinder(GridController gridController,Tile start, Tile goal, bool flying, PathFinderMaster.PathfindingJobComplete callback)
         {
-            Instance = this;
-            grid = GridController.Instance;
+            startPosition = start;
+            endPosition = goal;
+            this.flying = flying;
+            completeCallback = callback;
+            grid = gridController;
+        }
+
+        public void FindPath()
+        {
+            foundPath = FindPath(startPosition, endPosition, flying);
+
+            jobDone = true;
+        }
+
+        public void NotifyComplete()
+        {
+            if (completeCallback != null)
+            {
+                completeCallback(foundPath);
+            }
         }
 
         public Tile GetTile(Vector3 position)
@@ -45,14 +66,14 @@ namespace Assets.Scripts.Entity
         }
         public List<Tile> FindPath(Tile start, Tile goal, bool flying)
         {
-            grid.Regenerate();
+            //grid.Regenerate();
             for (int x = 0; x < grid.GetGrid().Width; x++)
             {
                 for (int y = 0; y < grid.GetGrid().Length; y++)
                 {
                     for (int z = 0; z < grid.GetGrid().Height; z++)
                     {
-                        Tile tile = grid.GetGrid().GetGridArray()[x, y, z];
+                        Tile tile = grid.GetGrid().GetClonedArray()[x, y, z];
                         tile.GCost = int.MaxValue;
                         tile.HCost = CalculateDistanceCost(tile, goal);
                         tile.FCost = tile.GCost + tile.HCost;
@@ -65,8 +86,8 @@ namespace Assets.Scripts.Entity
             start.FCost = start.GCost + start.HCost;
 
             //create emtpy sets
-            openSet = new List<Tile>();
-            closedSet = new HashSet<Tile>();
+            List<Tile> openSet = new List<Tile>(); ;
+            HashSet<Tile> closedSet = new HashSet<Tile>();        
 
             //add neighbours to openSet and add cameFrom values
             foreach (Tile t in GetNeighbours(start))

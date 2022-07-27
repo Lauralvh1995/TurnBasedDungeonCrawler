@@ -16,6 +16,7 @@ namespace Assets.Scripts.Entity
         [SerializeField] private bool stationary = false;
 
         [SerializeField] private int chaseRange;
+        [SerializeField] private int visionRange;
 
         [SerializeField] Attack primaryAttack;
         [SerializeField] Attack secondaryAttack;
@@ -58,6 +59,11 @@ namespace Assets.Scripts.Entity
         public int GetChaseRange()
         {
             return chaseRange;
+        }
+
+        public int GetVisionRange()
+        {
+            return visionRange;
         }
     }
 }

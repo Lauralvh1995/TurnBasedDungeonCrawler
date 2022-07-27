@@ -9,17 +9,21 @@ public class Wandering : State
 
     [SerializeField] private State OnNoticePlayer;
 
-    PathFinding pathfinder;
+    PathFinderMaster pathfinder;
     [SerializeField] List<Tile> currentPath;
-    Tile nextTile;
     Tile currentTile;
 
     public override void EnterState(EnemyBrain brain)
     {
         base.EnterState(brain);
-        pathfinder = PathFinding.Instance;
+        pathfinder = PathFinderMaster.GetInstance();
         currentTile = pathfinder.GetTile(transform.position);
-        currentPath = pathfinder.FindPath(currentTile, pathfinder.GetTile(MakeRandomMove()), brain.IsFlying());
+        pathfinder.RequestFindPath(currentTile, pathfinder.GetTile(MakeRandomMove()), brain.IsFlying(), SetPath);
+    }
+
+    public void SetPath(List<Tile> path)
+    {
+        currentPath = path;
     }
 
     public override void ExecuteState()
@@ -36,8 +40,6 @@ public class Wandering : State
         {
             currentTile = currentPath[0];
             currentPath.Remove(currentTile);
-            if (currentPath.Count > 0)
-                nextTile = currentPath[0];
             //check next tile
             bool isTargetStillOnPath = false;
             //check if player is still on the path
@@ -52,10 +54,10 @@ public class Wandering : State
             if (!isTargetStillOnPath)
             {
                 Debug.Log("Target was not on path, recalculating");
-                currentPath = pathfinder.FindPath(nextTile, GridController.Instance.GetTileFromWorldPosition(target), brain.IsFlying());
+                pathfinder.RequestFindPath(currentTile, GridController.Instance.GetTileFromWorldPosition(target), brain.IsFlying(), SetPath);
             }
         }
-        brain.Move(nextTile.GetWorldPosition());
+        brain.Move(currentTile.GetWorldPosition());
         CheckTransitions();
     }
 

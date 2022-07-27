@@ -16,7 +16,9 @@ MonoBehaviour:
   maxHP: 3
   flying: 0
   heavy: 0
-  chaseRange: 0
+  stationary: 0
+  chaseRange: 5
+  visionRange: 5
   primaryAttack: {fileID: 11400000, guid: c860243ed3a18064294bcdbc4090c000, type: 2}
   secondaryAttack: {fileID: 11400000, guid: c860243ed3a18064294bcdbc4090c000, type: 2}
   aiType: {fileID: 11400000, guid: 7c40e6c061e851543ab10de6abce3a11, type: 2}

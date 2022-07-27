@@ -8,15 +8,16 @@ namespace Assets.Scripts.Entity
         protected EnemyBrain brain;
         public EnemyBrain Brain => brain;
 
-        protected StateTransition[] transitions;
+        [SerializeField] protected StateTransition[] transitions;
         private void Awake()
         {
             transitions = GetComponentsInChildren<StateTransition>();
+            gameObject.SetActive(false);
         }
 
         private void Start()
         {
-            gameObject.SetActive(false);
+
         }
 
         public void CheckTransitions()

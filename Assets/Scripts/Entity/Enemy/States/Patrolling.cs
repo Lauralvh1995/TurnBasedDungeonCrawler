@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class Patrolling : State
 {
-
     [SerializeField] private State OnNoticePlayer;
 
     [SerializeField] List<Vector3> waypoints;
@@ -14,23 +13,27 @@ public class Patrolling : State
     [SerializeField] Color waypointColor = Color.cyan;
     [SerializeField] float gizmoSize = 0.1f;
 
-    PathFinding pathfinder;
+    PathFinderMaster pathfinder;
     [SerializeField] List<Tile> currentPath;
     Tile currentTile; 
     public override void EnterState(EnemyBrain brain)
     {
         base.EnterState(brain);
-        pathfinder = PathFinding.Instance;
+        pathfinder = PathFinderMaster.GetInstance();
         currentTile = pathfinder.GetTile(transform.position);
-        currentPath = pathfinder.FindPath(currentTile, pathfinder.GetTile(waypoints[currentWaypointIndex]), brain.IsFlying());
+        pathfinder.RequestFindPath(currentTile, pathfinder.GetTile(waypoints[currentWaypointIndex]), brain.IsFlying(), SetPath);
     }
 
+    public void SetPath(List<Tile> path)
+    {
+        currentPath = path;
+    }
     public override void ExecuteState()
     {
         if (Vector3.Distance(transform.position, waypoints[currentWaypointIndex]) < 0.1f)
         {
             currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Count;
-            currentPath = pathfinder.FindPath(currentTile, pathfinder.GetTile(waypoints[currentWaypointIndex]), brain.IsFlying());
+            pathfinder.RequestFindPath(currentTile, pathfinder.GetTile(waypoints[currentWaypointIndex]), brain.IsFlying(), SetPath);
         }
         string nodes = "";
         foreach (Tile t in currentPath)
@@ -58,7 +61,7 @@ public class Patrolling : State
             if (!isTargetStillOnPath)
             {
                 Debug.Log("Target was not on path, recalculating");
-                currentPath = pathfinder.FindPath(currentTile, GridController.Instance.GetTileFromWorldPosition(target), brain.IsFlying());
+                pathfinder.RequestFindPath(currentTile, GridController.Instance.GetTileFromWorldPosition(target), brain.IsFlying(), SetPath);
             }
         }
         brain.Move(currentTile.GetWorldPosition());
