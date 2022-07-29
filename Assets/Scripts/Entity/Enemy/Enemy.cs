@@ -19,6 +19,16 @@ namespace Assets.Scripts.Entity
             brain = GetComponent<EnemyBrain>();
             player = FindObjectOfType<Player>();
         }
+        private void OnEnable()
+        {
+            player.playerDied.AddListener(Respawn);
+            TurnManager.Instance.onStartEnvironmentTurn.AddListener(StartNewTurn);
+        }
+        private void OnDisable()
+        {
+            player.playerDied.RemoveListener(Respawn);
+            TurnManager.Instance.onStartEnvironmentTurn.RemoveListener(StartNewTurn);
+        }
 
         public EnemyStats GetEnemyStats()
         {
@@ -46,7 +56,7 @@ namespace Assets.Scripts.Entity
 
         public override void ExecuteInteraction()
         {
-            // enemies do not interact
+            // enemies do not interact yet
         }
 
         public override void ExecutePrimaryAttack()
@@ -72,19 +82,12 @@ namespace Assets.Scripts.Entity
         {
             enemyStats.SetFlying(value);
         }
-        public void FaceTarget()
-        {
-            //TODO: write logic to turn around until this is facing the player
-        }
         public override void Die()
         {
             base.Die();
             Vector3 pos = transform.position;
             GetComponent<BoxCollider>().enabled = false;
             brain.enabled = false;
-
-            //remove all listeners from the turn manager
-            TurnManager.Instance.onStartPlayerTurn.RemoveListener(TakeAction);
             gameObject.SetActive(false);
             GridController.Instance.UpdatePassability(pos);
             //Debug.Log(enemyType.GetName() + " died");
@@ -98,6 +101,13 @@ namespace Assets.Scripts.Entity
         public override void UpdateInteractables()
         {
             //Enemies don't use interactables for now
+        }
+
+        public override void Respawn()
+        {
+            base.Respawn();
+            brain.enabled = true;
+            health = enemyStats.GetMaxHP();
         }
     }
 }

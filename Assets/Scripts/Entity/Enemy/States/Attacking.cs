@@ -23,13 +23,18 @@ public class Attacking : State
         Vector3 target = player.position;
         int primaryAttackRange = stats.GetPrimaryAttack().GetAttackRange();
         int secondaryAttackRange = stats.GetSecondaryAttack().GetAttackRange();
-        if(Vector3.Distance(transform.position, target) < primaryAttackRange)
+        float distance = Vector3.Distance(transform.position, target);
+        if (distance <= primaryAttackRange)
         {
             brain.Attack(target);
+            CheckTransitions();
+            return;
         }
-        if (Vector3.Distance(transform.position, target) < secondaryAttackRange)
+        if (distance <= secondaryAttackRange)
         {
             brain.AlternateAttack(target);
+            CheckTransitions();
+            return;
         }
         CheckTransitions();
     }

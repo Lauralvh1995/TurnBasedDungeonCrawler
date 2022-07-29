@@ -6,9 +6,11 @@ using UnityEngine;
 
 namespace Assets.Scripts.Entity
 {
+    [RequireComponent(typeof(EntityActions))]
     public abstract class Entity : MonoBehaviour
     {
         [SerializeField] protected int health;
+        [SerializeField] protected Transform spawnPoint;
         [SerializeField] protected EntityActions actions;
 
         public void CheckFloor()
@@ -41,6 +43,16 @@ namespace Assets.Scripts.Entity
         public virtual void Die()
         {
             Debug.Log(GetName() + " died :(");
+        }
+
+        public virtual void Respawn()
+        {
+            GridController.Instance.UpdatePassability(transform.position);
+            GetComponent<BoxCollider>().enabled = false;
+            transform.position = spawnPoint.position;
+            transform.rotation = spawnPoint.rotation;
+            GetComponent<BoxCollider>().enabled = true;
+            GridController.Instance.UpdatePassability(transform.position);
         }
     }
 }

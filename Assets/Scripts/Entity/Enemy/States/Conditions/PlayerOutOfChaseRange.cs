@@ -10,7 +10,7 @@ public class PlayerOutOfChaseRange : StateChangeCondition
     [SerializeField] private int chaseRange;
     private void Start()
     {
-        player = GetComponentInParent<Chasing>().GetPlayer();
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         chaseRange = GetComponentInParent<Enemy>().GetEnemyStats().GetChaseRange();
     }
     public override bool ConditionMet()

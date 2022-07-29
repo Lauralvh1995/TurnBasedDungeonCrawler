@@ -28,6 +28,10 @@ namespace Assets.Scripts.Entity
         [SerializeField] private ChangedInteractableEvent changedInteractable;
         [SerializeField] private ClearedInteractablesEvent clearedInteractables;
 
+        [SerializeField] public UnityEvent playerDied;
+
+
+
         public override void ExecuteInteraction()
         {
             target?.Execute();
@@ -63,7 +67,13 @@ namespace Assets.Scripts.Entity
         public override void Die()
         {
             base.Die();
-            //Debug.Log("You died :(");
+            ReturnToRespawnPoint();
+        }
+
+        private void ReturnToRespawnPoint()
+        {
+            playerDied.Invoke();
+            Respawn();
         }
 
         protected override string GetName()
@@ -150,6 +160,12 @@ namespace Assets.Scripts.Entity
                 currentTargetIndex = interactables.Count - 1;
             }
             ChangeTarget(currentTargetIndex);
+        }
+
+        public override void Respawn()
+        {
+            base.Respawn();
+            health = maxHealth;
         }
     }
 }

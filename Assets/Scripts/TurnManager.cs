@@ -75,6 +75,7 @@ public class TurnManager : MonoBehaviour
         if(enemies.Count <= 0)
         {
             PassTurn();
+            return;
         }
         foreach(Enemy e in enemies)
         {
