@@ -4,18 +4,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerOutOfRange : StateChangeCondition
+public class PlayerOutOfChaseRange : StateChangeCondition
 {
-    [SerializeField] private List<Tile> path;
+    [SerializeField] private Transform player;
     [SerializeField] private int chaseRange;
     private void Start()
     {
-        path = GetComponentInParent<Chasing>().GetCurrentPath();
+        player = GetComponentInParent<Chasing>().GetPlayer();
         chaseRange = GetComponentInParent<Enemy>().GetEnemyStats().GetChaseRange();
     }
     public override bool ConditionMet()
     {
-        path = GetComponentInParent<Chasing>()?.GetCurrentPath();
-        return path.Count > chaseRange;
+        float distance = Vector3.Distance(transform.position, player.position);
+        return distance > chaseRange;
     }
 }

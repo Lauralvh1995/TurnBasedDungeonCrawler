@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class Chasing : State
 {
-    [SerializeField, Range(1,20)] private int maxDistance;
-
     [SerializeField] private Transform player;
 
     PathFinderMaster pathfinder;
@@ -30,43 +28,20 @@ public class Chasing : State
     public override void ExecuteState()
     {
         Vector3 target = player.position;
+        pathfinder.RequestFindPath(currentTile, GridController.Instance.GetTileFromWorldPosition(target), brain.IsFlying(), SetPath);
         //move towards player
         if (currentPath.Count > 0)
         {
             currentTile = currentPath[0];
             currentPath.Remove(currentTile);
-            //check next tile
-            bool isTargetStillOnPath = false;
-            //check if player is still on the path
-            foreach (Tile t in currentPath)
-            {
-                if (Vector3.Distance(t.GetWorldPosition(), target) < 0.01f)
-                {
-                    isTargetStillOnPath = true;
-                }
-            }
-            //if not recalculate path
-            if (!isTargetStillOnPath)
-            {
-                Debug.Log("Target was not on path, recalculating");
-                pathfinder.RequestFindPath(currentTile, GridController.Instance.GetTileFromWorldPosition(target), brain.IsFlying(), SetPath);
-            }
         }
-        if (currentPath == null)
-        {
-            CheckTransitions();
-        }
-        else
-        {
-            brain.Move(currentTile.GetWorldPosition());
-            CheckTransitions();
-        }
-        //if Player is within attack range -> change to attacking
-        //if Player is out of chase range -> change to retreating
+        brain.Move(currentTile.GetWorldPosition());
+        CheckTransitions();
+
     }
 
-    public List<Tile> GetCurrentPath()
+    public Transform GetPlayer()
     {
-        return currentPath;
+        return player;
     }
 }

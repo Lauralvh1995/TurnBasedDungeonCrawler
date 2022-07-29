@@ -15,7 +15,7 @@ public class Patrolling : State
 
     PathFinderMaster pathfinder;
     [SerializeField] List<Tile> currentPath;
-    Tile currentTile; 
+    Tile currentTile;
     public override void EnterState(EnemyBrain brain)
     {
         base.EnterState(brain);
@@ -37,36 +37,20 @@ public class Patrolling : State
         }
         Vector3 target = waypoints[currentWaypointIndex];
         Debug.Log("Im moving towards " + waypoints[currentWaypointIndex]);
-            if (currentPath.Count > 0)
-            {
-                currentTile = currentPath[0];
-                currentPath.Remove(currentTile);
-                //check next tile
-                bool isTargetStillOnPath = false;
-                //check if player is still on the path
-                foreach (Tile t in currentPath)
-                {
-                    if (Vector3.Distance(t.GetWorldPosition(), target) < 0.01f)
-                    {
-                        isTargetStillOnPath = true;
-                    }
-                }
-                //if not recalculate path
-                if (!isTargetStillOnPath)
-                {
-                    Debug.Log("Target was not on path, recalculating");
-                    pathfinder.RequestFindPath(currentTile, GridController.Instance.GetTileFromWorldPosition(target), brain.IsFlying(), SetPath);
-                }
-            }
-            brain.Move(currentTile.GetWorldPosition());
+        if (currentPath.Count > 0)
+        {
+            currentTile = currentPath[0];
+            currentPath.Remove(currentTile);
+        }
+        brain.Move(currentTile.GetWorldPosition());
 
-            CheckTransitions();
+        CheckTransitions();
     }
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = waypointColor;
-        foreach(Vector3 waypoint in waypoints)
+        foreach (Vector3 waypoint in waypoints)
         {
             Gizmos.DrawSphere(waypoint, gizmoSize);
         }

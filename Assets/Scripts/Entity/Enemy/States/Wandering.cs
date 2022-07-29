@@ -34,22 +34,6 @@ public class Wandering : State
         {
             currentTile = currentPath[0];
             currentPath.Remove(currentTile);
-            //check next tile
-            bool isTargetStillOnPath = false;
-            //check if player is still on the path
-            foreach (Tile t in currentPath)
-            {
-                if (Vector3.Distance(t.GetWorldPosition(), target) < 0.01f)
-                {
-                    isTargetStillOnPath = true;
-                }
-            }
-            //if not recalculate path
-            if (!isTargetStillOnPath)
-            {
-                Debug.Log("Target was not on path, recalculating");
-                pathfinder.RequestFindPath(currentTile, GridController.Instance.GetTileFromWorldPosition(target), brain.IsFlying(), SetPath);
-            }
         }
         brain.Move(currentTile.GetWorldPosition());
         CheckTransitions();

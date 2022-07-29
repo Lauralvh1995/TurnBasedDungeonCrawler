@@ -8,6 +8,7 @@ public class Idle : State
 {
     [SerializeField] private State OnNoticePlayer;
 
+
     public override void ExecuteState()
     {
         //do nothing special, just wait

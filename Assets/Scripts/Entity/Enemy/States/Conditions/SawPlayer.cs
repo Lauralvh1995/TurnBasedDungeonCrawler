@@ -6,6 +6,7 @@ using UnityEngine;
 public class SawPlayer : StateChangeCondition
 {
     [SerializeField] int visionRange;
+    [SerializeField] private LayerMask entityMask;
 
     private void Start()
     {
@@ -16,7 +17,7 @@ public class SawPlayer : StateChangeCondition
     {
         Debug.DrawRay(transform.position, transform.forward, Color.red, 5);
         Ray ray = new Ray(transform.position, transform.forward);
-        Physics.Raycast(ray, out RaycastHit hitInfo, visionRange);
+        Physics.Raycast(ray, out RaycastHit hitInfo, visionRange, entityMask);
         bool conditionMet = hitInfo.collider?.gameObject.tag == "Player";
         return conditionMet;
     }
