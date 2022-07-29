@@ -22,10 +22,13 @@ namespace Assets.Scripts.Entity
             }
             if (check)
             {
-                Vector3 playerOldPos = player.transform.position;
-                player.transform.position = transform.position + transform.rotation * localDestination;
-                player.UpdateInteractables();
-                StartCoroutine(DelayPassabilityUpdate(0.1f, playerOldPos));
+                if (!GridController.Instance.GetTileFromWorldPosition(transform.position + localDestination).Occupied)
+                {
+                    Vector3 playerOldPos = player.transform.position;
+                    player.transform.position = transform.position + transform.rotation * localDestination;
+                    player.UpdateInteractables();
+                    StartCoroutine(DelayPassabilityUpdate(0.1f, playerOldPos));
+                }
             }
 
         }

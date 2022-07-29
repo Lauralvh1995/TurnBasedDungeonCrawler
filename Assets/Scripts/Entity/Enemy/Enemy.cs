@@ -108,6 +108,7 @@ namespace Assets.Scripts.Entity
             base.Respawn();
             brain.enabled = true;
             health = enemyStats.GetMaxHP();
+            brain.SetState(brain.DefaultState);
         }
     }
 }
