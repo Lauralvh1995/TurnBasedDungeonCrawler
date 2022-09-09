@@ -30,6 +30,8 @@ public class Wandering : State
     {
         //make random move
         Vector3 target = MakeRandomMove();
+        pathfinder.RequestFindPath(currentTile, GridController.Instance.GetTileFromWorldPosition(target),
+            brain.IsFlying(), SetPath);
         if (currentPath.Count > 0)
         {
             currentTile = currentPath[0];
@@ -41,6 +43,6 @@ public class Wandering : State
 
     private Vector3 MakeRandomMove()
     {
-        return randomDirections[Random.Range(0, randomDirections.Length)];
+        return transform.position + randomDirections[Random.Range(0, randomDirections.Length)];
     }
 }

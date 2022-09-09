@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Assets.Scripts.Entity
 {
@@ -12,6 +13,8 @@ namespace Assets.Scripts.Entity
         [SerializeField] protected int health;
         [SerializeField] protected Transform spawnPoint;
         [SerializeField] protected EntityActions actions;
+
+        [SerializeField] public UnityEvent OnDeath;
 
         public void CheckFloor()
         {
@@ -43,6 +46,7 @@ namespace Assets.Scripts.Entity
         public virtual void Die()
         {
             Debug.Log(GetName() + " died :(");
+            OnDeath.Invoke();
         }
 
         public virtual void Respawn()

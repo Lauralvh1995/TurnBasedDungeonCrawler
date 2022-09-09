@@ -27,11 +27,6 @@ namespace Assets.Scripts.Entity
         [SerializeField] private SlottedRangedAttackEvent slottedRange;
         [SerializeField] private ChangedInteractableEvent changedInteractable;
         [SerializeField] private ClearedInteractablesEvent clearedInteractables;
-
-        [SerializeField] public UnityEvent playerDied;
-
-
-
         public override void ExecuteInteraction()
         {
             target?.Execute();
@@ -67,12 +62,6 @@ namespace Assets.Scripts.Entity
         public override void Die()
         {
             base.Die();
-            ReturnToRespawnPoint();
-        }
-
-        private void ReturnToRespawnPoint()
-        {
-            playerDied.Invoke();
             Respawn();
         }
 

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 398246622193548110}
   - component: {fileID: 4550571234221053075}
-  - component: {fileID: 398246622193548108}
+  - component: {fileID: 1421233871634807869}
   m_Layer: 0
   m_Name: IceTilePrefab
   m_TagString: Untagged
@@ -46,12 +46,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b211a11f1ab12f244abee668bed1874c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disappearCondition: {fileID: 398246622193548108}
+  disappearCondition: {fileID: 1421233871634807869}
   listeners: []
   triggered: 0
   graphic: {fileID: 398246622538355653}
   brokenMat: {fileID: 2100000, guid: b41e574a6aa58964ca1c0d7562e35780, type: 2}
---- !u!114 &398246622193548108
+--- !u!114 &1421233871634807869
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -60,10 +60,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 398246622193548109}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41dde0ff71cc034409f84406b494abea, type: 3}
+  m_Script: {fileID: 11500000, guid: d39823eaf4dfcf8458ca04081f47dec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  entityMask:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1 &398246622538355658
 GameObject:
   m_ObjectHideFlags: 0

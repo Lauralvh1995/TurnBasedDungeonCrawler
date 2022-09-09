@@ -28,8 +28,8 @@ public class Chasing : State
     public override void ExecuteState()
     {
         Vector3 target = player.position;
-        pathfinder.RequestFindPath(currentTile, GridController.Instance.GetTileFromWorldPosition(target), brain.IsFlying(), SetPath);
-        //move towards player
+        pathfinder.RequestFindPath(currentTile, GridController.Instance.GetTileFromWorldPosition(target),
+            brain.IsFlying(), SetPath);
         if (currentPath.Count > 0)
         {
             currentTile = currentPath[0];
@@ -37,7 +37,6 @@ public class Chasing : State
         }
         brain.Move(currentTile.GetWorldPosition());
         CheckTransitions();
-
     }
 
     public Transform GetPlayer()

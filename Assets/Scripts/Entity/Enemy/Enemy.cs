@@ -21,12 +21,12 @@ namespace Assets.Scripts.Entity
         }
         private void OnEnable()
         {
-            player.playerDied.AddListener(Respawn);
+            player.OnDeath.AddListener(Respawn);
             TurnManager.Instance.onStartEnvironmentTurn.AddListener(StartNewTurn);
         }
         private void OnDisable()
         {
-            player.playerDied.RemoveListener(Respawn);
+            player.OnDeath.RemoveListener(Respawn);
             TurnManager.Instance.onStartEnvironmentTurn.RemoveListener(StartNewTurn);
         }
 
