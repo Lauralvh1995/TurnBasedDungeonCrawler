@@ -27,7 +27,6 @@ public class Retreating : State
     public override void ExecuteState()
     {
         //make move towards leash point
-        Vector3 target = leashPoint.position;
         if (currentPath.Count > 0)
         {
             currentTile = currentPath[0];
